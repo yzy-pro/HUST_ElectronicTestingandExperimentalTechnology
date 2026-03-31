@@ -5,219 +5,188 @@
 \usepackage{geometry}
 \usepackage{multirow}
 \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
-
-\title{\LARGE \textbf{实验二：运放基本应用设计并插板实现 \ 预习报告}}
-\author{光电2401班 \quad U202413729 \quad 贺博}
+\graphicspath{{figures/}}
 \begin{document}
-\date{ }
-\maketitle
+\begin{titlepage}
+    \centering
+    \vfill
+    {\zihao{0}\bfseries 电子测试与实验技术\\[0.6em]实验报告\par}
+    \vfill
+    \vfill
 
-\section{实验目的与要求}
+    \begin{minipage}{0.72\textwidth}
+        \zihao{-2}
+        学\quad\quad 院：\underline{\makebox[7.5cm][l]{光学与电子信息学院}}\\[1.6em]
+        班\quad\quad 级：\underline{\makebox[7.5cm][l]{光电信息科学与工程202409班}}\\[1.6em]
+        姓\quad\quad 名：\underline{\makebox[7.5cm][l]{陈\quad 恪\quad 瑾}}\\[1.6em]
+        学\quad\quad 号：\underline{\makebox[7.5cm][l]{U202413925}}\\[1.6em]
+        实验时间：\underline{\makebox[7.5cm][l]{2026 年 4 月 2 日}}
+    \end{minipage}
+
+    \vfill
+    \vfill
+\end{titlepage}
+
+\setcounter{page}{1}
+
+
+
+\section*{一、实验名称}
+基本运算电路。
+
+\section*{二、实验目的}
 \begin{enumerate}
-    \item 掌握集成运算放大器的基本特性及其理想化条件（“虚短”、“虚断”）。
-    \item 熟悉运算放大器在实际电路中的典型应用的设计方法及其工作原理。
-    \item 掌握电子元件的引脚识别方法，并熟练使用面包板进行电路搭接与调试排错。
-    \item 进一步熟悉和掌握直流稳压双电源、信号发生器、示波器以及数字万用表的综合使用。
+    \item 掌握集成运算放大器的正确使用方法。
+    \item 掌握用集成运算放大器构成各种基本运算电路的基本原理。
+    \item 进一步学习正确使用示波器DC、AC耦合方式观察不同波形的方法。重点掌握积分器输入、输出波形的测量和描绘方法。
+    
 \end{enumerate}
 
-\section{实验元器件}
+\section*{三、实验元器件}
 \begin{table}[htbp]
     \centering
     \begin{tabular}{|c|c|c|}
         \hline
-        \textbf{类型} & \textbf{型号(参数)} & \textbf{数量/单位} \\
+            \textbf{名称} & \textbf{型号（参数）} & \textbf{数量} \\
         \hline
-        集成运算放大器 & LM324 & 1/片 \\
+        集成运算放大器 & LM324 & 1 \\
         \hline
-        电位器 & $1\text{k}\Omega$ & 1/只 \\
+        电位器 & $1\,\mathrm{k}\Omega$ & 1 \\
         \hline
-        \multirow{4}{*}{电阻} & $100\text{k}\Omega$ & 2/只 \\
+        \multirow{4}{*}{电阻} & $100\,\mathrm{k}\Omega$ & 2 \\
         \cline{2-3}
-        & $10\text{k}\Omega$ & 3/只 \\
+        & $10\,\mathrm{k}\Omega$ & 5 \\
         \cline{2-3}
-        & $5.1\text{k}\Omega$ & 1/只 \\
+        & $5.1\,\mathrm{k}\Omega$ & 2 \\
         \cline{2-3}
-        & $9\text{k}\Omega$ & 1/只 \\
+        & $9\,\mathrm{k}\Omega$ & 1 \\
         \hline
-        电容 & $0.01\mu\text{F}$ & 1/只 \\
+        电容 & $0.01\,\mu\mathrm{F}$ & 1 \\
         \hline
     \end{tabular}
 \end{table}
 
-\section{实验原理及基本参考电路}
-运算放大器是一种具有高电压增益、高输入阻抗和低输出阻抗的直接耦合放大器。在引入深度负反馈后，运放工作在线性区，满足两条基本原则：
-\begin{itemize}
-    \item \textbf{虚短}：同相输入端和反相输入端的电位近似相等，即 $V_+ \approx V_-$。
-    \item \textbf{虚断}：由于运放输入阻抗极高，流入输入端的电流近似为零，即 $I_+ \approx 0, I_- \approx 0$。
-\end{itemize}
-
-基于上述原理，常见的几种基本运算电路及公式如下：
-
-\subsection{ 反相比例运算}
-信号从反相端输入，同相端通过电阻接地。
-理论公式为：
-$$ v_o = - \frac{R_f}{R_1} v_i $$
-特点：输出电压与输入电压成比例且相位相反。闭环电压增益 $A_v = -R_f/R_1$，输入电阻约为 $R_1$。
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.4\textwidth]{反向比例运算电路.png}
-    \caption{反相比例运算电路}
-\end{figure}
-
-为减小偏置电流和温漂的影响，一般取R'=Rf∥R1，因反相比例运算电路属于电压并联负反馈，其输入、输出阻抗均较低。
-
-\subsection{比例积分运算}
-信号从反相端输入，反馈回路主要由积分电容 $C$ 构成。根据“虚短”和“虚断”原则，流入电容的电流等于流经输入电阻 $R_1$ 的电流。
-理论公式为：
-$$ v_o(t) = - \frac{1}{R_1 C} \int_{0}^{t} v_i(\tau) d\tau  $$
-特点：输出电压与输入电压的积分成比例，并且相位相反（也是反相积分器模式）。
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.4\textwidth]{比例积分运算电路.png}
-    \caption{比例积分运算电路}
-\end{figure}
-
-实际电路中，通常在积分电容C两端并联反馈电阻$R_f$ ，用作直流负反馈，目的是减小集成运算放大器输出端的直流漂移。但是$R_f$的加入将对电容C产生分流作用，从而导致积分误差。为克服误差，一般须满足$R_fC>>R_1C$。C太小，会加剧积分漂移，但C增大，电容漏电也随之增大。通常取$R_f>10R_1,C<1uF$(涤纶电容或聚苯乙烯电容)。
-
-\subsection{反相比例加法运算}
-多路输入信号（如 $v_{i1}, v_{i2}$）经过各自的电阻连接至运放的反相输入端。
-当${R_1}={R_2}=R$时，理论公式为：
-$$ v_o = -  \frac{R_f}{R}\left(  v_{i1} + v_{i2} \right) $$
-该电路可实现多路信号按设定权重的线性相加。
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.4\textwidth]{反向比例加法运算电路.png}
-    \caption{反相比例加法运算电路}
-\end{figure}
-
-为保证运算精度，除尽量选用高精度的集成运算放大器外，还应精心挑选精度高、稳定性好的电阻。
-
-\subsection{减法运算}
-用于放大两个输入信号的差值，能极好地抑制共模干扰信号。当外围电阻匹配满足 $R_1 = R_2，R' = R_f$ 的条件时：
-理论公式为：
-$$ v_o = \frac{R_f}{R_1} (v_{i2} - v_{i1}) $$
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.4\textwidth]{减法运算电路.png}
-    \caption{减法运算电路}
-\end{figure}
-
-为保证运算精度，除尽量选用高精度的集成运算放大器外，还应精心挑选精度高、稳定性好的电阻。
-
-
-\section{实验方法与步骤}
+\section*{四、实验任务}
 \begin{enumerate}
-    \item \textbf{实验器材准备与芯片引脚识别}：
-    \begin{itemize}
-        \item 准备直流稳压电源、信号发生器、示波器、万用表及面包板。
-        \item 确认 LM324 每个引脚的功能。特别注意电源引脚（如 $V_{CC}$ 和 $V_{EE}$ 或 GND），切勿接反，正负电源需由双稳压电源正确提供（要求 $\pm 12V$ 或按指导书设定）。
-    \end{itemize}
+    \item 面包板连通性测试：3/4/3 型面包板，确认中间隔离槽两侧互不导通。
+    \item 示波器各通道自检并记录波形与测量结果。
+    \item 信号源输出频率 $500\,\mathrm{kHz}$、峰峰值 $10\,\mathrm{V}$ 的正弦波并观察。
+    \item 信号源输出频率 $10\,\mathrm{Hz}$、直流偏置 $80\,\mathrm{mV}$、峰峰值 $100\,\mathrm{mV}$ 的锯齿波并观察。
+\end{enumerate}
 
-    \begin{figure}[htbp]
+\section*{五、实验原理}
+\subsection*{1. 反相比例运算}
+信号从反相输入端输入，同相端通过平衡电阻接地。根据虚短、虚断原则，输出电压与输入电压满足：
+\[
+v_o = -\frac{R_f}{R_1}\, v_i
+\]
+闭环增益为 $A_v = -R_f/R_1$，负号表示输出与输入反相。为减小偏置电流影响，一般取平衡电阻 $R' = R_f \parallel R_1$。
+
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{LM324正负电源接法.png}
-    \caption{LM324正负电源接法}
+    \includegraphics[width=0.52\textwidth]{InvertingProportionalOperationalCircuit.jpg}
+    \caption{反相比例运算参考电路}
 \end{figure}
 
-    \item \textbf{反相比例运算实验}：
-    \begin{itemize}
-        \item 参考图1所示电路，设计并安装反相比例运算电路，要求输入阻抗$R_i=10 k\Omega$，闭环电压增益$|A_{vf}|=10$。
-        \item 在该放大器输入端加入$f=1kHz$正弦电压，峰峰值自定，用示波器测量放大器的输出电压值；改变$V_{Ipp}$的大小（至少3组），再测$V_{Opp}$，研究两者的反相比例关系，填入表格: 
-        
-        \begin{table}[h]
-        \centering
-        \begin{tabular}{|c|c|c|}
-            \hline
-            $v_{ipp} \backslash v_{opp}$ & $v_{opp\text{测试值}}$ & $v_{opp\text{理论值}}$ \\
-            \hline
-            $v_{ipp} = 100\text{mV}$ & -----    -----  &  -----    -----  \\
-            \hline
-            $v_{ipp} = 200\text{mV}$ & ------    ----- &  ------    ----  \\
-            \hline
-            $v_{ipp} = 300\text{mV}$ & ------    ----- &  -----    -----  \\
-            \hline
-        \end{tabular}
-        \end{table}
+\subsection*{2. 比例积分运算}
+理想运放条件下（虚短、虚断），积分器满足：
+\[
+v_o(t)=-\frac{1}{R_1C}\int_0^t v_i(\tau)\,\mathrm{d}\tau + v_o(0).
+\]
+当 $v_o(0)=0$ 且输入为方波时，输出为近似三角波。实际电路中常并联大阻值 $R_f$ 提供直流负反馈，以减小零漂，同时应满足
+\[
+R_fC \gg R_1C
+\]
+以降低积分误差。实际选取元件一般满足 $R_f > 10R_1$，$C < 1\,\mu\mathrm{F}$（涤纶或聚苯乙烯电容）。
 
-        \item 观测输出饱和值：在（2）的基础上，增大输入信号幅值，直到输出波形出现明显失真现象，测试输出正饱和电压值和负饱和电压值，并与电源电压比较。
-        
-        \begin{table}[h]
-        \centering
-        \begin{tabular}{|c|c|c|}
-            \hline
-            \multicolumn{3}{|c|}{供电电压：$+V_{CC} =$ \_\_\_\_\_\_\_\_ V ，\quad $-V_{EE} =$ \_\_\_\_\_\_\_\_ V} \\
-            \hline
-            输入信号幅值 $V_{ipp}$ & 输出信号幅值 $V_{opp}$ & 波形是否失真（是/否） \\
-            \hline
-                                  &                       &                     \\
-            \hline 
-                                  &                       &                     \\
-            \hline
-                                  &                       &                     \\
-            \hline
-                                  &                       &                     \\
-            \hline
-                                  &                       &                     \\
-            \hline
-                                  &                       &                     \\
-            \hline
-            \multicolumn{3}{|c|}{最终测定：正饱和电压 $+V_{\text{sat}} =$ \_\_\_\_\_\_\_\_ V ，\quad 负饱和电压 $-V_{\text{sat}} =$ \_\_\_\_\_\_\_\_ V} \\
-            \hline
-        \end{tabular}
-        \end{table}
-    \end{itemize}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.52\textwidth]{Proportional-IntegralOperationalCircuit.jpg}
+    \caption{比例积分运算参考电路}
+\end{figure}
+\subsection*{3. 反向比例加法运算}
+多路输入信号各经独立电阻接至运放反相端，同相端经补偿电阻接地。当 $R_1=R_2=R$ 时，由虚断得各支路电流在反相端叠加，再由虚短推导输出：
+\[
+v_o = -\frac{R_f}{R}\left(v_{i1}+v_{i2}\right)
+\]
+该电路可实现多路信号按权重线性叠加。补偿电阻取 $R' = R_f \parallel R_1 \parallel R_2$，以消除偏置电流造成的直流误差。
 
-    \item \textbf{比例积分运算实验}：
-    \begin{itemize}
-        \item 在图2中，输入端加入$f=500Hz$、幅值为1V的正方波，用双踪示波器同时观察$v_i$和$v_o$的波形，记录在纸上，标出幅值和周期。
-        \item 注意：用示波器观察$v_i、v_o$的波形，应当采用DC输入方式。 
-    \end{itemize}
-    
-    \item \textbf{反相比例加法运算实验}：
-    \begin{itemize}
-        \item 在图3中，接入$f=1kHz$正弦波，调节电位器$R_P$，用示波器测量$v_{I1}$和$v_{I2}$电压的大小，然后再测$v_o$大小。调节$R_P$，改变$v_{I2}$的值，分别记录相应$v_{I1}$、$v_{I2}$和$v_o$的数值，填入自拟表格中。(此时$R' = R_f \parallel R_1 \parallel R_2$)
-        
-        \begin{table}[h]
-        \centering
-        \begin{tabular}{|c|c|c|}
-            \hline
-            $v_i \backslash v_o$ & $v_{opp\text{测试值}}$ & $v_{opp\text{理论值}}$ \\
-            \hline
-            \begin{tabular}{@{}c@{}}$v_{i1}=100\text{mV}$ \\ $v_{i2}=\text{自选}$\end{tabular} &  ===   &   ===   \\
-            \hline
-            \begin{tabular}{@{}c@{}}$v_{i1}=200\text{mV}$ \\ $v_{i2}=\text{自选}$\end{tabular} &   ===  &   ===   \\
-            \hline
-        \end{tabular}
-        \end{table}
-    \end{itemize}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.52\textwidth]{InvertingSummingAmplifierCircuit.jpg}
+    \caption{反向比例加法运算参考电路}
+\end{figure}
 
-    \item \textbf{减法运算实验}：
-    \begin{itemize}
-        \item 在图4中，S接B，接入$f=1kHz$正弦波，用示波器分别测量$v_{i1}、v_{i2}$和$v_o$数值。调节$R_P$，改变$v_{i2}$的大小，再测$v_o$，填入自拟表格中。研究减法运算关系。
+\subsection*{4. 减法运算}
+差动输入结构：$v_{i1}$ 经 $R_1$ 接反相端，$v_{i2}$ 经 $R_2$ 接同相端。当四个电阻满足 $R_1=R_2$、$R'=R_f$ 时，利用叠加定理推导得：
+\[
+v_o = \frac{R_f}{R_1}\left(v_{i2}-v_{i1}\right)
+\]
+该电路对两路输入的差值放大，良好的电阻匹配可实现对共模干扰的高抑制比（CMRR）。
 
-        \begin{table}[h]
-        \centering
-        \begin{tabular}{|c|c|c|c|c|}
-            \hline
-            组别 & $v_{i1\text{测试值}} (\text{mV})$ & $v_{i2\text{测试值}} (\text{mV})$ & $v_{opp\text{测试值}} (\text{mV})$ & $v_{opp\text{理论值}} (\text{mV})$ \\
-            \hline
-            1 &  &  &  & \\
-            \hline
-            2 &  &  &  & \\
-            \hline
-            3 &  &  &  & \\
-            \hline
-        \end{tabular}
-        \end{table}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.52\textwidth]{SubtractorOperationalCircuit.jpg}
+    \caption{减法运算参考电路}
+\end{figure}
 
-    \end{itemize}
-
-    \item \textbf{排错注意事项}：
-    搭建和实验过程中如现象不符合预期，先断电，再使用万用表“蜂鸣档”检查面包板是否接触不良、芯片是否接错虚焊。测试完毕整理归还仪器。
+\section*{六、实验过程}
+\begin{enumerate}
+    \item 按照原理图搭建实物电路，LM324 采用双电源供电，电源电压设为 $\pm 12\,\mathrm{V}$。接线前先确认 LM324 引脚定义与面包板连通性。
+    \item 研究反相比例加法运算：在 $v_{i1}$ 端输入频率 $1\,\mathrm{kHz}$、峰峰值约 $500\,\mathrm{mV}$ 的正弦波，直流偏置为 0。示波器 CH1、CH2 分别测 $v_{i2}$ 和 $v_o$，调节电位器并记录多组数据。
 \end{enumerate}
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        $V_{i1pp}/\mathrm{mV}$ & $V_{i2pp}/\mathrm{mV}$ & $V_{opp}/\mathrm{V}$（实测） & $V_{opp}/\mathrm{V}$（理论） & 绝对误差$/\mathrm{V}$ & 相对误差 \\
+        \hline
+        496.0 & 96.0 & 6.000 & 5.920 & +0.08 & 1.35\% \\
+        \hline
+        496.0 & 126.0 & 6.320 & 6.220 & +0.10 & 1.61\% \\
+        \hline
+    \end{tabular}
+    \caption{反相比例加法运算测试数据}
+\end{table}
+
+\begin{enumerate}
+    \setcounter{enumi}{2}
+    \item 研究反相比例减法运算：保持 $v_{i1}$ 为 $1\,\mathrm{kHz}$、约 $500\,\mathrm{mV}_{pp}$ 正弦波，改变 $v_{i2}$ 幅值并记录对应输出。
+\end{enumerate}
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        $V_{i1pp}/\mathrm{mV}$ & $V_{i2pp}/\mathrm{mV}$ & $V_{opp}/\mathrm{V}$（实测） & $V_{opp}/\mathrm{V}$（理论） & 绝对误差$/\mathrm{V}$ & 相对误差 \\
+        \hline
+        504.0 & 174.0 & 3.400 & 3.300 & +0.10 & 3.03\% \\
+        \hline
+        504.0 & 168.0 & 3.480 & 3.360 & +0.12 & 3.57\% \\
+        \hline
+    \end{tabular}
+    \caption{反相比例减法运算测试数据}
+\end{table}
+
+\begin{enumerate}
+    \setcounter{enumi}{3}
+    \item 研究积分运算电路：在 $v_i$ 端输入频率 $500\,\mathrm{Hz}$、峰峰值 $1\,\mathrm{V}$ 的正方波，示波器 CH1、CH2 分别接 $v_i$ 和 $v_o$，采用 DC 耦合方式观察并记录波形。
+\end{enumerate}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.60\textwidth]{LM324PNPowerSupplyConnection.png}
+    \caption{LM324 正负电源连接示意}
+\end{figure}
+
+\section*{七、实验分析与数据处理}
+\begin{enumerate}
+    \item 由测试结果可见，反相比例加减法运算电路实测值与理论值偏差约在 $1\%\sim4\%$，满足本实验精度要求。误差主要来自电阻标称误差、运放输入失调和示波器读数误差。
+    \item 积分运算实验中，输入为方波时输出为近似三角波，符合积分电路理论关系。低频段若出现基线漂移，通常与运放零漂、反馈电阻取值和电容漏电有关。
+\end{enumerate}
+
+\section*{八、实验总结}
+通过本次实验，掌握了运算放大器基本运算电路（加法、减法、积分）的搭建与测试方法，能够较熟练使用直流稳压电源、信号发生器、示波器和万用表进行综合调试。实验过程中曾出现波形不稳定现象，排查后确认为电源地线连接不完整，补接地线后系统恢复正常，输出波形稳定且与理论分析一致。
 
 \end{document}

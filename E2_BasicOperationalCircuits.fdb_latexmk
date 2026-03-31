@@ -1,11 +1,11 @@
 # Fdb version 4
-["xdvipdfmx"] 0 "E2_BasicOperationalCircuits.xdv" "E2_BasicOperationalCircuits.pdf" "E2_BasicOperationalCircuits" 0 -1
-  "E2_BasicOperationalCircuits.xdv" 1774956472.06155 42348 6237a452ab1c6a18669c01c7737476d6 "xelatex"
+["xdvipdfmx"] 1774958889.10473 "E2_BasicOperationalCircuits.xdv" "E2_BasicOperationalCircuits.pdf" "E2_BasicOperationalCircuits" 1774958889.43292 0
+  "E2_BasicOperationalCircuits.xdv" 1774958889.05944 34448 85dc7267715d880f6c7fe63212c8a443 "xelatex"
   (generated)
   "E2_BasicOperationalCircuits.pdf"
   (rewritten before read)
-["xelatex"] 1774956471.4849 "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex" "E2_BasicOperationalCircuits.xdv" "E2_BasicOperationalCircuits" 1774956472.10889 2
-  "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex" 1774956333.47824 10603 ebdefd4005c89eae0329aa7ac7b01736 ""
+["xelatex"] 1774958888.50111 "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex" "E2_BasicOperationalCircuits.xdv" "E2_BasicOperationalCircuits" 1774958889.43214 0
+  "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex" 1774958881.55113 8318 0b03891f7569563bc67c33c48f596f6f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -15,6 +15,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm" 1136768653 1520 eccf95517727cb11801f4f1aee3a21b4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1136768653 1288 655e228510b4c2a1abe905c368440826 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1136768653 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1136768653 1300 b62933e007d01cfd073f79b963c01526 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1136768653 1292 21c1c5bfeaebccffdb478fd231a0997d ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
@@ -67,13 +68,13 @@
   "/usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf" 1739380943 42148 61becc7c670cd061bb319c643c27fdd4 ""
   "/usr/local/texlive/2025/texmf-var/web2c/xetex/xelatex.fmt" 1745761497 5854851 9405beb4c6cd273e0bd26aa5e146f3e8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1745761447.97632 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "E2_BasicOperationalCircuits.aux" 1774956472.06055 1553 d15c0abb747dc1df23e10e72990eaed4 "xelatex"
-  "E2_BasicOperationalCircuits.tex" 1774956333.47824 10603 ebdefd4005c89eae0329aa7ac7b01736 ""
-  "LM324正负电源接法.png" 0 -1 0 ""
-  "减法运算电路.png" 0 -1 0 ""
-  "反向比例加法运算电路.png" 0 -1 0 ""
-  "反向比例运算电路.png" 0 -1 0 ""
-  "比例积分运算电路.png" 0 -1 0 ""
+  "E2_BasicOperationalCircuits.aux" 1774958889.05825 973 5703d16d985ec121a01e5f609f9857bc "xelatex"
+  "E2_BasicOperationalCircuits.tex" 1774958881.55113 8318 0b03891f7569563bc67c33c48f596f6f ""
+  "figures/InvertingProportionalOperationalCircuit.jpg" 1774956187.10101 37458 36939655428345f6289e5ebb8a98ad97 ""
+  "figures/InvertingSummingAmplifierCircuit.jpg" 1774956159.39142 49362 58a8ca2c9d85d02a3bf9182f55f73d45 ""
+  "figures/LM324PNPowerSupplyConnection.png" 1774956144.81776 60948 39b13d684955de726b891a5f1ea4a014 ""
+  "figures/Proportional-IntegralOperationalCircuit.jpg" 1774956154.70626 44431 3b7b0097412ad022009b692dd424163f ""
+  "figures/SubtractorOperationalCircuit.jpg" 1774956194.05011 42675 71b0c3e6c7264ddba191386a3f3c4cdd ""
   (generated)
   "E2_BasicOperationalCircuits.aux"
   "E2_BasicOperationalCircuits.log"

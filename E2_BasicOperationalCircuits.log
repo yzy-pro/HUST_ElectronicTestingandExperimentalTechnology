@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.4.27)  31 MAR 2026 19:27
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.4.27)  31 MAR 2026 20:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -294,22 +294,22 @@ Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
 ) (./E2_BasicOperationalCircuits.aux)
 \openout1 = `E2_BasicOperationalCircuits.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -317,56 +317,56 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 11.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 11.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 11.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 11.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 11.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 11.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 11.
-LaTeX Font Info:    Redeclaring math accent \check on input line 11.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 11.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 11.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 11.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 11.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 11.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 11.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 11.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 11.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 11.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 11.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 11.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 11.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 11.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 11.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 11.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 11.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 9.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 9.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 9.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 9.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 9.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 9.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 9.
+LaTeX Font Info:    Redeclaring math accent \check on input line 9.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 9.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 9.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 9.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 9.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 11.
+(Font)              `operators' in the math version `normal' on input line 9.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 11.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 9.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 11.
+(Font)              `operators' in the math version `bold' on input line 9.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 11.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 9.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 11.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 9.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 11.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 9.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 11.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 9.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 11.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 9.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 11.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 9.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 11.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 9.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 11.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 9.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 11.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 9.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 11.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 9.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -403,158 +403,36 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <18.06749> not available
+(Font)              size <17.28> substituted on input line 19.
+
+
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <15.05624> not available
+(Font)              size <14.4> substituted on input line 19.
+
+
 
 [1
 
 ]
 
-LaTeX Warning: File `反向比例运算电路.png' not found on input line 64.
-
-/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex:64: Unable to load picture or PDF file '反向比例运算电路.png'.
-<to be read again> 
-                   }
-l.64 ...raphics[width=0.4\textwidth]{反向比例运算电路.png}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex:64: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.64 ...raphics[width=0.4\textwidth]{反向比例运算电路.png}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: 反向比例运算电路.png Graphic file (type bmp)
-<反向比例运算电路.png>
-Missing character: There is no ∥ (U+2225) in font [lmroman12-regular]:mapping=tex-text;!
-
-LaTeX Warning: File `比例积分运算电路.png' not found on input line 78.
-
-/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex:78: Unable to load picture or PDF file '比例积分运算电路.png'.
-<to be read again> 
-                   }
-l.78 ...raphics[width=0.4\textwidth]{比例积分运算电路.png}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex:78: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.78 ...raphics[width=0.4\textwidth]{比例积分运算电路.png}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: 比例积分运算电路.png Graphic file (type bmp)
-<比例积分运算电路.png>
-
-LaTeX Warning: File `反向比例加法运算电路.png' not found on input line 92.
-
-/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex:92: Unable to load picture or PDF file '反向比例加法运算电路.png'.
-<to be read again> 
-                   }
-l.92 ...phics[width=0.4\textwidth]{反向比例加法运算电路.png}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex:92: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.92 ...phics[width=0.4\textwidth]{反向比例加法运算电路.png}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: 反向比例加法运算电路.png Graphic file (type bmp)
-<反向比例加法运算电路.png>
-Missing character: There is no ， (U+FF0C) in font [lmroman12-regular]:mapping=tex-text;!
+[1]
+File: figures/InvertingProportionalOperationalCircuit.jpg Graphic file (type bmp)
+<figures/InvertingProportionalOperationalCircuit.jpg>
+File: figures/Proportional-IntegralOperationalCircuit.jpg Graphic file (type bmp)
+<figures/Proportional-IntegralOperationalCircuit.jpg>
+File: figures/InvertingSummingAmplifierCircuit.jpg Graphic file (type bmp)
+<figures/InvertingSummingAmplifierCircuit.jpg>
 
 
 [2]
-
-LaTeX Warning: File `减法运算电路.png' not found on input line 105.
-
-/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex:105: Unable to load picture or PDF file '减法运算电路.png'.
-<to be read again> 
-                   }
-l.105 ...graphics[width=0.4\textwidth]{减法运算电路.png}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex:105: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.105 ...graphics[width=0.4\textwidth]{减法运算电路.png}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: 减法运算电路.png Graphic file (type bmp)
-<减法运算电路.png>
-
-LaTeX Warning: File `LM324正负电源接法.png' not found on input line 122.
-
-/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex:122: Unable to load picture or PDF file 'LM324正负电源接法.png'.
-<to be read again> 
-                   }
-l.122 ...ics[width=0.6\textwidth]{LM324正负电源接法.png}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex:122: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 ...ics[width=0.6\textwidth]{LM324正负电源接法.png}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: LM324正负电源接法.png Graphic file (type bmp)
-<LM324正负电源接法.png>
-
-Overfull \hbox (26.60808pt too wide) in paragraph at lines 150--171
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
+File: figures/SubtractorOperationalCircuit.jpg Graphic file (type bmp)
+<figures/SubtractorOperationalCircuit.jpg>
 
 
 [3]
-Missing character: There is no 、 (U+3001) in font [lmroman12-regular]:mapping=tex-text;!
-Missing character: There is no 、 (U+3001) in font [lmroman12-regular]:mapping=tex-text;!
+File: figures/LM324PNPowerSupplyConnection.png Graphic file (type bmp)
+<figures/LM324PNPowerSupplyConnection.png>
 
 
 [4]
@@ -564,14 +442,19 @@ Missing character: There is no 、 (U+3001) in font [lmroman12-regular]:mapping=
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/07/14>
  ***********
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.78749pt have occurred.
+
  ) 
 Here is how much of TeX's memory you used:
- 8016 strings out of 470267
- 223472 string characters out of 5484665
- 620224 words of memory out of 5000000
- 34549 multiletter control sequences out of 15000+600000
- 633449 words of font info for 85 fonts, out of 8000000 for 9000
+ 7787 strings out of 470267
+ 218098 string characters out of 5484665
+ 618213 words of memory out of 5000000
+ 34318 multiletter control sequences out of 15000+600000
+ 635273 words of font info for 91 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 93i,18n,112p,472b,486s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,10n,112p,472b,347s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on E2_BasicOperationalCircuits.xdv (5 pages, 42348 bytes).
+Output written on E2_BasicOperationalCircuits.xdv (6 pages, 34448 bytes).
