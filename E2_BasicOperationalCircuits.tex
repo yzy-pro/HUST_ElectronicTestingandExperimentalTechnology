@@ -67,11 +67,35 @@
 \end{table}
 
 \section*{四、实验任务}
+\subsection*{1. 反相比例运算}
 \begin{enumerate}
-    \item 面包板连通性测试：3/4/3 型面包板，确认中间隔离槽两侧互不导通。
-    \item 示波器各通道自检并记录波形与测量结果。
-    \item 信号源输出频率 $500\,\mathrm{kHz}$、峰峰值 $10\,\mathrm{V}$ 的正弦波并观察。
-    \item 信号源输出频率 $10\,\mathrm{Hz}$、直流偏置 $80\,\mathrm{mV}$、峰峰值 $100\,\mathrm{mV}$ 的锯齿波并观察。
+    \item 参考图~\ref{fig:inverting} 所示电路，设计并安装反相比例运算电路，
+          要求输入阻抗 $R_i = 10\,\mathrm{k}\Omega$，闭环电压增益 $|A_{vf}| = 10$。
+    \item 在放大器输入端加入 $f = 1\,\mathrm{kHz}$ 正弦电压，改变 $V_{ipp}$（至少 3 组），
+          用示波器测量对应输出电压 $V_{opp}$，研究两者的反相比例关系。
+    \item 观测输出饱和值：增大输入信号幅值直到输出波形出现明显失真，
+          测试正饱和电压 $+V_{\mathrm{sat}}$ 与负饱和电压 $-V_{\mathrm{sat}}$，并与供电电压 $\pm V_{CC}$ 比较。
+\end{enumerate}
+
+\subsection*{2. 比例积分运算}
+\begin{enumerate}
+    \item 参考图~\ref{fig:integral}，在输入端加入 $f = 500\,\mathrm{Hz}$、峰峰值为 $1\,\mathrm{V}$ 的正方波，
+          用双踪示波器同时观察 $v_i$ 和 $v_o$ 的波形，记录并标出幅值和周期。
+          注意：应采用 DC 耦合方式观察波形。
+\end{enumerate}
+
+\subsection*{3. 反相比例加法运算}
+\begin{enumerate}
+    \item 参考图~\ref{fig:summing}，接入 $f = 1\,\mathrm{kHz}$ 正弦波，调节电位器 $R_P$，
+          用示波器测量 $v_{i1}$、$v_{i2}$ 和 $v_o$。调节 $R_P$ 改变 $v_{i2}$，
+          记录至少 2 组数据，研究反相比例加法关系（此时 $R' = R_f \parallel R_1 \parallel R_2$）。
+\end{enumerate}
+
+\subsection*{4. 减法运算}
+\begin{enumerate}
+    \item 参考图~\ref{fig:subtractor}，S 接 B，接入 $f = 1\,\mathrm{kHz}$ 正弦波，
+          用示波器分别测量 $v_{i1}$、$v_{i2}$ 和 $v_o$。调节 $R_P$ 改变 $v_{i2}$，
+          记录至少 3 组数据，研究减法运算关系。
 \end{enumerate}
 
 \section*{五、实验原理}
@@ -86,6 +110,7 @@ v_o = -\frac{R_f}{R_1}\, v_i
     \centering
     \includegraphics[width=0.52\textwidth]{InvertingProportionalOperationalCircuit.jpg}
     \caption{反相比例运算参考电路}
+    \label{fig:inverting}
 \end{figure}
 
 \subsection*{2. 比例积分运算}
@@ -103,6 +128,7 @@ R_fC \gg R_1C
     \centering
     \includegraphics[width=0.52\textwidth]{Proportional-IntegralOperationalCircuit.jpg}
     \caption{比例积分运算参考电路}
+    \label{fig:integral}
 \end{figure}
 \subsection*{3. 反向比例加法运算}
 多路输入信号各经独立电阻接至运放反相端，同相端经补偿电阻接地。当 $R_1=R_2=R$ 时，由虚断得各支路电流在反相端叠加，再由虚短推导输出：
@@ -115,6 +141,7 @@ v_o = -\frac{R_f}{R}\left(v_{i1}+v_{i2}\right)
     \centering
     \includegraphics[width=0.52\textwidth]{InvertingSummingAmplifierCircuit.jpg}
     \caption{反向比例加法运算参考电路}
+    \label{fig:summing}
 \end{figure}
 
 \subsection*{4. 减法运算}
@@ -128,13 +155,46 @@ v_o = \frac{R_f}{R_1}\left(v_{i2}-v_{i1}\right)
     \centering
     \includegraphics[width=0.52\textwidth]{SubtractorOperationalCircuit.jpg}
     \caption{减法运算参考电路}
+    \label{fig:subtractor}
 \end{figure}
 
 \section*{六、实验过程}
-\begin{enumerate}
-    \item 按照原理图搭建实物电路，LM324 采用双电源供电，电源电压设为 $\pm 12\,\mathrm{V}$。接线前先确认 LM324 引脚定义与面包板连通性。
-    \item 研究反相比例加法运算：在 $v_{i1}$ 端输入频率 $1\,\mathrm{kHz}$、峰峰值约 $500\,\mathrm{mV}$ 的正弦波，直流偏置为 0。示波器 CH1、CH2 分别测 $v_{i2}$ 和 $v_o$，调节电位器并记录多组数据。
-\end{enumerate}
+按照原理图搭建实物电路，LM324 采用正负双电源供电，供电电压设为 $\pm 12\,\mathrm{V}$。
+接线前先确认 LM324 引脚定义（见图~\ref{fig:lm324power}）与面包板连通性，如图所示。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.60\textwidth]{LM324PNPowerSupplyConnection.png}
+    \caption{LM324 正负电源连接示意}
+    \label{fig:lm324power}
+\end{figure}
+
+\subsection*{1. 反相比例运算}
+在 $v_i$ 端接入频率 $1\,\mathrm{kHz}$ 正弦波，直流偏置为 0，改变 $V_{ipp}$ 并记录数据如下：
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        $V_{ipp}$ & $V_{opp}$（实测）& $V_{opp}$（理论）\\
+        \hline
+        $100\,\mathrm{mV}$ & & \\
+        \hline
+        $200\,\mathrm{mV}$ & & \\
+        \hline
+        $300\,\mathrm{mV}$ & & \\
+        \hline
+    \end{tabular}
+    \caption{反相比例运算测量数据}
+\end{table}
+
+\subsection*{2. 比例积分运算}
+在 $v_i$ 端输入频率 $500\,\mathrm{Hz}$、峰峰值 $1\,\mathrm{V}$ 的正方波，示波器 CH1、CH2 分别接
+$v_i$ 和 $v_o$，采用 DC 耦合方式观察并在坐标纸上描绘波形，标出幅值和周期。
+
+\subsection*{3. 反相比例加法运算}
+在 $v_{i1}$ 端输入频率 $1\,\mathrm{kHz}$、峰峰值约 $500\,\mathrm{mV}$ 的正弦波，直流偏置为 0。
+示波器 CH1、CH2 分别测 $v_{i2}$ 和 $v_o$，调节电位器并记录数据如下：
 
 \begin{table}[htbp]
     \centering
@@ -150,10 +210,8 @@ v_o = \frac{R_f}{R_1}\left(v_{i2}-v_{i1}\right)
     \caption{反相比例加法运算测试数据}
 \end{table}
 
-\begin{enumerate}
-    \setcounter{enumi}{2}
-    \item 研究反相比例减法运算：保持 $v_{i1}$ 为 $1\,\mathrm{kHz}$、约 $500\,\mathrm{mV}_{pp}$ 正弦波，改变 $v_{i2}$ 幅值并记录对应输出。
-\end{enumerate}
+\subsection*{4. 减法运算}
+保持 $v_{i1}$ 为 $1\,\mathrm{kHz}$、约 $500\,\mathrm{mV}$ 峰峰值正弦波，改变 $v_{i2}$ 幅值并记录数据如下：
 
 \begin{table}[htbp]
     \centering
@@ -168,17 +226,6 @@ v_o = \frac{R_f}{R_1}\left(v_{i2}-v_{i1}\right)
     \end{tabular}
     \caption{反相比例减法运算测试数据}
 \end{table}
-
-\begin{enumerate}
-    \setcounter{enumi}{3}
-    \item 研究积分运算电路：在 $v_i$ 端输入频率 $500\,\mathrm{Hz}$、峰峰值 $1\,\mathrm{V}$ 的正方波，示波器 CH1、CH2 分别接 $v_i$ 和 $v_o$，采用 DC 耦合方式观察并记录波形。
-\end{enumerate}
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.60\textwidth]{LM324PNPowerSupplyConnection.png}
-    \caption{LM324 正负电源连接示意}
-\end{figure}
 
 \section*{七、实验分析与数据处理}
 \begin{enumerate}
