@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{multirow}
+\usepackage{float}
 \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
 \graphicspath{{figures/}}
 \begin{document}
@@ -43,7 +44,7 @@
 \end{enumerate}
 
 \section*{三、实验元器件}
-\begin{table}[htbp]
+\begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|}
         \hline
@@ -106,7 +107,7 @@ v_o = -\frac{R_f}{R_1}\, v_i
 \]
 闭环增益为 $A_v = -R_f/R_1$，负号表示输出与输入反相。为减小偏置电流影响，一般取平衡电阻 $R' = R_f \parallel R_1$。
 
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.52\textwidth]{InvertingProportionalOperationalCircuit.jpg}
     \caption{反相比例运算参考电路}
@@ -124,7 +125,7 @@ R_fC \gg R_1C
 \]
 以降低积分误差。实际选取元件一般满足 $R_f > 10R_1$，$C < 1\,\mu\mathrm{F}$（涤纶或聚苯乙烯电容）。
 
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.52\textwidth]{Proportional-IntegralOperationalCircuit.jpg}
     \caption{比例积分运算参考电路}
@@ -137,7 +138,7 @@ v_o = -\frac{R_f}{R}\left(v_{i1}+v_{i2}\right)
 \]
 该电路可实现多路信号按权重线性叠加。补偿电阻取 $R' = R_f \parallel R_1 \parallel R_2$，以消除偏置电流造成的直流误差。
 
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.52\textwidth]{InvertingSummingAmplifierCircuit.jpg}
     \caption{反向比例加法运算参考电路}
@@ -151,7 +152,7 @@ v_o = \frac{R_f}{R_1}\left(v_{i2}-v_{i1}\right)
 \]
 该电路对两路输入的差值放大，良好的电阻匹配可实现对共模干扰的高抑制比（CMRR）。
 
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.52\textwidth]{SubtractorOperationalCircuit.jpg}
     \caption{减法运算参考电路}
@@ -162,7 +163,7 @@ v_o = \frac{R_f}{R_1}\left(v_{i2}-v_{i1}\right)
 按照原理图搭建实物电路，LM324 采用正负双电源供电，供电电压设为 $\pm 12\,\mathrm{V}$。
 接线前先确认 LM324 引脚定义（见图~\ref{fig:lm324power}）与面包板连通性，如图所示。
 
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.60\textwidth]{LM324PNPowerSupplyConnection.png}
     \caption{LM324 正负电源连接示意}
@@ -172,7 +173,7 @@ v_o = \frac{R_f}{R_1}\left(v_{i2}-v_{i1}\right)
 \subsection*{1. 反相比例运算}
 在 $v_i$ 端接入频率 $1\,\mathrm{kHz}$ 正弦波，直流偏置为 0，改变 $V_{ipp}$ 并记录数据如下：
 
-\begin{table}[htbp]
+\begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|}
         \hline
@@ -196,7 +197,7 @@ $v_i$ 和 $v_o$，采用 DC 耦合方式观察并在坐标纸上描绘波形，�
 在 $v_{i1}$ 端输入频率 $1\,\mathrm{kHz}$、峰峰值约 $500\,\mathrm{mV}$ 的正弦波，直流偏置为 0。
 示波器 CH1、CH2 分别测 $v_{i2}$ 和 $v_o$，调节电位器并记录数据如下：
 
-\begin{table}[htbp]
+\begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
@@ -213,7 +214,7 @@ $v_i$ 和 $v_o$，采用 DC 耦合方式观察并在坐标纸上描绘波形，�
 \subsection*{4. 减法运算}
 保持 $v_{i1}$ 为 $1\,\mathrm{kHz}$、约 $500\,\mathrm{mV}$ 峰峰值正弦波，改变 $v_{i2}$ 幅值并记录数据如下：
 
-\begin{table}[htbp]
+\begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline

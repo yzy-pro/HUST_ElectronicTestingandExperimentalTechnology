@@ -96,6 +96,8 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/multirow/multirow.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/multirow/multirow.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty
 INPUT ./E2_BasicOperationalCircuits.aux
 INPUT ./E2_BasicOperationalCircuits.aux
 INPUT E2_BasicOperationalCircuits.aux

@@ -1,11 +1,11 @@
 # Fdb version 4
-["xdvipdfmx"] 1774959888.51084 "E2_BasicOperationalCircuits.xdv" "E2_BasicOperationalCircuits.pdf" "E2_BasicOperationalCircuits" 1774959888.85388 0
-  "E2_BasicOperationalCircuits.xdv" 1774959888.47673 41968 bd40fb42ef12c2d3e2376113f266bbb1 "xelatex"
+["xdvipdfmx"] 1774960142.86466 "E2_BasicOperationalCircuits.xdv" "E2_BasicOperationalCircuits.pdf" "E2_BasicOperationalCircuits" 1774960143.19176 0
+  "E2_BasicOperationalCircuits.xdv" 1774960142.82142 41972 75c8185b674e25bdc87cec028fea3a75 "xelatex"
   (generated)
   "E2_BasicOperationalCircuits.pdf"
   (rewritten before read)
-["xelatex"] 1774959887.91559 "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex" "E2_BasicOperationalCircuits.xdv" "E2_BasicOperationalCircuits" 1774959888.85298 0
-  "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex" 1774959882.77255 10062 4a77215246d38cf31914f211416d3717 ""
+["xelatex"] 1774960142.24902 "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex" "E2_BasicOperationalCircuits.xdv" "E2_BasicOperationalCircuits" 1774960143.19097 0
+  "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex" 1774960136.3451 10054 8eb652e0d9a406b77bd0dcbe7a6cecb4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -43,6 +43,7 @@
   "/usr/local/texlive/2025/texmf-dist/tex/latex/ctex/engine/ctex-engine-xetex.def" 1657829894 4760 0d5b13f0f595d738e80c6aea423c7997 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-fandol.def" 1657829894 4554 a06551e6ead244098a98564198bab657 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-chinese.def" 1657829894 2309 6d7454f886152e0f183b87105f3b3adf ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty" 1137110151 6749 16d2656a1984957e674b149555f1ea1d ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty" 1715459803 164981 148a15871e0e3c3101b8203733535af2 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec.cfg" 1532898934 549 c4adac819276241fea8eb79c5ab7b99e ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec.sty" 1715459803 3755 4872b99d810c024f9c09bb1c62ffee3b ""
@@ -68,8 +69,8 @@
   "/usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf" 1739380943 42148 61becc7c670cd061bb319c643c27fdd4 ""
   "/usr/local/texlive/2025/texmf-var/web2c/xetex/xelatex.fmt" 1745761497 5854851 9405beb4c6cd273e0bd26aa5e146f3e8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1745761447.97632 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "E2_BasicOperationalCircuits.aux" 1774959888.47573 1339 b38080a0b36bdbc32ae7d70f03cb23a8 "xelatex"
-  "E2_BasicOperationalCircuits.tex" 1774959882.77255 10062 4a77215246d38cf31914f211416d3717 ""
+  "E2_BasicOperationalCircuits.aux" 1774960142.82042 1339 06d5b5978973646520289beef66d0220 "xelatex"
+  "E2_BasicOperationalCircuits.tex" 1774960136.3451 10054 8eb652e0d9a406b77bd0dcbe7a6cecb4 ""
   "figures/InvertingProportionalOperationalCircuit.jpg" 1774956187.10101 37458 36939655428345f6289e5ebb8a98ad97 ""
   "figures/InvertingSummingAmplifierCircuit.jpg" 1774956159.39142 49362 58a8ca2c9d85d02a3bf9182f55f73d45 ""
   "figures/LM324PNPowerSupplyConnection.png" 1774956144.81776 60948 39b13d684955de726b891a5f1ea4a014 ""
