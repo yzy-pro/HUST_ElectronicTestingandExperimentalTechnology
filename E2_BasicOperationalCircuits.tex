@@ -194,35 +194,35 @@ v_o = \frac{R_f}{R_1}\left(v_{i2}-v_{i1}\right)
 $v_i$ 和 $v_o$，采用 DC 耦合方式观察并在坐标纸上描绘波形，标出幅值和周期。
 
 \subsection*{3. 反相比例加法运算}
-在 $v_{i1}$ 端输入频率 $1\,\mathrm{kHz}$、峰峰值约 $500\,\mathrm{mV}$ 的正弦波，直流偏置为 0。
+在 $v_{i1}$ 端输入频率 $1\,\mathrm{kHz}$、峰峰值约 $100\,\mathrm{mV}$ 的正弦波，直流偏置为 0。
 示波器 CH1、CH2 分别测 $v_{i2}$ 和 $v_o$，调节电位器并记录数据如下：
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|c|c|c|c|c|c|}
+    \begin{tabular}{|c|c|c|c|}
         \hline
-        $V_{i1pp}/\mathrm{mV}$ & $V_{i2pp}/\mathrm{mV}$ & $V_{opp}/\mathrm{V}$（实测） & $V_{opp}/\mathrm{V}$（理论） & 绝对误差$/\mathrm{V}$ & 相对误差 \\
+        输入条件 & $V_{o\text{实测}}/\mathrm{V}$ & $V_{o\text{理论}}/\mathrm{V}$ & 相对误差 \\
         \hline
-        496.0 & 96.0 & 6.000 & 5.920 & +0.08 & 1.35\% \\
+        $V_{i1} = 100.0\,\mathrm{mV}, V_{i2} = 26.0\,\mathrm{mV}$ & -1.200 & -1.260 & 4.76\% \\
         \hline
-        496.0 & 126.0 & 6.320 & 6.220 & +0.10 & 1.61\% \\
+        $V_{i1} = 200.0\,\mathrm{mV}, V_{i2} = 48.0\,\mathrm{mV}$ & -2.320 & -2.480 & 6.45\% \\
         \hline
     \end{tabular}
     \caption{反相比例加法运算测试数据}
 \end{table}
 
 \subsection*{4. 减法运算}
-保持 $v_{i1}$ 为 $1\,\mathrm{kHz}$、约 $500\,\mathrm{mV}$ 峰峰值正弦波，改变 $v_{i2}$ 幅值并记录数据如下：
+保持 $v_{i1}$ 为 $1\,\mathrm{kHz}$、约 $100\,\mathrm{mV}$ 峰峰值正弦波，改变 $v_{i2}$ 幅值并记录数据如下：
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|c|c|c|c|c|c|}
+    \begin{tabular}{|c|c|c|c|}
         \hline
-        $V_{i1pp}/\mathrm{mV}$ & $V_{i2pp}/\mathrm{mV}$ & $V_{opp}/\mathrm{V}$（实测） & $V_{opp}/\mathrm{V}$（理论） & 绝对误差$/\mathrm{V}$ & 相对误差 \\
+        输入条件 & $V_{o\text{实测}}/\mathrm{V}$ & $V_{o\text{理论}}/\mathrm{V}$ & 相对误差 \\
         \hline
-        504.0 & 174.0 & 3.400 & 3.300 & +0.10 & 3.03\% \\
+        $V_{i1} = 100.0\,\mathrm{mV}, V_{i2} = 26.0\,\mathrm{mV}$ & 0.760 & 0.740 & 2.70\% \\
         \hline
-        504.0 & 168.0 & 3.480 & 3.360 & +0.12 & 3.57\% \\
+        $V_{i1} = 200.0\,\mathrm{mV}, V_{i2} = 48.0\,\mathrm{mV}$ & 1.480 & 1.520 & 2.63\% \\
         \hline
     \end{tabular}
     \caption{反相比例减法运算测试数据}
@@ -236,5 +236,22 @@ $v_i$ 和 $v_o$，采用 DC 耦合方式观察并在坐标纸上描绘波形，�
 
 \section*{八、实验总结}
 通过本次实验，掌握了运算放大器基本运算电路（加法、减法、积分）的搭建与测试方法，能够较熟练使用直流稳压电源、信号发生器、示波器和万用表进行综合调试。实验过程中曾出现波形不稳定现象，排查后确认为电源地线连接不完整，补接地线后系统恢复正常，输出波形稳定且与理论分析一致。
+
+\section*{九、思考题}
+\begin{enumerate}
+    \item 在图 3 所示加法器中（开关 S 置 A 点），$R'$ 值应怎样确定？若 $R_1 = R_2 = 10\,\mathrm{k}\Omega$, $R' = 5.1\,\mathrm{k}\Omega$，试问：取 $R_f = 10\,\mathrm{k}\Omega$ 和 $R_f = 100\,\mathrm{k}\Omega$ 两种情况下，哪一种运算精度高？为什么？对照实验结果分析。
+    
+    \textbf{解：}$R'$（平衡电阻）的值应使运放两输入端对地的直流等效电阻相等，即 $R' = R_1 \parallel R_2 \parallel R_f$。当 $R_f = 10\,\mathrm{k}\Omega$ 时，$R_1 \parallel R_2 \parallel R_f = 10 \parallel 10 \parallel 10 \approx 3.33\,\mathrm{k}\Omega$，与给定的 $R' = 5.1\,\mathrm{k}\Omega$ 偏差较大；当 $R_f = 100\,\mathrm{k}\Omega$ 时，$R_1 \parallel R_2 \parallel R_f = 10 \parallel 10 \parallel 100 \approx 4.76\,\mathrm{k}\Omega$，与 $R' = 5.1\,\mathrm{k}\Omega$ 更为接近。因此，取 $R_f = 100\,\mathrm{k}\Omega$ 时运算精度高。因为该阻值下电路能更好地满足输入端直流平衡条件，有效抑制基极偏置电流带来的附加漂移误差。
+    
+    \item 若输入信号与放大器的同相端连接，当信号正向增大时，运算放大器的输出是正还是负？
+    
+    \textbf{解：}输出是正的（正向增大）。同相放大电路的输出与输入极性相同，输入正向增大，输出也随之正向增加。
+    
+    \item 若输入信号与放大器的反相端连接，当信号负向增大时，运算放大器的输出是正还是负？
+    
+    \textbf{解：}输出是正的（正向增大）。反相放大电路的输出与输入极性相反（相位相差 $180^\circ$），当输入端信号负向增大（即电压变得更负）时，输出端电压会向正方向增大。
+\end{enumerate}
+
+
 
 \end{document}

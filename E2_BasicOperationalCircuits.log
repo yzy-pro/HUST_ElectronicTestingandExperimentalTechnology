@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.4.27)  31 MAR 2026 20:39
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.4.27)  2 APR 2026 19:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -446,7 +446,9 @@ File: figures/LM324PNPowerSupplyConnection.png Graphic file (type bmp)
 
 [5]
 
-[6] (./E2_BasicOperationalCircuits.aux)
+[6]
+
+[7] (./E2_BasicOperationalCircuits.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/07/14>
@@ -458,12 +460,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 7866 strings out of 470267
- 219298 string characters out of 5484665
- 615728 words of memory out of 5000000
- 34393 multiletter control sequences out of 15000+600000
- 635273 words of font info for 91 fonts, out of 8000000 for 9000
+ 7908 strings out of 470267
+ 222160 string characters out of 5484665
+ 620728 words of memory out of 5000000
+ 34433 multiletter control sequences out of 15000+600000
+ 635289 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 93i,10n,112p,472b,345s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,13n,112p,710b,345s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on E2_BasicOperationalCircuits.xdv (7 pages, 41992 bytes).
+Output written on E2_BasicOperationalCircuits.xdv (8 pages, 49436 bytes).
