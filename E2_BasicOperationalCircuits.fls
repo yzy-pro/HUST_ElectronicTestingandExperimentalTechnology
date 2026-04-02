@@ -136,4 +136,16 @@ INPUT ./figures/SubtractorOperationalCircuit.jpg
 INPUT ./figures/SubtractorOperationalCircuit.jpg
 INPUT ./figures/LM324PNPowerSupplyConnection.png
 INPUT ./figures/LM324PNPowerSupplyConnection.png
+INPUT ./results/integral-1.PNG
+INPUT ./results/integral-1.PNG
+INPUT ./results/integral-2.PNG
+INPUT ./results/integral-2.PNG
+INPUT ./results/addition-1.PNG
+INPUT ./results/addition-1.PNG
+INPUT ./results/addition-2.PNG
+INPUT ./results/addition-2.PNG
+INPUT ./results/subtraction-1.PNG
+INPUT ./results/subtraction-1.PNG
+INPUT ./results/subtraction-2.PNG
+INPUT ./results/subtraction-2.PNG
 INPUT E2_BasicOperationalCircuits.aux

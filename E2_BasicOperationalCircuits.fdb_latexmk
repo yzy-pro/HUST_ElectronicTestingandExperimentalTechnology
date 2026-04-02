@@ -1,11 +1,11 @@
 # Fdb version 4
-["xdvipdfmx"] 1775130789.73903 "E2_BasicOperationalCircuits.xdv" "E2_BasicOperationalCircuits.pdf" "E2_BasicOperationalCircuits" 1775130790.05851 0
-  "E2_BasicOperationalCircuits.xdv" 1775130789.69278 49436 4ad9c30e2055d10648074c21a0820c50 "xelatex"
+["xdvipdfmx"] 1775132052.79361 "E2_BasicOperationalCircuits.xdv" "E2_BasicOperationalCircuits.pdf" "E2_BasicOperationalCircuits" 1775132053.62337 0
+  "E2_BasicOperationalCircuits.xdv" 1775132052.74907 51988 0f9b09cea2106faf189c7a9adac54bb6 "xelatex"
   (generated)
   "E2_BasicOperationalCircuits.pdf"
   (rewritten before read)
-["xelatex"] 1775130789.13657 "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex" "E2_BasicOperationalCircuits.xdv" "E2_BasicOperationalCircuits" 1775130790.05772 0
-  "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex" 1775130784.24691 11861 fa6aab9fd9a804bc83a1f5f67fb116fa ""
+["xelatex"] 1775132052.19939 "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex" "E2_BasicOperationalCircuits.xdv" "E2_BasicOperationalCircuits" 1775132053.62253 0
+  "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E2_BasicOperationalCircuits/E2_BasicOperationalCircuits.tex" 1775132046.84334 12727 cb2211c18f8bbafc7e2e62a8b7f8537a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -69,13 +69,19 @@
   "/usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf" 1739380943 42148 61becc7c670cd061bb319c643c27fdd4 ""
   "/usr/local/texlive/2025/texmf-var/web2c/xetex/xelatex.fmt" 1745761497 5854851 9405beb4c6cd273e0bd26aa5e146f3e8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1745761447.97632 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "E2_BasicOperationalCircuits.aux" 1775130789.69278 1339 93cbe10caece0a1cdfb7bf4e539d4604 "xelatex"
-  "E2_BasicOperationalCircuits.tex" 1775130784.24691 11861 fa6aab9fd9a804bc83a1f5f67fb116fa ""
+  "E2_BasicOperationalCircuits.aux" 1775132052.74907 2144 874dad203a7b57b6303a94f6d5ef1266 "xelatex"
+  "E2_BasicOperationalCircuits.tex" 1775132046.84334 12727 cb2211c18f8bbafc7e2e62a8b7f8537a ""
   "figures/InvertingProportionalOperationalCircuit.jpg" 1774956187.10101 37458 36939655428345f6289e5ebb8a98ad97 ""
-  "figures/InvertingSummingAmplifierCircuit.jpg" 1774956159.39142 49362 58a8ca2c9d85d02a3bf9182f55f73d45 ""
+  "figures/InvertingSummingAmplifierCircuit.jpg" 1775130897.87831 109234 fae75b17e2b083b9de8a595de599d306 ""
   "figures/LM324PNPowerSupplyConnection.png" 1774956144.81776 60948 39b13d684955de726b891a5f1ea4a014 ""
   "figures/Proportional-IntegralOperationalCircuit.jpg" 1774956154.70626 44431 3b7b0097412ad022009b692dd424163f ""
   "figures/SubtractorOperationalCircuit.jpg" 1774956194.05011 42675 71b0c3e6c7264ddba191386a3f3c4cdd ""
+  "results/addition-1.PNG" 1775131207.96671 42258 f4ee4c9e980aea2c64fa52efd0717585 ""
+  "results/addition-2.PNG" 1775131207.96187 44166 f392118786d14c5836171578f2c5f608 ""
+  "results/integral-1.PNG" 1775131207.9826 42529 8212191ef3a57f6342ee242349ead37d ""
+  "results/integral-2.PNG" 1775131207.98887 50870 c2579aec9e72ccdb05427372cdc27ee8 ""
+  "results/subtraction-1.PNG" 1775131207.96987 42352 056d43e6f1189e5a95a12e88169476b9 ""
+  "results/subtraction-2.PNG" 1775131207.97387 44181 e0b713aaf948a17b1dfbcff5cff01740 ""
   (generated)
   "E2_BasicOperationalCircuits.aux"
   "E2_BasicOperationalCircuits.log"

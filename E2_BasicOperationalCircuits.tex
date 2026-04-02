@@ -6,7 +6,7 @@
 \usepackage{multirow}
 \usepackage{float}
 \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
-\graphicspath{{figures/}}
+\graphicspath{{figures/}{results/}}
 \begin{document}
 \begin{titlepage}
     \centering
@@ -193,6 +193,17 @@ v_o = \frac{R_f}{R_1}\left(v_{i2}-v_{i1}\right)
 在 $v_i$ 端输入频率 $500\,\mathrm{Hz}$、峰峰值 $1\,\mathrm{V}$ 的正方波，示波器 CH1、CH2 分别接
 $v_i$ 和 $v_o$，采用 DC 耦合方式观察并在坐标纸上描绘波形，标出幅值和周期。
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{integral-1.PNG}
+    \caption{比例积分实验波形 1}
+    
+    \vspace{1em}
+    
+    \includegraphics[width=0.65\textwidth]{integral-2.PNG}
+    \caption{比例积分实验波形 2}
+\end{figure}
+
 \subsection*{3. 反相比例加法运算}
 在 $v_{i1}$ 端输入频率 $1\,\mathrm{kHz}$、峰峰值约 $100\,\mathrm{mV}$ 的正弦波，直流偏置为 0。
 示波器 CH1、CH2 分别测 $v_{i2}$ 和 $v_o$，调节电位器并记录数据如下：
@@ -203,13 +214,24 @@ $v_i$ 和 $v_o$，采用 DC 耦合方式观察并在坐标纸上描绘波形，�
         \hline
         输入条件 & $V_{o\text{实测}}/\mathrm{V}$ & $V_{o\text{理论}}/\mathrm{V}$ & 相对误差 \\
         \hline
-        $V_{i1} = 100.0\,\mathrm{mV}, V_{i2} = 26.0\,\mathrm{mV}$ & -1.200 & -1.260 & 4.76\% \\
+        $V_{i1} = 100.0\,\mathrm{mV}, V_{i2} = 26.0\,\mathrm{mV}$ & -1.160 & -1.260 & 6.45\% \\
         \hline
         $V_{i1} = 200.0\,\mathrm{mV}, V_{i2} = 48.0\,\mathrm{mV}$ & -2.320 & -2.480 & 6.45\% \\
         \hline
     \end{tabular}
     \caption{反相比例加法运算测试数据}
 \end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{addition-1.PNG}
+    \caption{反相比例加法波形 （100mV）}
+    
+    \vspace{1em}
+    
+    \includegraphics[width=0.65\textwidth]{addition-2.PNG}
+    \caption{反相比例加法波形 （200mV）}
+\end{figure}
 
 \subsection*{4. 减法运算}
 保持 $v_{i1}$ 为 $1\,\mathrm{kHz}$、约 $100\,\mathrm{mV}$ 峰峰值正弦波，改变 $v_{i2}$ 幅值并记录数据如下：
@@ -228,9 +250,20 @@ $v_i$ 和 $v_o$，采用 DC 耦合方式观察并在坐标纸上描绘波形，�
     \caption{反相比例减法运算测试数据}
 \end{table}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{subtraction-1.PNG}
+    \caption{减法运算波形 （100mV）}
+    
+    \vspace{1em}
+    
+    \includegraphics[width=0.65\textwidth]{subtraction-2.PNG}
+    \caption{减法运算波形 （200mV）}
+\end{figure}
+
 \section*{七、实验分析与数据处理}
 \begin{enumerate}
-    \item 由测试结果可见，反相比例加减法运算电路实测值与理论值偏差约在 $1\%\sim4\%$，满足本实验精度要求。误差主要来自电阻标称误差、运放输入失调和示波器读数误差。
+    \item 由测试结果可见，反相比例加减法运算电路实测值与理论值偏差约在 $2\%\sim6\%$，满足本实验精度要求。误差主要来自电阻标称误差、运放输入失调和示波器读数误差。
     \item 积分运算实验中，输入为方波时输出为近似三角波，符合积分电路理论关系。低频段若出现基线漂移，通常与运放零漂、反馈电阻取值和电容漏电有关。
 \end{enumerate}
 

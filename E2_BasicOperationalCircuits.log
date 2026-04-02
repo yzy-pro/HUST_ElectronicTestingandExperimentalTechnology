@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.4.27)  2 APR 2026 19:53
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.4.27)  2 APR 2026 20:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -443,12 +443,31 @@ File: figures/LM324PNPowerSupplyConnection.png Graphic file (type bmp)
 
 
 [4]
+File: results/integral-1.PNG Graphic file (type bmp)
+<results/integral-1.PNG>
+File: results/integral-2.PNG Graphic file (type bmp)
+<results/integral-2.PNG>
+
 
 [5]
+File: results/addition-1.PNG Graphic file (type bmp)
+<results/addition-1.PNG>
+File: results/addition-2.PNG Graphic file (type bmp)
+<results/addition-2.PNG>
+
 
 [6]
+File: results/subtraction-1.PNG Graphic file (type bmp)
+<results/subtraction-1.PNG>
+File: results/subtraction-2.PNG Graphic file (type bmp)
+<results/subtraction-2.PNG>
 
-[7] (./E2_BasicOperationalCircuits.aux)
+
+[7]
+
+[8]
+
+[9] (./E2_BasicOperationalCircuits.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/07/14>
@@ -460,12 +479,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 7908 strings out of 470267
- 222160 string characters out of 5484665
- 620728 words of memory out of 5000000
- 34433 multiletter control sequences out of 15000+600000
+ 7976 strings out of 470267
+ 223906 string characters out of 5484665
+ 615740 words of memory out of 5000000
+ 34493 multiletter control sequences out of 15000+600000
  635289 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,13n,112p,710b,345s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on E2_BasicOperationalCircuits.xdv (8 pages, 49436 bytes).
+Output written on E2_BasicOperationalCircuits.xdv (10 pages, 51988 bytes).
