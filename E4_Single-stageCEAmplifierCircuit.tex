@@ -5,6 +5,7 @@
 \usepackage{geometry}
 \usepackage{multirow}
 \usepackage{float}
+\usepackage{subcaption}
 \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
 \graphicspath{{figures/}{results/}}
 \begin{document}
@@ -109,7 +110,7 @@ v_o = -\frac{R_f}{R_1}\, v_i
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.52\textwidth]{InvertingProportionalOperationalCircuit.jpg}
+    \includegraphics[width=0.52\textwidth]{InvertingProportionalOperationalCircuit.png}
     \caption{反相比例运算参考电路}
     \label{fig:inverting}
 \end{figure}
@@ -127,7 +128,7 @@ R_fC \gg R_1C
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.52\textwidth]{Proportional-IntegralOperationalCircuit.jpg}
+    \includegraphics[width=0.52\textwidth]{Proportional-IntegralOperationalCircuit.png}
     \caption{比例积分运算参考电路}
     \label{fig:integral}
 \end{figure}
@@ -140,7 +141,7 @@ v_o = -\frac{R_f}{R}\left(v_{i1}+v_{i2}\right)
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.52\textwidth]{InvertingSummingAmplifierCircuit.jpg}
+    \includegraphics[width=0.52\textwidth]{InvertingSummingAmplifierCircuit.png}
     \caption{反向比例加法运算参考电路}
     \label{fig:summing}
 \end{figure}
@@ -154,12 +155,72 @@ v_o = \frac{R_f}{R_1}\left(v_{i2}-v_{i1}\right)
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.52\textwidth]{SubtractorOperationalCircuit.jpg}
+    \includegraphics[width=0.52\textwidth]{SubtractorOperationalCircuit.png}
     \caption{减法运算参考电路}
     \label{fig:subtractor}
 \end{figure}
 
-\section*{六、实验过程}
+\section*{六、EDA仿真实验过程}
+用pspice软件设计实现反相比例加法(p82,EDA实验内容1)
+\subsection*{1. 反向比例加法运算}
+在计算机上，使用仿真软件 PSpice 或者 Multisim 设计一个反相比例加法运算电路，要求实现如下运算：$ v_{o} = -(15\ v_{i1}+30\ v_{i2})$ 。
+ 
+对每一路输入信号电路的输入电阻不小于 10 kΩ。设计一个分压电路，将信号源输出的$v_{i1}$进行分压得到$v_{i2}$。输入 1 kHz 正弦波，仿真输入、输出波形，记录它们的幅值，并与理论值相比较。
+
+Multisim仿真原理图设计如下：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.80\textwidth]{eda_sim/schematic.png}
+    \caption{反向比例加法运算电路原理图}
+    \label{fig:eda_schematic}
+\end{figure}
+\begin{enumerate}
+    \item 选择 LM324 作为运算放大器，供电电压设为 $\pm 12\,\mathrm{V}$。
+    \item 输入信号 $v_{i1}$ 为 $1\,\mathrm{kHz}$ 正弦波，峰峰值设为 $100\,\mathrm{mV}$，通过分压电路得到 $v_{i2}$ 峰峰值约为 $50\,\mathrm{mV}$。
+    \item 反馈电阻 $R_f$ 选取 $300\,\mathrm{k}\Omega$，输入电阻 $R_1$ 和 $R_2$ 分别选取 $10\,\mathrm{k}\Omega$ 和 $20\,\mathrm{k}\Omega$，满足输出$ v_{o} = -(15\ v_{i1}+30\ v_{i2})$。
+    \item 平衡电阻 $R'$ 理论值为 $R' = R_f \parallel R_1 \parallel R_2 \approx 6.52\,\mathrm{k}\Omega$，实际选取最接近阻值的 $6.49\,\mathrm{k}\Omega$ 。
+\end{enumerate}
+
+
+Multisim仿真实验结果如下：
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{eda_sim/result_vi1.png}
+        \caption{$v_{i1}$波形}
+        \label{fig:vi1_input}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{eda_sim/result_vi2.png}
+        \caption{$v_{i2}$波形}
+        \label{fig:vi2_input}
+    \end{subfigure}
+
+    \vspace{0.8em}
+
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{eda_sim/result_vo.png}
+        \caption{$v_{o}$波形}
+        \label{fig:vo_output}
+    \end{subfigure}
+    \caption{反向比例加法运算仿真波形}
+    \label{fig:eda_waveforms}
+\end{figure}
+
+仿真结果分析：
+\begin{enumerate}
+    \item 输入信号 $v_{i1}$ 和 $v_{i2}$ 均为 $1 kHz$ 正弦波，$v_{pp}$分别为 $199.226 mV$ 和 $98.719 mV$。
+    \item 输出信号 $v_o$ 的峰峰值约为 $-5.977 V$，理论计算值为 $ v_{o} = -(\frac{R_{f}}{R_1}\ v_{i1}+\frac{R_{f}}{R_2}\ v_{i2}) = -5.950 V$，相对误差$ \delta(v_{o}) = 0.454\%$,实验结果与理论相符 。
+    \item 输出波形为输入波形的相位差为$\pi$，符合反向比例加法运算的输出信号相位相反的特性。
+\end{enumerate}
+
+
+
+\section*{七、硬件实验过程}
 按照原理图搭建实物电路，LM324 采用正负双电源供电，供电电压设为 $\pm 12\,\mathrm{V}$。
 接线前先确认 LM324 引脚定义（见图~\ref{fig:lm324power}）与面包板连通性，如图所示。
 
@@ -170,41 +231,23 @@ v_o = \frac{R_f}{R_1}\left(v_{i2}-v_{i1}\right)
     \label{fig:lm324power}
 \end{figure}
 
-\subsection*{1. 反相比例运算}
-在 $v_i$ 端接入频率 $1\,\mathrm{kHz}$ 正弦波，直流偏置为 0，改变 $V_{ipp}$ 并记录数据如下：
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|c|c|c|}
-        \hline
-        $V_{ipp}$ & $V_{opp}$（实测）& $V_{opp}$（理论）\\
-        \hline
-        $100\,\mathrm{mV}$ & & \\
-        \hline
-        $200\,\mathrm{mV}$ & & \\
-        \hline
-        $300\,\mathrm{mV}$ & & \\
-        \hline
-    \end{tabular}
-    \caption{反相比例运算测量数据}
-\end{table}
-
-\subsection*{2. 比例积分运算}
+\subsection*{1. 比例积分运算}
 在 $v_i$ 端输入频率 $500\,\mathrm{Hz}$、峰峰值 $1\,\mathrm{V}$ 的正方波，示波器 CH1、CH2 分别接
 $v_i$ 和 $v_o$，采用 DC 耦合方式观察并在坐标纸上描绘波形，标出幅值和周期。
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.65\textwidth]{integral-1.PNG}
-    \caption{比例积分实验波形 1}
+    \caption{比例积分实验波形}
     
     \vspace{1em}
     
     \includegraphics[width=0.65\textwidth]{integral-2.PNG}
-    \caption{比例积分实验波形 2}
+    \caption{测量比例积分实验波形}
 \end{figure}
 
-\subsection*{3. 反相比例加法运算}
+\subsection*{2. 反相比例加法运算}
 在 $v_{i1}$ 端输入频率 $1\,\mathrm{kHz}$、峰峰值约 $100\,\mathrm{mV}$ 的正弦波，直流偏置为 0。
 示波器 CH1、CH2 分别测 $v_{i2}$ 和 $v_o$，调节电位器并记录数据如下：
 
@@ -225,15 +268,15 @@ $v_i$ 和 $v_o$，采用 DC 耦合方式观察并在坐标纸上描绘波形，�
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.65\textwidth]{addition-1.PNG}
-    \caption{反相比例加法波形 （100mV）}
+    \caption{反相比例加法波形 （$v_{i1} = 100mV$）}
     
     \vspace{1em}
     
     \includegraphics[width=0.65\textwidth]{addition-2.PNG}
-    \caption{反相比例加法波形 （200mV）}
+    \caption{反相比例加法波形 （$v_{i1} = 200mV $）}
 \end{figure}
 
-\subsection*{4. 减法运算}
+\subsection*{3. 减法运算}
 保持 $v_{i1}$ 为 $1\,\mathrm{kHz}$、约 $100\,\mathrm{mV}$ 峰峰值正弦波，改变 $v_{i2}$ 幅值并记录数据如下：
 
 \begin{table}[H]
@@ -253,24 +296,43 @@ $v_i$ 和 $v_o$，采用 DC 耦合方式观察并在坐标纸上描绘波形，�
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.65\textwidth]{subtraction-1.PNG}
-    \caption{减法运算波形 （100mV）}
+    \caption{减法运算波形 （$v_{i1} = 100mV$）}
     
     \vspace{1em}
     
     \includegraphics[width=0.65\textwidth]{subtraction-2.PNG}
-    \caption{减法运算波形 （200mV）}
+    \caption{减法运算波形 （$v_{i1} = 200mV$）}
 \end{figure}
 
-\section*{七、实验分析与数据处理}
+\section*{八、实验分析与数据处理}
 \begin{enumerate}
-    \item 由测试结果可见，反相比例加减法运算电路实测值与理论值偏差约在 $2\%\sim6\%$，满足本实验精度要求。误差主要来自电阻标称误差、运放输入失调和示波器读数误差。
-    \item 积分运算实验中，输入为方波时输出为近似三角波，符合积分电路理论关系。低频段若出现基线漂移，通常与运放零漂、反馈电阻取值和电容漏电有关。
+    \item 根据实验结果，反相比例加法运算电路实测值与理论值偏差约在 $6\%\sim7\%$，反相比例减法运算电路实测值与理论值偏差约在 $2\%\sim3\%$，实验误差较小。分析误差主要来自电阻标称误差和示波器读数误差。
+    \item 积分运算实验中，输入为方波时输出为近似三角波，符合积分电路理论关系。三角波上升和下降并非严格直线，与并联直流负反馈电阻$R_{f}$有关。
 \end{enumerate}
 
-\section*{八、实验总结}
-通过本次实验，掌握了运算放大器基本运算电路（加法、减法、积分）的搭建与测试方法，能够较熟练使用直流稳压电源、信号发生器、示波器和万用表进行综合调试。实验过程中曾出现波形不稳定现象，排查后确认为电源地线连接不完整，补接地线后系统恢复正常，输出波形稳定且与理论分析一致。
+\section*{九、实验总结}
+本次实验总体完成情况良好，能够较完整地实现反相比例运算、积分运算、加法运算与减法运算，并通过示波器观测验证理论关系。总结如下。
 
-\section*{九、思考题}
+\textbf{1. 遇到的问题}
+\begin{enumerate}
+    \item 电路初次调试时曾出现输出异常。排查后发现稳压源接线过深，实际压紧的是导线外皮而非线芯，导致运放处于单电源供电状态。
+    \item 示波器部分按键功能记忆不牢，测量初期在通道设置与耦合方式切换上效率较低。
+\end{enumerate}
+
+\textbf{2. 操作经验}
+\begin{enumerate}
+    \item 布线应尽量短而清晰，便于查错并降低接触不良概率。
+    \item 建议按功能使用不同颜色导线：红色为正电源、蓝色为负电源、黄色为信号线、黑色为地线。
+    \item 尽量避免“夹子夹夹子”的连接方式，以减少接触不稳定引起的波形失真。
+    \item 元器件过长引脚应适当剪短，导线剥皮长度要适中，防止意外短路。
+    \item 色环电阻建议先用万用表复测阻值，再接入电路。
+\end{enumerate}
+
+\textbf{3. 收获与体会}
+
+通过本次实验，我的电路搭建与调试能力得到提升，也进一步认识到规范接线和仪器熟练操作对实验结果的重要性。积分电路输入方波、输出近似三角波的现象与理论分析一致，加深了我对运算放大器基本运算电路工作机理的理解。
+
+\section*{十、思考题}
 \begin{enumerate}
     \item 在图 3 所示加法器中（开关 S 置 A 点），$R'$ 值应怎样确定？若 $R_1 = R_2 = 10\,\mathrm{k}\Omega$, $R' = 5.1\,\mathrm{k}\Omega$，试问：取 $R_f = 10\,\mathrm{k}\Omega$ 和 $R_f = 100\,\mathrm{k}\Omega$ 两种情况下，哪一种运算精度高？为什么？对照实验结果分析。
     
