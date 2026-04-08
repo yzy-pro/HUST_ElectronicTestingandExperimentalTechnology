@@ -1,0 +1,9 @@
+{
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.view.pdf.ref.viewer": "auto",
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "ctrl-click",
+    "latex-workshop.view.pdf.internal.keyboardEvent": "force",
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.latex.watch.pdf.delay": 600,
+    "latex-workshop.synctex.afterBuild.enabled": true,
+}
