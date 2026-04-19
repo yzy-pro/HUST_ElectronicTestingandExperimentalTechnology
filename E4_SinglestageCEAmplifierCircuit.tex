@@ -216,13 +216,13 @@ R_o \approx R_C.
 \subsection*{5.5 测量输入电阻}
 \begin{enumerate}
     \item 在信号源与放大电路输入端串联一个与输入阻抗接近的电阻（如 $3.3\,\mathrm{k}\Omega$ 或 $5.1\,\mathrm{k}\Omega$）。
-    \item 测得信号源电压 $V_s$ 及输入端电压 $V_i$，代入实验公式计算输入电阻 $R_i$。
+    \item 测得信号源电压 $V_s$ 及输入端电压 $V_i$，代入实验公式$R_i = \frac{V_i}{V_s - V_i}R$计算输入电阻 $R_i$。
 \end{enumerate}八、实验分析与数据处理
 
 \subsection*{5.6 测量输出电阻}
 \begin{enumerate}
     \item 测量接负载时负载电阻上的输出电压 $V_{oL}$。
-    \item 将负载开路后测量开路输出电压 $V_o$，代入实验公式计算输出电阻 $R_o$。
+    \item 将负载开路后测量开路输出电压 $V_o$，代入实验公式$R_o = (\frac{V_o}{V_{oL}} - 1)R_L$计算输出电阻 $R_o$。
 \end{enumerate}
 
 \section*{六、EDA仿真实验内容}
@@ -267,19 +267,7 @@ $4.98\,\mathrm{k}\Omega$。
 
 
 \section*{七、硬件实验结果分析}
-\subsection*{7.1 实验插板图}
-实验插板图见实验记录图 6。
-
-\subsection*{7.2 三极管直流放大倍数测量}
-三极管直流放大倍数测量结果见实验记录图 7，测得
-\[
-\beta = 85.
-\]
-与部分同学相比，该管放大倍数偏小，但仍可满足本实验放大电路搭建与测试要求。
-
-\subsection*{7.3 实验数据}
-
-\subsubsection*{7.3.1 静态工作点测量数据}
+\subsection*{7.1 静态工作点测量数据}
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
@@ -311,7 +299,7 @@ $4.98\,\mathrm{k}\Omega$。
 
 根据实验讲义，一般 $V_{BQ}= (3 \textasciitilde 5)\,\mathrm{V}$，$V_{CEQ}$ 应为正的几伏。若 $V_{CEQ}\approx V_{CC}$，说明晶体管截止；若 $V_{CEQ}<0.5\,\mathrm{V}$，说明晶体管饱和。由上表中的测量结果可知，本实验中晶体管工作在放大区。
 
-\subsubsection*{7.3.2 放大倍数计算数据}
+\subsection*{7.2 放大倍数计算数据}
 将波形调整到最大不失真，示波器波形如图：
 \begin{figure}[H]
     \centering
@@ -324,7 +312,7 @@ $4.98\,\mathrm{k}\Omega$。
 A_v = \frac{V_{ipp}}{V_{opp}} = \frac{6.72}{0.216}=31.11
 \]
 
-\subsubsection*{7.3.3 幅频响应特性曲线测量数据}
+\subsection*{7.3 幅频响应特性曲线测量数据}
 原始测量数据如下表：
 \begin{table}[H]
     \centering
@@ -369,90 +357,167 @@ BW=f_H-f_L\approx 870.33\,\mathrm{kHz}.
 
 分析：实测增益峰值大于 30，且低频端与高频端均出现明显下降，满足单级共射放大电路的幅频响应特征。
 
-\subsubsection*{7.3.4 输入电阻测量数据}
+\subsection*{7.4 输入电阻测量数据}
+先试用$5.1k\Omega$电阻测量，计算得到输入电阻约为$4.12k\Omega$，为了使串联电阻与输入电阻更为接近提高输入电阻测试准确度，改为使用$4.7k\Omega$电阻测量，测量数据如下表：
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
         \hline
-        参数 & $V_s$ & $V_i$ & $R$ & $R_i$ \\
+        $V_s$ & $V_i$ & $R$ & $R_i$ \\
         \hline
-        数值 & 0.152\,V & 0.072\,V & 5.04\,k$\Omega$ & 4.536\,k$\Omega$ \\
+        114\,mV & 54\,mV & 4.7\,k$\Omega$ & 4.29\,k$\Omega$ \\
         \hline
     \end{tabular}
     \caption{输入电阻测试数据}
+    \end{table}
+    根据输入电阻计算公式可得：
+$$ R_i = \frac{V_i}{V_s - V_i } R = \frac{0.054}{0.114 - 0.054} \times 4.7\,\mathrm{k}\Omega = 4.29\,\mathrm{k}\Omega. $$
+
+
+\subsection*{7.5 输出电阻测量数据}
+根据实验原理连接电路并测量，测量数据如下表：
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        $V_o$ & $V_{oL}$ & $R_L$ & $R_o$ \\
+        \hline
+        7.00\,V & 3.80\,V & 5.1\,k$\Omega$ & 4.29\,k$\Omega$ \\
+        \hline
+    \end{tabular}
+    \caption{输出电阻测试数据}
+    \end{table}
+
+根据输出电阻计算公式可得：
+$$ R_o = \left( \frac{V_o}{V_{oL}} - 1 \right) R_L = \left( \frac{7.00}{3.80} - 1 \right) \times 5.1\,\mathrm{k}\Omega = 4.29\,\mathrm{k}\Omega. $$
+
+\subsection*{7.6 饱和失真和截止失真测量}
+\subsubsection*{7.6.1 饱和失真测量}
+将滑动变阻器调至$0\,\Omega$，输入信号频率设为$1\,\mathrm{kHz}$，当输入峰峰值为$0.84\,\mathrm{V}$时，输出波形出现明显的饱和失真，如图所示：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{figures/oscilloscope/figure6.PNG}
+    \caption{饱和失真波形}
+\end{figure}
+对此时BJT的静态工作点测量，得到下表：
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        $V_{EQ}$ & $V_{BQ}$ & $V_{CQ}$ \\
+        \hline
+        2.3059\,V & 3.0535\,V & 2.3730\,V \\
+        \hline
+    \end{tabular}
+    \caption{饱和失真测量数据}
+\end{table}
+\subsubsection*{7.6.2 截止失真测量}
+将滑动变阻器调至$100\,\mathrm{k}\Omega$，输入信号频率设为$1\,\mathrm{kHz}$，当输入峰峰值为$1.10\,\mathrm{V}$时，输出波形出现明显的截止失真，如图所示：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{figures/oscilloscope/figure5.PNG}
+    \caption{截止失真波形}
+\end{figure}
+对此时BJT的静态工作点测量，得到下表：
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        $V_{EQ}$ & $V_{BQ}$ & $V_{CQ}$ \\
+        \hline
+        0.26584\,V & 0.91875\,V & 10.7524\,V \\
+        \hline
+    \end{tabular}
+    \caption{截止失真测量数据}
 \end{table}
 
-在放大电路输入端串联电阻 $R=5.04\,\mathrm{k}\Omega$，测得 $V_s=0.152\,\mathrm{V}$、$V_i=0.072\,\mathrm{V}$，代入公式可得
-\[
-R_i\approx 4.536\,\mathrm{k}\Omega.
-\]
-
-\subsubsection*{7.3.5 输出电阻测量数据}
-在放大电路无失真时，测得开路输出电压 $V_o=6.400\,\mathrm{V}$、带负载输出电压 $V_{oL}=5.040\,\mathrm{V}$、负载电阻 $R_L=5.06\,\mathrm{k}\Omega$。代入公式计算得
-\[
-R_o\approx 1.822\,\mathrm{k}\Omega.
-\]
-
 \section*{八、EDA仿真实验结果分析}
+根据原理图在Multisim中搭建仿真电路，如图所示，进行仿真分析并与硬件实验结果进行对比分析。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{figures/eda_sim/figure1.jpg}
+    \caption{仿真电路原理图}
+\end{figure}
 \subsection*{8.1 静态工作点仿真}
-在 Bias Point 分析条件下，得到静态工作点电压 $V_{BQ}$、$V_{EQ}$、$V_{CQ}$，并据此计算
-$I_{BQ}$、$I_{CQ}$ 与 $V_{CEQ}$。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{figures/eda_sim/figure2.jpg}
+    \caption{直流工作点分析结果}
+\end{figure}
+在Multisim中进行直流工作点分析，得到静态工作点参数如下表：
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        $V_{BQ}$ & $V_{EQ}$ & $V_{CQ}$ & $I_{BQ}$ &$ I_{CQ}$&$I_{EQ}$\\
+        \hline
+        1.67407\,V & 1.05202\,V & 6.91900\,V & 4.69174\,$\mu$A & 996.27459 \,$\mu$A & -1.00097\,$m$A \\
+        \hline
+    \end{tabular}
+    \caption{静态工作点仿真结果}
+\end{table}
 
-与硬件实测结果对比可见：$V_{BQ}$、$V_{EQ}$、$V_{CQ}$ 的吻合度较高，$I_{BQ}$ 与
-$I_{CQ}$ 也较接近；$V_{CEQ}$ 存在一定偏差，但总体仍在可接受范围内。说明仿真对
-静态工作点的预测较有效，且硬件电路工作点调整基本合理。
+与硬件实测结果对比可见：由于实际BJT和仿真模型参数存在差异，导致仿真结果与实测数据存在一定偏差，但总体趋势一致，均表明晶体管工作在放大区。
 
 \subsection*{8.2 电压增益仿真}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{figures/eda_sim/figure3.jpg}
+    \caption{电压增益结果图}
+\end{figure}
 仿真得到电压增益
-\[
-A_v=33.83,
-\]
+$$
+A_v=\frac{V_o}{V_i} = \frac{3.679}{0.119} = 30.92.
+$$
 实测电压增益为
-\[
-A_v=32.73.
-\]
-两者相对误差约为 $3.2\%$，说明瞬态仿真与实测结果一致性较好，增益预测可靠。
+$$
+A_v=34.81.
+$$
+两者相对误差约为 $ 11.2\%$，总体上较为接近，说明瞬态仿真与实测结果一致性较好，增益预测可靠。
 
 \subsection*{8.3 通频带仿真}
-仿真结果为：中频增益 $A_v=30.710$，下限频率 $f_L=52.462\,\mathrm{Hz}$，上限频率
-$f_H=13.965\,\mathrm{MHz}$，通频带
-\[
-BW=f_H-f_L\approx 13.965\,\mathrm{MHz}.
-\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{figures/eda_sim/figure4.png}
+    \caption{通频带分析结果图}
+\end{figure}
+仿真结果为：中频增益 $A_v=32.4696$($10kHz$)，下限频率 $f_L=54.8316\,\mathrm{Hz}$，上限频率
+$f_H=3.2388\,\mathrm{MHz}$，通频带
+$$
+BW=f_H-f_L = 13.965\,\mathrm{MHz}.
+$$
 
-实测结果为：中频（$1\,\mathrm{kHz}$）增益 $33.16$，三分贝点增益 $23.44$，下限频率
-$50.38\,\mathrm{Hz}$，上限频率 $4.803\,\mathrm{MHz}$，通频带约 $4.803\,\mathrm{MHz}$。
+实测结果为：中频（$1\,\mathrm{kHz}$）增益 $34.07$，三分贝点增益 $24.62$，下限频率
+$66.17\,\mathrm{Hz}$，上限频率 $870.39\,\mathrm{kHz}$，通频带约 $870.33\,\mathrm{kHz}$。
 
-对比分析可知：下限频率基本一致，但中频增益与上限频率差异较大。主要原因是
-PSpice 元件库中缺少 SS9018 模型，仿真中以 Q2N2222 代替；即使调节了关键参数
-$\beta$，其高频特性及寄生参数仍与实际器件存在明显差异，因此该部分频响仿真仅可作
-定性参考。
+对比分析可知：下限频率与中频增益基本一致，但上限频率差异较大。主要原因是仿真中以SS9013代替实际使用的SS9018,其高频特性及参数仍与实际器件存在明显差异，该部分幅频响仿真仅可作定性参考。
 
-\subsection*{8.4 输入输出电阻仿真}
-仿真给出了输入电阻与输出电阻随频率变化的响应曲线。总体趋势为：低频段阻抗较大，
-随频率升高快速下降；进入中频段后趋于稳定；继续升频后再次下降。
+\subsection*{8.4 输入电阻仿真}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{figures/eda_sim/figure5.png}
+    \caption{输入电阻分析结果图}
+\end{figure}
+仿真给出了输入电阻随频率变化的响应曲线。总体趋势为：低频段阻抗较大，随频率升高快速下降；进入中频段后趋于稳定；继续升频后再次下降。
 
-实测数据如下：输入电阻测试中，$V_i=0.072\,\mathrm{V}$、$R=5.04\,\mathrm{k}\Omega$、
-$V_s=0.152\,\mathrm{V}$，计算得
-\[
-R_i\approx 4.536\,\mathrm{k}\Omega.
-\]
-输出电阻测试中，$V_{oL}=5.040\,\mathrm{V}$、$V_o=6.400\,\mathrm{V}$、
-$R_L=5.06\,\mathrm{k}\Omega$，计算得
-\[
-R_o\approx 1.822\,\mathrm{k}\Omega.
-\]
+从图中可以读出，在中频段仿真输入电阻约为 $5.5386\,\mathrm{k}\Omega$，而实测输入电阻约为 $4.29\,\mathrm{k}\Omega$，两者存在较大差异。主要原因是仿真中采用了替代三极管模型，导致输入电阻相关参数与实际器件存在较大偏差，因此仿真结果可信度有限，应以实测数据为主。
 
-综合比较可见，在中频段（$f=1\,\mathrm{kHz}$）仿真阻抗与实测值差异较大，说明采用替代
-三极管模型后，阻抗相关仿真结果可信度有限，应以实测数据为主。
+\subsection*{8.5 输出电阻仿真}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{figures/eda_sim/figure6.png}
+    \caption{输出电阻分析结果图}
+\end{figure}
+仿真给出了输出电阻随频率变化的响应曲线。与输入电阻类似，总体趋势为：低频段阻抗较大，随频率升高快速下降；进入中频段后趋于稳定；继续升频后再次下降。
 
-
+从图中可以读出，在中频段仿真输入电阻约为 $4.9782\,\mathrm{k}\Omega$，而实测输入电阻约为 $4.29\,\mathrm{k}\Omega$，两者较为接近。说明仿真模型在输出电阻预测方面较为可靠，且与实测结果一致性较好。
 
 \section*{九、实验总结}
 \subsection*{9.1 问题及解决方案}
 \begin{enumerate}
-    \item 测量通频带时，起初在升高和降低频率过程中观察到输出电压变化不明显，误以为电路异常。后续确认该放大电路通频带较宽，下限频率为几十赫兹，上限频率可达数兆赫兹，测试现象与电路特性一致。
-    \item 测量输入电阻时，曾出现 $V_s<V_i$ 的异常读数。排查发现主要原因为测试夹子接触不稳及噪声干扰。重新固定示波器夹子并改善接触后，波形恢复稳定，测量结果正常。
+    \item 测量增益时，发现波形总是出现截止失真的现象。排查发现主要原因为示波器误添加了直流偏置，调整示波器后测量结果正常。
+    \item 测量通频带时，起初在升高和降低频率过程中观察到输出电压变化不明显，达到$100kHz$后仍未出现明显的增益下降，误以为电路异常。后续确认该放大电路通频带较宽，下限频率为几十赫兹，上限频率可达数兆赫兹，测试现象与电路特性一致。
+    
 \end{enumerate}
 
 \subsection*{9.2 操作技巧}
@@ -497,6 +562,5 @@ R_o\approx 1.822\,\mathrm{k}\Omega.
     \]
     当静态工作点升高时，$I_E$ 增大，$r_{be}$ 减小，从而 $R_i$ 也会相应减小。
 \end{enumerate}
-
 
 \end{document}

@@ -1,11 +1,11 @@
 # Fdb version 4
-["xdvipdfmx"] 1776339773.64052 "E4_SinglestageCEAmplifierCircuit.xdv" "E4_SinglestageCEAmplifierCircuit.pdf" "E4_SinglestageCEAmplifierCircuit" 1776339774.19497 0
-  "E4_SinglestageCEAmplifierCircuit.xdv" 1776339773.58488 95716 7eb8c6ea10f9b4cd9e11b0fa6d34155e "xelatex"
+["xdvipdfmx"] 1776597292.37877 "E4_SinglestageCEAmplifierCircuit.xdv" "E4_SinglestageCEAmplifierCircuit.pdf" "E4_SinglestageCEAmplifierCircuit" 1776597293.45738 0
+  "E4_SinglestageCEAmplifierCircuit.xdv" 1776597292.31759 107952 32a7a48216fe71ff9f13671c66d2903d "xelatex"
   (generated)
   "E4_SinglestageCEAmplifierCircuit.pdf"
   (rewritten before read)
-["xelatex"] 1776339772.97078 "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E4_SinglestageCEAmplifierCircuit/E4_SinglestageCEAmplifierCircuit.tex" "E4_SinglestageCEAmplifierCircuit.xdv" "E4_SinglestageCEAmplifierCircuit" 1776339774.19404 0
-  "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E4_SinglestageCEAmplifierCircuit/E4_SinglestageCEAmplifierCircuit.tex" 1776339767.97231 19920 6164a72a6ed9be7f731a2d636d9b4905 ""
+["xelatex"] 1776597291.58699 "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E4_SinglestageCEAmplifierCircuit/E4_SinglestageCEAmplifierCircuit.tex" "E4_SinglestageCEAmplifierCircuit.xdv" "E4_SinglestageCEAmplifierCircuit" 1776597293.45625 0
+  "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E4_SinglestageCEAmplifierCircuit/E4_SinglestageCEAmplifierCircuit.tex" 1776597284.40723 23168 6a190269884a4e395e152df76a414121 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -85,15 +85,23 @@
   "/usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf" 1739380943 42148 61becc7c670cd061bb319c643c27fdd4 ""
   "/usr/local/texlive/2025/texmf-var/web2c/xetex/xelatex.fmt" 1745761497 5854851 9405beb4c6cd273e0bd26aa5e146f3e8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1745761447.97632 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "E4_SinglestageCEAmplifierCircuit.aux" 1776339773.58388 1916 b71e074da71ccc882f9e0f43cda95175 "xelatex"
-  "E4_SinglestageCEAmplifierCircuit.tex" 1776339767.97231 19920 6164a72a6ed9be7f731a2d636d9b4905 ""
+  "E4_SinglestageCEAmplifierCircuit.aux" 1776597292.31659 3446 d6a2a46a6ec09cfeb44f0fda9be48b58 "xelatex"
+  "E4_SinglestageCEAmplifierCircuit.tex" 1776597284.40723 23168 6a190269884a4e395e152df76a414121 ""
   "figures/EquivalentCircuit.png" 1775637974.96672 534025 3907e384a9a9ac92f645a8c688214233 ""
   "figures/ExperimentalReferenceCircuit.png" 1775637477.65805 1426350 a1f7af4336201366851d3af3a2615ef4 ""
   "figures/SaturationDistortionWaveform.png" 1775637922.18986 707015 adc900a40853a72ec4b1b327d66b421d ""
   "figures/WaveformofCutoffDistortion.png" 1775637531.0306 650152 164d3dcdbfe1a3cef3def1795cd83684 ""
   "figures/datas/BW/bw_sorted_with_av.csv" 1776339378.60634 520 4f8033c384bfb2cf8bd5f0937d8b290c ""
   "figures/datas/BW/gain_frequency_bw.png" 1776339378.94827 111074 7ecb0badccd9f221227cb39c3e394ea2 ""
+  "figures/eda_sim/figure1.jpg" 1776595202.65878 63148 7e173ab7cc54ffe5b2aad4ee5c20949f ""
+  "figures/eda_sim/figure2.jpg" 1776595306.96221 32540 5e37db0256ec3af2d6c9ef0910815ae1 ""
+  "figures/eda_sim/figure3.jpg" 1776595751.55429 43572 d7bfd9345973c984ef902f4e9893dba3 ""
+  "figures/eda_sim/figure4.png" 1776596056.07244 52965 b795d5c4eeb40668a80dbfaafe7a6647 ""
+  "figures/eda_sim/figure5.png" 1776596640.79123 51033 36240e00107f489475fc585d1f3891e8 ""
+  "figures/eda_sim/figure6.png" 1776596665.79686 51185 78dd36368f80833f6babba3e52002449 ""
   "figures/oscilloscope/figure2.PNG" 1776337835.8146 44860 c57552c93a399ab5abc1037ff45d02e6 ""
+  "figures/oscilloscope/figure5.PNG" 1776337644.19176 59338 1ff08212de20de18b35228053a65f8df ""
+  "figures/oscilloscope/figure6.PNG" 1776337644.19819 61267 f279dcd5ac8c09df96381f774838b7bc ""
   "thinking_problems/problem1.png" 1775640271.08261 838749 2c4757bfa68860737eb96f749df969a3 ""
   (generated)
   "E4_SinglestageCEAmplifierCircuit.aux"
