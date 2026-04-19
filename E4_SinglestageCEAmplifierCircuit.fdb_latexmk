@@ -1,11 +1,11 @@
 # Fdb version 4
-["xdvipdfmx"] 1776597292.37877 "E4_SinglestageCEAmplifierCircuit.xdv" "E4_SinglestageCEAmplifierCircuit.pdf" "E4_SinglestageCEAmplifierCircuit" 1776597293.45738 0
-  "E4_SinglestageCEAmplifierCircuit.xdv" 1776597292.31759 107952 32a7a48216fe71ff9f13671c66d2903d "xelatex"
+["xdvipdfmx"] 1776597949.1965 "E4_SinglestageCEAmplifierCircuit.xdv" "E4_SinglestageCEAmplifierCircuit.pdf" "E4_SinglestageCEAmplifierCircuit" 1776597950.28088 0
+  "E4_SinglestageCEAmplifierCircuit.xdv" 1776597949.13314 108028 5618825e8a0ace6c62b091139f4ecdc7 "xelatex"
   (generated)
   "E4_SinglestageCEAmplifierCircuit.pdf"
   (rewritten before read)
-["xelatex"] 1776597291.58699 "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E4_SinglestageCEAmplifierCircuit/E4_SinglestageCEAmplifierCircuit.tex" "E4_SinglestageCEAmplifierCircuit.xdv" "E4_SinglestageCEAmplifierCircuit" 1776597293.45625 0
-  "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E4_SinglestageCEAmplifierCircuit/E4_SinglestageCEAmplifierCircuit.tex" 1776597284.40723 23168 6a190269884a4e395e152df76a414121 ""
+["xelatex"] 1776597948.39489 "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E4_SinglestageCEAmplifierCircuit/E4_SinglestageCEAmplifierCircuit.tex" "E4_SinglestageCEAmplifierCircuit.xdv" "E4_SinglestageCEAmplifierCircuit" 1776597950.27968 0
+  "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E4_SinglestageCEAmplifierCircuit/E4_SinglestageCEAmplifierCircuit.tex" 1776597941.18808 23177 613b75ee42be653aa46ed20089f18613 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -85,8 +85,8 @@
   "/usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf" 1739380943 42148 61becc7c670cd061bb319c643c27fdd4 ""
   "/usr/local/texlive/2025/texmf-var/web2c/xetex/xelatex.fmt" 1745761497 5854851 9405beb4c6cd273e0bd26aa5e146f3e8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1745761447.97632 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "E4_SinglestageCEAmplifierCircuit.aux" 1776597292.31659 3446 d6a2a46a6ec09cfeb44f0fda9be48b58 "xelatex"
-  "E4_SinglestageCEAmplifierCircuit.tex" 1776597284.40723 23168 6a190269884a4e395e152df76a414121 ""
+  "E4_SinglestageCEAmplifierCircuit.aux" 1776597949.13214 3446 d6a2a46a6ec09cfeb44f0fda9be48b58 "xelatex"
+  "E4_SinglestageCEAmplifierCircuit.tex" 1776597941.18808 23177 613b75ee42be653aa46ed20089f18613 ""
   "figures/EquivalentCircuit.png" 1775637974.96672 534025 3907e384a9a9ac92f645a8c688214233 ""
   "figures/ExperimentalReferenceCircuit.png" 1775637477.65805 1426350 a1f7af4336201366851d3af3a2615ef4 ""
   "figures/SaturationDistortionWaveform.png" 1775637922.18986 707015 adc900a40853a72ec4b1b327d66b421d ""
