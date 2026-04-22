@@ -168,6 +168,9 @@ INPUT ./figures/EquivalentCircuit.png
 INPUT ./figures/oscilloscope/figure2.PNG
 INPUT ./figures/oscilloscope/figure2.PNG
 INPUT ./figures/oscilloscope/figure2.PNG
+INPUT ./figures/painting/figure1.jpg
+INPUT ./figures/painting/figure1.jpg
+INPUT ./figures/painting/figure1.jpg
 INPUT figures/datas/BW/bw_sorted_with_av.csv
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT ./figures/datas/BW/gain_frequency_bw.png
@@ -176,9 +179,15 @@ INPUT ./figures/datas/BW/gain_frequency_bw.png
 INPUT ./figures/oscilloscope/figure6.PNG
 INPUT ./figures/oscilloscope/figure6.PNG
 INPUT ./figures/oscilloscope/figure6.PNG
+INPUT ./figures/painting/figure3.jpg
+INPUT ./figures/painting/figure3.jpg
+INPUT ./figures/painting/figure3.jpg
 INPUT ./figures/oscilloscope/figure5.PNG
 INPUT ./figures/oscilloscope/figure5.PNG
 INPUT ./figures/oscilloscope/figure5.PNG
+INPUT ./figures/painting/figure2.jpg
+INPUT ./figures/painting/figure2.jpg
+INPUT ./figures/painting/figure2.jpg
 INPUT ./figures/eda_sim/figure1.jpg
 INPUT ./figures/eda_sim/figure1.jpg
 INPUT ./figures/eda_sim/figure1.jpg
