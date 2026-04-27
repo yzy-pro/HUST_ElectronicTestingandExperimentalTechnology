@@ -7,6 +7,9 @@
 \usepackage{float}
 \usepackage{subcaption}
 \usepackage{csvsimple}
+\usepackage{array}
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
 \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
 \graphicspath{{figures/}{results/}}
 \begin{document}
@@ -253,122 +256,191 @@ V_{O1}=0,\quad V_O=-V_I
 
 \section{硬件实验结果分析}
 \subsection{正弦波产生电路}
-\subsubsection{实验插板图}
-实验电路插板搭建如图所示（图略）。
-
-\subsubsection{实验波形}
-\paragraph{振荡波形}
-示波器测得稳定正弦振荡波形，核心参数：
-峰峰值 \( V_{pp}=3.480\,\text{V} \)，频率 \( f=733.1\,\text{Hz} \)，波形基本不失真。
-
-\paragraph{相位差测量}
-在谐振频率附近测量输入与输出信号相位差，谐振点相位差接近 \( 0^\circ \)，符合RC串并联选频网络特性。
-
-\paragraph{振荡不起来的情况}
-当负反馈过强、增益不足或接线错误时，电路无法满足起振条件，无振荡波形输出。
-
-\paragraph{电压增益过大的情况}
-电位器调节不当导致增益过高，波形严重失真，峰峰值可达 \( 15.20\,\text{V} \)，出现明显削波。
-
-\subsubsection{实验数据}
-调节 \( R_P \) 使振荡稳定且波形最大不失真，测得振荡频率 \( f_0=733\,\text{Hz} \)。保持 \( V_{12} \) 幅度不变，改变频率测得幅频与相频特性数据如下：
-
-\begin{table}[H]
-\centering
-\caption{开环幅频特性与相频特性测量数据}
-\begin{tabular}{|c|c|c|}
-\hline
-输入信号频率 \( f/\text{Hz} \) & 输出电压峰峰值 \( V_{pp}/\text{V} \) & 相位差 \( \varphi/^\circ \) \\
-\hline
-50    & 1.5   & 0 \\
-\hline
-70    & 0.76  & 79.2 \\
-\hline
-100   & 1.02  & 75.42 \\
-\hline
-200   & 1.4   & 67.95 \\
-\hline
-700   & 2.36  & 45.18 \\
-\hline
-\( f_0=733 \) & 3.44  & 2.022 \\
-\hline
-1200  & 3.44  & -17.39 \\
-\hline
-5000  & 3.28  & -66.93 \\
-\hline
-7000  & 1.14  & -70.59 \\
-\hline
-10000 & 0.84  & -73.73 \\
-\hline
-\end{tabular}
-\end{table}
-
-\paragraph{数据分析}
-在谐振频率 \( f_0 \) 处输出幅度最大、相位差近似为 \( 0^\circ \)；频率偏离 \( f_0 \) 时输出幅度下降，相位差显著变化。实验结果与RC串并联选频网络理论特性基本一致。
-
-\subsection{精密全波整流电路}
-\subsubsection{实验插板图}
-实验电路插板搭建如图所示（图略）。
 
 \subsubsection{实验波形图}
+正弦波产生电路产生的正弦波波形图如图所示
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{figures/oscilloscope/figure1.PNG}
+    \caption{正弦波产生电路实验波形}
+    \label{fig:result1}
+\end{figure}
 
-\paragraph{半波整流}
-其中黄色波形为输入信号，蓝色波形为半波整流所得波形。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{figures/painting/figure1.jpg}
+    \caption{绘制正弦波产生电路实验波形}
+    \label{fig:painting1}
+\end{figure}
 
-\paragraph{全波整流}
-其中黄色波形为输入信号，蓝色波形为精密全波整流后的波形。
+示波器测得稳定正弦振荡波形，核心参数：峰峰值 \( V_{pp}=25.8\,\text{V} \)，频率 \( f=992.0\,\text{Hz} \)，波形基本不失真。
 
-\paragraph{示波器XY显示模式下传输特性曲线}
-图示为传输特性曲线，因电路中可能存在某些接触不良的问题，噪声很大，存在一些不规则的“小颗粒”，但是主要特征还是清晰可见。课本上的图与实验所示图形基本一致，可知实验结果正确。
+\subsubsection{实验数据记录}
+为了能够使函数发生器产生等振幅的正弦信号，调节滑动变阻器使振荡振幅稳定在$4 V$左右，测得振荡振幅\( V_o=3.78\,\text{V} \) 振荡频率 \( f_0=934.0\,\text{Hz} \)。保持 \( V_{12} \) 幅度不变，改变频率测得幅频与相频特性数据如下：
+
+\begin{table}[H]
+    \centering
+    \caption{Frequency Response Data}
+    \small
+    \begin{tabularx}{\textwidth}{|Y|Y|Y|}
+        \hline
+        $f$/Hz & $v_{opp}$/mV & $\Delta\phi$/rad \\
+        \hline
+        50 & 0.66 & 1.408 \\
+        70 & 0.87 & 1.331 \\
+        100 & 1.25 & 1.258 \\
+        200 & 2.02 & 0.925 \\
+        700 & 3.54 & 0.073 \\
+        $f_{0} = 934.00$ & 3.78 & 0 \\
+        1200 & 3.69 & -0.312 \\
+        5000 & 2.12 & -0.961 \\
+        7000 & 1.48 & -1.125 \\
+        10000 & 1.01 & -1.457 \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/datas/E1/amplitude_frequency.png}
+        \caption{幅频响应}
+        \label{fig:dataE1_1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/datas/E1/phase_frequency.png}
+        \caption{相频响应}
+        \label{fig:dataE1_2}
+    \end{subfigure}
+    \caption{频率响应特性}
+    \label{fig:dataE1}
+\end{figure}
+
+\paragraph{数据分析}
+在谐振频率 \( f_0 \) 处输出幅度最大、相位差近似为 \( 0^\circ \)。频率偏离 \( f_0 \) 时输出幅度下降，相位差整体上单调递减。实验结果与RC串并联选频网络理论特性基本一致。
+
+\subsection{精密全波整流电路}
+
+\subsubsection{实验波形图}
+$v_{o1}$波形如下图所示，黄色波形为正弦波产生电路输出信号，蓝色波形为经半波整流后$v_{o1}$的波形。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{figures/oscilloscope/figure2.PNG}
+    \caption{半波整流输出波形}
+    \label{fig:result2}
+\end{figure}
+
+$v_{o}$波形如下图所示，黄色波形为正弦波产生电路输出信号，蓝色波形为经全波整流后$v_{o}$的波形。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{figures/oscilloscope/figure3.PNG}
+    \caption{全波整流输出波形}
+    \label{fig:result3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[angle=90,width=0.72\textwidth]{figures/painting/figure2.jpg}
+    \caption{绘制精密全波整流电路输出波形}
+    \label{fig:painting2}
+\end{figure}
+
+将波形调整为原点重合并将示波器切换为XY显示模式下，可以得到电路的传输特性曲线如图所示。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{figures/oscilloscope/figure5.PNG}
+    \caption{电路传输特性曲线}
+    \label{fig:result5}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[angle=90,width=0.72\textwidth]{figures/painting/figure3.jpg}
+    \caption{绘制精密全波整流电路传输特性}
+    \label{fig:painting3}
+\end{figure}
+
+图示为传输特性曲线，由于反馈电阻电阻值存在一定误差，反向比例放大电路的增益不是严格的2倍，导致图像在原点处存在一定的失真现象。但图像整体上与理论分析一致，可知实验结果正确。
 
 \subsubsection{实验数据}
 
 \paragraph{原始数据}
-
+根据实验步骤测得的直流输入输出数据记录如下：
 \begin{table}[H]
-\centering
-\caption{精密全波整流电路直流输入输出测量数据}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-\hline
-输入直流电压 $V_I$/V & -5.0 & -0.7 & -0.5 & -0.3 & 0 & 0.3 & 0.5 & 5.0 \\
-\hline
-$V_{O1}'$/V & -9.4 & -770mV & -189mV & 188mV & 0 & 1.375V & 1.385V & 1.439V \\
-\hline
-$V_{O1}$/V & -8.6 & -206mV & 226mV & 625mV & 0 & 959mV & 987mV & 947mV \\
-\hline
-$V_O$/V & 5.767 & 1.105 & 0.730 & 0.498 & 0 & 0.537 & 0.743 & 5.929 \\
-\hline
-\end{tabular}
+    \centering
+    \caption{精密全波整流电路直流输入输出测量数据}
+    \small
+    \begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
+        \hline
+        $V_I$/V & $V_{O1}'$/V & $V_{O1}$/V & $V_O$/V \\
+        \hline
+        \csvreader[
+            head to column names,
+            late after line=\\\hline
+        ]{figures/datas/E2/E2.csv}{}{
+            \csvcoli & \csvcolii & \csvcoliii & \csvcoliv
+        }
+    \end{tabularx}
 \end{table}
 
 \paragraph{数据处理}
-使用示波器的XY模式做出传输特性曲线如下图所示，测得数据不够平滑，虽有一定的误差，但是从形状上看，与示波器实际测得的波形近似，达到了实验的目的。
+绘制 $V_{O1}'$、$V_{O1}$ 与 $V_O$ 随 $V_I$ 的变化规律如下图。
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/datas/E2/transfer_1_V__o1.png}
+        \caption{$V_{O1}'-V_I$ 传输特性}
+        \label{fig:e2_transfer_1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/datas/E2/transfer_2_V__o1.png}
+        \caption{$V_{O1}-V_I$ 传输特性}
+        \label{fig:e2_transfer_2}
+    \end{subfigure}
+
+    \vspace{0.8em}
+
+    \begin{subfigure}{0.64\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/datas/E2/transfer_3_V__o.png}
+        \caption{$V_O-V_I$ 传输特性}
+        \label{fig:e2_transfer_3}
+    \end{subfigure}
+    \caption{精密全波整流电路传输特性曲线}
+    \label{fig:e2_transfer_all}
+\end{figure}
+
+可以发现在输入直流电压测量时传输特性曲线在原点处的失真现象较直接使用交流激励测量有所减小，验证了电路的正确性。
 
 \section{实验总结}
 \subsection{正弦波产生电路}
 \subsubsection{问题及解决方案}
-本次实验比较简单，实验过程顺利，未遇到明显故障与问题。
+直接连接完成电路并通电后，示波器上没有输出波形，经过检查发现是滑动变阻器的阻值设置不合理，不满足电路的起振条件，调整后电路成功起振，输出了稳定的正弦波。
 
 \subsubsection{操作技巧}
 插装电路时，导线与引脚尽量剪短，避免布线过长，可提高电路稳定性，减少接触不良与干扰，便于一次性完成实验，也便于故障排查。
 
-
-\subsubsection{问题及解决方案}
-\begin{enumerate}
-    \item 将信号发生器关闭，仅开启恒压直流源，将示波器直接与直流源相连，波形显示为规则的正弦波。
-    
-    \textbf{解决方法：} 地线没有接好，地线接触不良导致波形离谱，重新连接地线稳固后，奇怪的波形消失了。
-    
-    \item 整流后的波形出现晃动和变形，与上一个问题一样，是地线接触不良导致，重新连接后就解决了。
-\end{enumerate}
-
 \subsection{精密全波整流电路}
+\subsubsection{问题及解决方案}
+直接连接电路，通电后$v_{o}$输出波形也是半波整流的波形，经过检查发现是正弦波发生电路的输出幅值过高，导致放大电路饱和，无法正常工作。调节滑动变阻器阻值分压后，将正弦波发生电路输出幅值调整到合适范围，整流电路正常工作，输出了的全波整流波形。
+
+此时全波整流波形虽然正确，但是两个峰值的振幅存在明显差异，经过理论分析得知导致现象的原因是反向比例放大电路的增益存在误差，更换反向比例放大电路中的$20k\Omega$电阻后，两个峰值的振幅基本一致，达到了预期效果。
+
+
 \subsubsection{实验小结}
-本次实验对我来说又是一个全新的挑战，难度比上一个实验大了一些，第一个实验没有遇到什么问题，但是这个第二个实验出了一些诡异的问题，比如去掉输入信号后，示波器依然有规整的正弦波，解决之后恍然大悟，增长了我的见识，提高了我的动手能力和分析问题的能力，是很有收获的一次实验。
+本次实验让我对正弦波产生电路和精密全波电路的理解更加深入，实验过程中我也发现了一些有趣的现象，比如去掉正弦波产生电路的开关二极管后，电路仍然可以正常工作。这次实验增长了我的见识，提高了我的动手能力和分析问题的能力，是很有收获的一次实验。
 
 
 \subsection{心得体会}
-通过本次实验，问题定位与排查能力得到进一步提升，面包板搭建与调试熟练度明显提高，同时也更加熟悉示波器在波形观察与参数测量中的使用方法。
+通过本次实验，问题定位与排查能力得到进一步提升，面包板搭建与调试熟练度明显提高，同时也更加熟悉示波器在波形观察与参数测量中的使用方法，能够将理论分析与实验结果相结合，验证实验结果的正确性或排查实验电路错误的原因。
 
 
 \section{思考题}
