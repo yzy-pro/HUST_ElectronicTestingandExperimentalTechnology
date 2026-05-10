@@ -180,22 +180,38 @@ $\displaystyle V_{OL}$ & 5.07V & \diagbox{}{} & 0.321V \\
 \end{tabularx}
 \end{table}
 
-\subsubsection{实验数据}
+\subsubsection{测量门传输延迟时间}
 
-传输延迟测量：$t_{pLH}=116.4\,\text{ns}$，$t_{pHL}=0.13\,\mu\text{s}$。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/oscilloscope/scope_2.png}
+    \caption{上升沿延迟 $t_{pLH}$ 测量波形}
+\end{figure}
+
+从图中可见，4个串联与非门的上升沿延迟 $t_{pLH}$ 约为 $27.800\,\text{ns}$。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/oscilloscope/scope_1.png}
+    \caption{下降沿延迟 $t_{pHL}$ 测量波形}
+\end{figure}
+
+从图中可见，4个串联与非门的下降沿延迟 $t_{pHL}$ 约为 $51.200\,\text{ns}$。
 
 总延时取平均值约为
 \[
- t_{pd(\text{total})}=\frac{t_{pLH}+t_{pHL}}{2}=123.2\,\text{ns}
+ t_{pd(\text{total})}=\frac{t_{pLH}+t_{pHL}}{2}
+ =\frac{27.800+51.200}{2}\,\text{ns}
+ =39.500\,\text{ns}
 \]
 
 单个与非门延迟约为
 \[
- t_{pd}=\frac{123.2\,\text{ns}}{4}=30.8\,\text{ns}
+ t_{pd}=\frac{39.500\,\text{ns}}{4}=9.875\,\text{ns}\approx 9.9\,\text{ns}
 \]
 
 \subsubsection{结果分析}
-空载时测得输出电平受测试方式影响较明显，接入合适负载后输出高、低电平更接近器件实际工作状态。实验中测得 $t_{pd}$ 与手册参数存在偏差，可能由手动游标读数误差引起。
+空载时测得输出电平受测试方式影响较明显，接入合适负载后输出高、低电平更接近器件实际工作状态。根据真实波形数据计算得到单个与非门平均传输延迟约为 $9.9\,\text{ns}$，量级与 74HC00 的特性基本一致。
 
 \subsection{组合逻辑设计 }
 \subsubsection{实验插板图}
