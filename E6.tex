@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{geometry}
+\usepackage{diagbox}
 \usepackage{multirow}
 \usepackage{float}
 \usepackage{subcaption}
@@ -100,7 +101,7 @@
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.55\textwidth]{e6docx_media/media/image1.jpeg}
+    \includegraphics[width=0.82\textwidth]{e6docx_media/media_new/image1.png}
     \caption{逻辑门主要参数参考图}
 \end{figure}
 
@@ -124,7 +125,7 @@ TTL/CMOS 门电路使用中需注意：电源稳定、输入端不得悬空、�
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.45\textwidth]{e6docx_media/media/image2.png}
+    \includegraphics[width=0.45\textwidth]{e6docx_media/media_new/image2.png}
     \caption{下拉电阻测 $V_{OH}$}
 \end{figure}
 
@@ -133,7 +134,7 @@ TTL/CMOS 门电路使用中需注意：电源稳定、输入端不得悬空、�
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.45\textwidth]{e6docx_media/media/image3.png}
+    \includegraphics[width=0.45\textwidth]{e6docx_media/media_new/image3.png}
     \caption{上拉电阻测 $V_{OL}$}
 \end{figure}
 
@@ -142,7 +143,7 @@ TTL/CMOS 门电路使用中需注意：电源稳定、输入端不得悬空、�
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image4.png}
+    \includegraphics[width=0.75\textwidth]{e6docx_media/media_new/image4.png}
     \caption{传输延迟测试电路}
 \end{figure}
 
@@ -162,55 +163,24 @@ TTL/CMOS 门电路使用中需注意：电源稳定、输入端不得悬空、�
 
 \section{硬件实验结果分析}
 \subsection{集成逻辑门电路参数测试}
-\subsubsection{实验插板与波形}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.45\textwidth]{e6docx_media/media/image5.jpeg}
-    \caption{测量 $V_{OH}$ 与 $V_{OL}$ 插板图}
-\end{figure}
+\subsubsection{测量输出高电平 、低电平}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image6.jpeg}
-    \caption{传输延迟测试插线图}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image7.png}
-    \caption{上升沿延迟波形}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image8.png}
-    \caption{下降沿延迟波形}
-\end{figure}
+\begin{table}[H]
+\centering
+\caption{$V_{OH}$、$V_{OL}$ 测试数据}
+\renewcommand{\arraystretch}{2.2}
+\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{3.6cm}|Y|Y|Y|}
+\hline
+ & \shortstack{空载} & \shortstack{带载（$5.1k\Omega$）} & \shortstack{带载（$510\Omega$）} \\
+\hline
+$\displaystyle V_{OH}$ & 20.0mV & 5.06V & \diagbox{}{} \\
+\hline
+$\displaystyle V_{OL}$ & 5.07V & \diagbox{}{} & 0.321V \\
+\hline
+\end{tabularx}
+\end{table}
 
 \subsubsection{实验数据}
-\begin{table}[H]
-\centering
-\caption{$V_{OH}$ 测试数据（电源 5.09V）}
-\begin{tabular}{|c|c|c|c|}
-\hline
-测试条件 & 空载 & 接510$\Omega$电阻 & 接5.1k$\Omega$电阻 \\
-\hline
-电压 & 20.0mV & 4.71V & 5.06V \\
-\hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\caption{$V_{OL}$ 测试数据（电源 5.09V）}
-\begin{tabular}{|c|c|c|c|}
-\hline
-测试条件 & 空载 & 接510$\Omega$电阻 & 接5.1k$\Omega$电阻 \\
-\hline
-电压 & 5.07V & 0.321V & 32.6mV \\
-\hline
-\end{tabular}
-\end{table}
 
 传输延迟测量：$t_{pLH}=116.4\,\text{ns}$，$t_{pHL}=0.13\,\mu\text{s}$。
 
