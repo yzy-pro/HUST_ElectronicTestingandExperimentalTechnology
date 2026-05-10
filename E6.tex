@@ -12,6 +12,7 @@
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
 \graphicspath{{figures/}{results/}}
+
 \begin{document}
 \begin{titlepage}
     \centering
@@ -35,445 +36,266 @@
 
 \setcounter{page}{1}
 
-
-
 \section{实验名称}
-逻辑门测试与组合逻辑设计。
+逻辑门测试与组合逻辑设计
+
 
 \section{实验目的}
+\subsection{集成逻辑门电路参数测试}
 \begin{enumerate}
-    \item 了解集成运算放大器在振荡电路方面的作用。
-    \item 掌握由集成运算放大器构成的桥式振荡电路的工作原理、震荡频率和输出幅度的测量方法。
-    \item 研究负反馈强弱对振荡波形的影响。
-    \item 学习用示波器测量正弦波的振荡频率、开环幅频特性和相频特性的方法。
-    \item 学习用运算放大器构成精密全波整流电路的方法。
-    \item 重点掌握精密全波整流电路输入、输出波形的测量和描绘方法。
+    \item 了解 TTL、MOS 门电路的主要特性参数以及门电路引脚排列。
+    \item 掌握门电路逻辑功能的测试方法。
+    \item 掌握门电路延迟时间与电压传输特性的测试方法。
+    \item 熟悉数字万用表、示波器等常用电子仪器的使用方法。
+\end{enumerate}
+
+\subsection{组合逻辑设计 }
+\begin{enumerate}
+    \item 掌握用逻辑门、译码器和选择器实现简单组合逻辑电路的方法。
+    \item 掌握简单数字电路的安装与调试技术。
+    \item 进一步熟悉数字万用表、示波器等仪器的使用方法。
+    \item 熟悉用 Verilog HDL 描述组合逻辑电路及 EDA 仿真技术。
 \end{enumerate}
 
 \section{实验元器件}
+\subsection{集成逻辑门电路参数测试}
 \begin{table}[H]
 \centering
-\caption{正弦波产生电路实验元器件}
+\caption{集成逻辑门电路参数测试元器件}
 \begin{tabular}{|c|c|c|}
 \hline
-类型         & 型号（参数） & 数量 \\
+类型 & 型号（参数） & 数量 \\
 \hline
-集成运算放大器 & LM324       & 1片  \\
+集成电路 & 74HC00 & 1片 \\
 \hline
-电位器       & 100k$\Omega$ & 1只  \\
+电阻 & 5.1k$\Omega$ & 1只 \\
 \hline
-电阻         & 5.1k$\Omega$ & 2只  \\
-\hline
-电阻         & 10k$\Omega$  & 2只  \\
-\hline
-电阻         & 18k$\Omega$  & 2只  \\
-\hline
-二极管       & 2AP7         & 2只  \\
-\hline
-电容         & 0.033$\mu$F  & 2只  \\
+电阻 & 510$\Omega$ & 1只 \\
 \hline
 \end{tabular}
 \end{table}
 
+\subsection{组合逻辑设计 }
 \begin{table}[H]
 \centering
-\caption{精密全波整流电路实验元器件}
+\caption{组合逻辑设计 元器件}
 \begin{tabular}{|c|c|c|}
 \hline
-类型         & 型号（参数）   & 数量 \\
+类型 & 型号（参数） & 数量 \\
 \hline
-集成运算放大器 & LM324         & 1片  \\
+集成电路 & 74HC00 & 2片 \\
 \hline
-电位器       & 100k$\Omega$  & 1只  \\
+发光二极管 & 红/黄/绿 & 各1只 \\
 \hline
-电阻         & 3.3k$\Omega$  & 1只  \\
-\hline
-电阻         & 10k$\Omega$   & 5只  \\
-\hline
-电阻         & 20k$\Omega$   & 1只  \\
-\hline
-二极管       & 2AP7          & 2只  \\
+电阻 & 510$\Omega$ & 3只 \\
 \hline
 \end{tabular}
 \end{table}
-
 
 \section{实验原理}
-\subsection{正弦波产生电路}
-\subsubsection{参考电路}
-RC 文氏电桥正弦波振荡电路如图所示，核心由运算放大器、RC 串并联选频网络、负反馈网络及稳幅二极管构成。
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.72\textwidth]{figures/reference/9-1.png}
-    \caption{正弦波产生电路实验参考电路}
-    \label{fig:reference9_1}
-\end{figure}
+\subsection{集成逻辑门电路参数测试}
+传统数字集成电路主要分为 TTL、ECL、CMOS 三类。TTL 器件工作速度较快，CMOS 器件静态功耗低、噪声容限较大、应用广泛。74HC00 与 74LS00 均为四个二输入与非门，逻辑功能一致但器件工艺不同。
 
-\subsubsection{实验原理}
-图中 R、C 为串、并联选频网络，接于运算放大器的输出端与同相输入端之间，构成正反馈，以产生正弦自激振荡。其余部分是带有负反馈的同相放大电路，$R_1$、$R_2$、$R_P$ 构成负反馈网络，调节 $R_P$ 可改变负反馈的反馈系数，从而调节放大电路的电压增益，使其满足振荡的幅值条件。
-
-二极管 $D_1$、$D_2$ 有利于正弦波的起振和稳定输出幅度，改善输出波形。当输出电压 $V_o$ 幅值很小时，$D_1$、$D_2$ 开路，等效电阻 $R_f$ 较大，电压增益
-\[
-A_{vf}=\frac{V_o}{V_p}=\frac{R_1+R_f}{R_1}
-\]
-较大，有利于起振；当输出幅值较大时，二极管导通，$R_f$ 减小，$A_{vf}$ 下降，幅值趋于稳定。
-
-设 R、C 串并联网络中，并联阻抗为 $Z_1$，串联阻抗为 $Z_2$，振荡角频率为
-\[
-\omega_0=\frac{1}{RC}
-\]
-则
-\[
-Z_1=\frac{R}{1+j\omega RC},\quad Z_2=R+\frac{1}{j\omega C}
-\]
-
-正反馈系数为
-\[
-F_v=\frac{V_p}{V_{12}}=\frac{Z_1}{Z_1+Z_2}
-=\frac{1}{3+j\left(\dfrac{\omega}{\omega_0}-\dfrac{\omega_0}{\omega}\right)}
-\]
-
-当 $\omega=\omega_0$ 时，反馈系数幅值最大，$F_v=1/3$，相角 $\varphi_f=0^\circ$，满足自激振荡相位条件。若此时负反馈放大电路增益大于 3，则满足 $A_{vf}F_v>1$ 的起振条件。电路起振后，受二极管非线性限制，增益由 $A_{vf}>3$ 过渡到 $A_{vf}=3$，达到幅值平衡。
+本实验通过 $V_{OH}$、$V_{OL}$ 以及平均传输延迟时间 $t_{pd}$ 的测量，比较门电路在不同负载条件下的输出特性及动态响应。
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.47\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/reference/9-2.png}
-        \caption{幅频相应曲线}
-        \label{fig:A_f}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.47\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/reference/9-3.png}
-        \caption{相频响应曲线}
-        \label{fig:phi_f}
-    \end{subfigure}
-    \caption{串、并联选频网络的频率响应}
-    \label{fig:A_or_phi_f}
+    \includegraphics[width=0.55\textwidth]{e6docx_media/media/image1.jpeg}
+    \caption{逻辑门主要参数参考图}
 \end{figure}
 
-\subsubsection{注意事项}
-\begin{enumerate}
-    \item 安装电路时，应注意集成运算放大器各引脚的功能和二极管的极性。
-    \item 调整电路时，应反复调电位器，使电路起振，且波形幅值最大且不失真。
-    \item 测量振荡电路的开环相频特性时，注意相位差角 $\varphi_f$ 在 $f_0$ 前后会发生明显变化。
-\end{enumerate}
+\subsection{组合逻辑设计 }
+组合逻辑电路设计流程为：逻辑抽象、列真值表、逻辑化简、器件映射和电路实现。逻辑化简的目标是在功能不变前提下减少门数、缩短信号路径并提升可靠性。
 
-\subsection{精密全波整流电路}
-\subsubsection{实验原理}
-由于二极管的伏安特性在小信号时处于截止或特性曲线的弯曲部分，所以一般利用二极管的单向导电性来组成整流电路，在小信号检波时，输出端将得不到原信号（或使原信号失真很大），常常出现交越失真。如果把二极管置于运算放大器组成的负反馈环路中，则能大大削弱这种影响，提高电路的精度。
+TTL/CMOS 门电路使用中需注意：电源稳定、输入端不得悬空、输出端不能违规并联，布线应尽量短以降低干扰。
+
+本实验使用两片 74HC00 设计一位二进制数比较电路，输出三种状态：$L_1(A>B)$、$L_2(A<B)$、$L_3(A=B)$。
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.47\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/reference/10-1.png}
-        \caption{输入信号}
-        \label{fig:reference10_1}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.47\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/reference/10-2.png}
-        \caption{输出信号}
-        \label{fig:reference10_2}
-    \end{subfigure}
-    \caption{交越失真示意图}
-    \label{fig:reference10_1_and_10_2}
+    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image13.jpeg}
+    \caption{比大小组合逻辑参考电路}
 \end{figure}
-
-\subsubsection{参考电路}
-如图所示是反相输入精密全波整流电路。
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.72\textwidth]{figures/reference/10-3.png}
-    \caption{精密全波整流电路实验参考电路}
-    \label{fig:reference10_3}
-\end{figure}
-
-当输入电压 \( V_I>0 \) 时，二极管 \( D_1 \) 截止，\( D_2 \) 导通，\( A_1 \) 为反相比例运算电路，\( A_2 \) 为加法运算电路，可计算得到输出端电压为：
-\[
-V_{O1}=-\frac{20\,\text{k}\Omega}{10\,\text{k}\Omega}V_I=-2V_I
-\]
-\[
-V_O=-\left( \frac{10\,\text{k}\Omega}{10\,\text{k}\Omega}V_{O1} \right)+\left( -\frac{10\,\text{k}\Omega}{10\,\text{k}\Omega}V_I \right)=V_I
-\]
-
-输入电压 \( V_I<0 \) 时，二极管 \( D_1 \) 导通，\( D_2 \) 截止，
-\[
-V_{O1}=0,\quad V_O=-V_I
-\]
-
-上述分析表明，该电路在输出端可得到单向电压，实现了全波整流。其电压传输特性及输入、输出电压波形如图所示。
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.72\textwidth]{figures/reference/10-4.png}
-    \caption{电压传输特性及输入、输出电压波形}
-    \label{fig:reference10_4}
-\end{figure}
-
-\subsubsection{注意事项}
-整流的精度决定于 \( R_{f1} \)、\( R_{f2} \)、\( R_1 \)、\( R_2 \) 的匹配精度。
-
 
 \section{硬件实验内容}
-\subsection{正弦波产生电路}
-\subsubsection{组装电路}
-按照实验电路图在实验板上正确连接电路，检查接线无误后接通电源。
+\subsection{集成逻辑门电路参数测试}
+\subsubsection{测 $V_{OH}$}
+按下拉电阻法连接测试电路，改变负载条件（空载、510$\Omega$、5.1k$\Omega$），分别测输出高电平。
 
-\subsubsection{观察输出波形}
-将示波器接在振荡电路的输出端，观察输出波形 \( V_O \)。适当调节电位器 \( R_P \)，使电路产生振荡，观察负反馈强弱（即电压增益 \( A_{vf} \) 大小）对输出波形 \( V_O \) 的影响。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{e6docx_media/media/image2.png}
+    \caption{下拉电阻测 $V_{OH}$}
+\end{figure}
 
-\subsubsection{测量输出电压峰-峰值和输出信号频率}
-在输出波形 \( V_O \) 基本不失真的情况下，分别测量输出电压的峰-峰值和振荡频率 \( f_0 \)，并绘制波形图。
+\subsubsection{测 $V_{OL}$}
+按上拉电阻法连接测试电路，改变负载条件（空载、510$\Omega$、5.1k$\Omega$），分别测输出低电平。
 
-\subsubsection{测量开环幅频特性和相频特性}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{e6docx_media/media/image3.png}
+    \caption{上拉电阻测 $V_{OL}$}
+\end{figure}
 
-\paragraph{幅频特性}
-在实验电路图中将 a 点断开，从 1、2 两点间输入信号 \( V_{12} \)。为保持放大器工作状态不变，\( V_{12} \) 的幅值应与步骤 5.3 测得的输出电压峰-峰值保持一致。改变输入信号 \( V_{12} \) 的频率并保持幅值不变，分别测量对应的输出电压峰-峰值，记入实验数据表格。
+\subsubsection{测传输延迟时间 $t_{pd}$}
+将多个门串联测总延时，记录上升沿延迟 $t_{pLH}$ 与下降沿延迟 $t_{pHL}$，再计算单个门的平均延迟。
 
-\paragraph{相频特性}
-在实验电路图中将 a 点断开，输入信号 \( V_{12} \)，改变输入信号频率，观测输出电压 \( V_O \) 与输入信号 \( V_{12} \) 之间的相位差，记入实验数据表格。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image4.png}
+    \caption{传输延迟测试电路}
+\end{figure}
 
+\subsection{组合逻辑设计 }
+仅使用两片 74HC00，搭建一位二进制比较器。输入端 A、B 分别接高低电平，观察三路 LED 输出：
+\begin{itemize}
+    \item $L_1$ 亮表示 $A>B$。
+    \item $L_2$ 亮表示 $A<B$。
+    \item $L_3$ 亮表示 $A=B$。
+\end{itemize}
 
-\subsection{精密全波整流电路}
-\subsubsection{组装电路与调零}
-按照图组装电路（电源电压为$\pm12\,\text{V}$），检查无误后，接通电源。进行电路调零。将输入端接地（使$V_I=0$），缓慢调节运放调零端的外接电位器，使输出电压为零。
-
-\subsubsection{测量直流传输特性}
-在输入端加正、负直流电压，分别测出$V_{O1}$、$V_{O1}'$和$V_O$，并画出$V_O$-$V_I$的传输特性曲线。
-
-\subsubsection{观测交流输入波形}
-输入正弦电压峰-峰值为4V、$f=1\,\text{kHz}$，观测并记录$V_I$、$V_{O1}$和$V_O$波形，标出它们的幅值和相位。注意：用$V_I$作为信号触发源。
-
-\subsubsection{观测电压传输特性曲线}
-直接用示波器的X-Y方式观察电压传输特性曲线（注意坐标原点的调节方法）。
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.78\textwidth]{e6docx_media/media/image14.png}
+    \caption{组合逻辑设计 逻辑功能与连线说明}
+\end{figure}
 
 \section{硬件实验结果分析}
-\subsection{正弦波产生电路}
-
-\subsubsection{实验波形图}
-正弦波产生电路产生的正弦波波形图如图所示
+\subsection{集成逻辑门电路参数测试}
+\subsubsection{实验插板与波形}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.72\textwidth]{figures/oscilloscope/figure1.PNG}
-    \caption{正弦波产生电路实验波形}
-    \label{fig:result1}
+    \includegraphics[width=0.45\textwidth]{e6docx_media/media/image5.jpeg}
+    \caption{测量 $V_{OH}$ 与 $V_{OL}$ 插板图}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.72\textwidth]{figures/painting/figure1.jpg}
-    \caption{绘制正弦波产生电路实验波形}
-    \label{fig:painting1}
-\end{figure}
-
-示波器测得稳定正弦振荡波形，核心参数：峰峰值 \( V_{pp}=25.8\,\text{V} \)，频率 \( f=992.0\,\text{Hz} \)，波形基本不失真。
-
-\subsubsection{实验数据记录}
-为了能够使函数发生器产生等振幅的正弦信号，调节滑动变阻器使振荡振幅稳定在$4 V$左右，测得振荡振幅\( V_o=3.78\,\text{V} \) 振荡频率 \( f_0=934.0\,\text{Hz} \)。保持 \( V_{12} \) 幅度不变，改变频率测得幅频与相频特性数据如下：
-
-\begin{table}[H]
-    \centering
-    \caption{Frequency Response Data}
-    \small
-    \begin{tabularx}{\textwidth}{|Y|Y|Y|}
-        \hline
-        $f$/Hz & $v_{opp}$/mV & $\Delta\phi$/rad \\
-        \hline
-        50 & 0.66 & 1.408 \\
-        70 & 0.87 & 1.331 \\
-        100 & 1.25 & 1.258 \\
-        200 & 2.02 & 0.925 \\
-        700 & 3.54 & 0.073 \\
-        $f_{0} = 934.00$ & 3.78 & 0 \\
-        1200 & 3.69 & -0.312 \\
-        5000 & 2.12 & -0.961 \\
-        7000 & 1.48 & -1.125 \\
-        10000 & 1.01 & -1.457 \\
-        \hline
-    \end{tabularx}
-\end{table}
-
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}{0.47\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/datas/E1/amplitude_frequency.png}
-        \caption{幅频响应}
-        \label{fig:dataE1_1}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.47\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/datas/E1/phase_frequency.png}
-        \caption{相频响应}
-        \label{fig:dataE1_2}
-    \end{subfigure}
-    \caption{频率响应特性}
-    \label{fig:dataE1}
-\end{figure}
-
-\paragraph{数据分析}
-在谐振频率 \( f_0 \) 处输出幅度最大、相位差近似为 \( 0^\circ \)。频率偏离 \( f_0 \) 时输出幅度下降，相位差整体上单调递减。实验结果与RC串并联选频网络理论特性基本一致。
-
-\subsection{精密全波整流电路}
-
-\subsubsection{实验波形图}
-$v_{o1}$波形如下图所示，黄色波形为正弦波产生电路输出信号，蓝色波形为经半波整流后$v_{o1}$的波形。
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.72\textwidth]{figures/oscilloscope/figure2.PNG}
-    \caption{半波整流输出波形}
-    \label{fig:result2}
-\end{figure}
-
-$v_{o}$波形如下图所示，黄色波形为正弦波产生电路输出信号，蓝色波形为经全波整流后$v_{o}$的波形。
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.72\textwidth]{figures/oscilloscope/figure3.PNG}
-    \caption{全波整流输出波形}
-    \label{fig:result3}
+    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image6.jpeg}
+    \caption{传输延迟测试插线图}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[angle=90,width=0.72\textwidth]{figures/painting/figure2.jpg}
-    \caption{绘制精密全波整流电路输出波形}
-    \label{fig:painting2}
-\end{figure}
-
-将波形调整为原点重合并将示波器切换为XY显示模式下，可以得到电路的传输特性曲线如图所示。
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.72\textwidth]{figures/oscilloscope/figure5.PNG}
-    \caption{电路传输特性曲线}
-    \label{fig:result5}
+    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image7.png}
+    \caption{上升沿延迟波形}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[angle=90,width=0.72\textwidth]{figures/painting/figure3.jpg}
-    \caption{绘制精密全波整流电路传输特性}
-    \label{fig:painting3}
+    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image8.png}
+    \caption{下降沿延迟波形}
 \end{figure}
-
-图示为传输特性曲线，由于反馈电阻电阻值存在一定误差，反向比例放大电路的增益不是严格的2倍，导致图像在原点处存在一定的失真现象。但图像整体上与理论分析一致，可知实验结果正确。
 
 \subsubsection{实验数据}
-
-\paragraph{原始数据}
-根据实验步骤测得的直流输入输出数据记录如下：
 \begin{table}[H]
-    \centering
-    \caption{精密全波整流电路直流输入输出测量数据}
-    \small
-    \begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
-        \hline
-        $V_I$/V & $V_{O1}'$/V & $V_{O1}$/V & $V_O$/V \\
-        \hline
-        \csvreader[
-            head to column names,
-            late after line=\\\hline
-        ]{figures/datas/E2/E2.csv}{}{
-            \csvcoli & \csvcolii & \csvcoliii & \csvcoliv
-        }
-    \end{tabularx}
+\centering
+\caption{$V_{OH}$ 测试数据（电源 5.09V）}
+\begin{tabular}{|c|c|c|c|}
+\hline
+测试条件 & 空载 & 接510$\Omega$电阻 & 接5.1k$\Omega$电阻 \\
+\hline
+电压 & 20.0mV & 4.71V & 5.06V \\
+\hline
+\end{tabular}
 \end{table}
 
-\paragraph{数据处理}
-绘制 $V_{O1}'$、$V_{O1}$ 与 $V_O$ 随 $V_I$ 的变化规律如下图。
+\begin{table}[H]
+\centering
+\caption{$V_{OL}$ 测试数据（电源 5.09V）}
+\begin{tabular}{|c|c|c|c|}
+\hline
+测试条件 & 空载 & 接510$\Omega$电阻 & 接5.1k$\Omega$电阻 \\
+\hline
+电压 & 5.07V & 0.321V & 32.6mV \\
+\hline
+\end{tabular}
+\end{table}
+
+传输延迟测量：$t_{pLH}=116.4\,\text{ns}$，$t_{pHL}=0.13\,\mu\text{s}$。
+
+总延时取平均值约为
+\[
+ t_{pd(\text{total})}=\frac{t_{pLH}+t_{pHL}}{2}=123.2\,\text{ns}
+\]
+
+单个与非门延迟约为
+\[
+ t_{pd}=\frac{123.2\,\text{ns}}{4}=30.8\,\text{ns}
+\]
+
+\subsubsection{结果分析}
+空载时测得输出电平受测试方式影响较明显，接入合适负载后输出高、低电平更接近器件实际工作状态。实验中测得 $t_{pd}$ 与手册参数存在偏差，可能由手动游标读数误差引起。
+
+\subsection{组合逻辑设计 }
+\subsubsection{实验插板图}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image15.jpeg}
+    \caption{组合逻辑设计 插板图（一）}
+\end{figure}
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.47\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/datas/E2/transfer_1_V__o1.png}
-        \caption{$V_{O1}'-V_I$ 传输特性}
-        \label{fig:e2_transfer_1}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.47\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/datas/E2/transfer_2_V__o1.png}
-        \caption{$V_{O1}-V_I$ 传输特性}
-        \label{fig:e2_transfer_2}
-    \end{subfigure}
-
-    \vspace{0.8em}
-
-    \begin{subfigure}{0.64\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/datas/E2/transfer_3_V__o.png}
-        \caption{$V_O-V_I$ 传输特性}
-        \label{fig:e2_transfer_3}
-    \end{subfigure}
-    \caption{精密全波整流电路传输特性曲线}
-    \label{fig:e2_transfer_all}
+    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image16.jpeg}
+    \caption{组合逻辑设计 插板图（二）}
 \end{figure}
 
-可以发现在输入直流电压测量时传输特性曲线在原点处的失真现象较直接使用交流激励测量有所减小，验证了电路的正确性。
+\subsubsection{实验效果图与分析}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image17.jpeg}
+    \caption{$A>B$ 时（绿灯亮）}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image18.jpeg}
+    \caption{$A<B$ 时（红灯亮）}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image19.jpeg}
+    \caption{$A=B$ 时（同为低电平，黄灯亮）}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image20.jpeg}
+    \caption{$A=B$ 时（同为高电平，黄灯亮）}
+\end{figure}
+
+实验现象与理论一致，电路实现了比较功能。
 
 \section{实验总结}
-\subsection{正弦波产生电路}
-\subsubsection{问题及解决方案}
-直接连接完成电路并通电后，示波器上没有输出波形，经过检查发现是滑动变阻器的阻值设置不合理，不满足电路的起振条件，调整后电路成功起振，输出了稳定的正弦波。
+\subsection{集成逻辑门电路参数测试}
+实验过程较顺利，主要完成了逻辑电平与延迟参数的测量。操作中体会到自动测量功能在延迟读数时更稳定、精度更高，可减少人工游标误差。
 
-\subsubsection{操作技巧}
-插装电路时，导线与引脚尽量剪短，避免布线过长，可提高电路稳定性，减少接触不良与干扰，便于一次性完成实验，也便于故障排查。
-
-\subsection{精密全波整流电路}
-\subsubsection{问题及解决方案}
-直接连接电路，通电后$v_{o}$输出波形也是半波整流的波形，经过检查发现是正弦波发生电路的输出幅值过高，导致放大电路饱和，无法正常工作。调节滑动变阻器阻值分压后，将正弦波发生电路输出幅值调整到合适范围，整流电路正常工作，输出了的全波整流波形。
-
-此时全波整流波形虽然正确，但是两个峰值的振幅存在明显差异，经过理论分析得知导致现象的原因是反向比例放大电路的增益存在误差，更换反向比例放大电路中的$20k\Omega$电阻后，两个峰值的振幅基本一致，达到了预期效果。
-
-
-\subsubsection{实验小结}
-本次实验让我对正弦波产生电路和精密全波电路的理解更加深入，实验过程中我也发现了一些有趣的现象，比如去掉正弦波产生电路的开关二极管后，电路仍然可以正常工作。这次实验增长了我的见识，提高了我的动手能力和分析问题的能力，是很有收获的一次实验。
-
-
-\subsection{心得体会}
-通过本次实验，问题定位与排查能力得到进一步提升，面包板搭建与调试熟练度明显提高，同时也更加熟悉示波器在波形观察与参数测量中的使用方法，能够将理论分析与实验结果相结合，验证实验结果的正确性或排查实验电路错误的原因。
-
+\subsection{组合逻辑设计 }
+实验初期出现 LED 闪烁和状态不稳定，分析为电源引线过长导致干扰较大。将 5V 电源引线缩短后，电路稳定工作，三种比较状态均可正确显示。
 
 \section{思考题}
-\subsection{正弦波产生电路}
+\subsection{集成逻辑门电路参数测试}
 \begin{enumerate}
-    \item 若想改变本实验电路的振荡频率，需要调节电路中的哪些元件？
+    \item 当异或门的一个输入端接高电平时，它相当于什么门？
 
-    \textbf{解：} 根据自激振荡的相位条件，电路的频率应满足
-    \[
-    \omega=\omega_0=\frac{1}{RC}
-    \]
-    故需要调节选频网络中的电阻 \(R\) 和电容 \(C\) 以改变电路振荡频率。
+    答：相当于非门。
 
-    \item 分析电路调节输出电压幅度的原理，说明该电路中调整哪个元件可以改变输出电压 \(V_O\) 的幅度？
+    \item 用一片 CD4011 可以构成几个非门？几个二输入与门？
 
-    \textbf{解：} 电路通过调节电位器 \(R_P\) 来改变电路的反馈系数，从而调节输出电压幅度。
+    答：可构成四个非门，也可构成两个二输入与门。
 
-    \item 试说明用示波器测量频率有哪几种常用方法？
+    \item 两个普通与非门的输出端并联会产生什么后果？
 
-    \textbf{解：} 第一，可以通过示波器的 measure 功能，选择测量的内容，自动测量波形的频率；
-
-    第二，通过示波器的光标（cursor）功能，测量波形的周期，取倒数即为所测信号的频率。
+    答：会形成大电流冲突，可能导致器件损坏。
 \end{enumerate}
 
-\subsection{精密全波整流电路}
+\subsection{组合逻辑设计 }
 \begin{enumerate}
-    \item 如果本实验所选的电阻不匹配，则传输特性会怎么样？
+    \item 在设计组合逻辑电路时，为什么要进行逻辑化简？化简依据是什么？
 
-    \textbf{解：} 本次实验所用的电路，其整流精度取决于电阻 \(R_{f1}\)、\(R_1\)、\(R_{f2}\)、\(R_2\) 的匹配精度。如果这四个电阻不能匹配，则得到的电路传输特性曲线在第一、第二象限的曲线斜率就不为 \(+1\)、\(-1\)，而有可能为其他的值。
-
-    \item 如果运算放大器的零漂很大，则 \(V_O\) 波形会怎样？
-
-    \textbf{解：} 在输入为零的时候，输出不为0即为零漂。若零漂很大，则输出信号的波形会出现抖动，在输入信号接近0处的波形会出现一定幅度的失真。
+    答：化简是在功能不变前提下进行优化，可减少器件数量、缩短路径并降低成本。化简依据是布尔代数与卡诺图方法。
 \end{enumerate}
 
 \end{document}
