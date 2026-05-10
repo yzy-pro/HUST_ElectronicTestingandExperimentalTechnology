@@ -5,11 +5,14 @@
 \usepackage{geometry}
 \usepackage{diagbox}
 \usepackage{multirow}
+\usepackage{hyperref}
 \usepackage{float}
+\usepackage{tikz}
 \usepackage{subcaption}
 \usepackage{csvsimple}
 \usepackage{array}
 \usepackage{tabularx}
+\usetikzlibrary{arrows.meta,positioning}
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
 \graphicspath{{figures/}{results/}}
@@ -95,28 +98,93 @@
 
 \section{实验原理}
 \subsection{集成逻辑门电路参数测试}
-传统数字集成电路主要分为 TTL、ECL、CMOS 三类。TTL 器件工作速度较快，CMOS 器件静态功耗低、噪声容限较大、应用广泛。74HC00 与 74LS00 均为四个二输入与非门，逻辑功能一致但器件工艺不同。
 
-本实验通过 $V_{OH}$、$V_{OL}$ 以及平均传输延迟时间 $t_{pd}$ 的测量，比较门电路在不同负载条件下的输出特性及动态响应。
+\subsubsection{实验原理及参考电路}
+
+集成逻辑门的主要技术参数:
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.82\textwidth]{e6docx_media/media_new/image1.png}
-    \caption{逻辑门主要参数参考图}
+    \caption{集成逻辑门的主要技术参数}
 \end{figure}
 
-\subsection{组合逻辑设计 }
-组合逻辑电路设计流程为：逻辑抽象、列真值表、逻辑化简、器件映射和电路实现。逻辑化简的目标是在功能不变前提下减少门数、缩短信号路径并提升可靠性。
+在数字电路设计与调试中，正确选择和应用数字集成电路，以满足电路性能指标及功能要求是电子电路应用技术的基本要求之一。传统上数字集成电路可以分为TTL、ECL、CMOS三类，TTL电路的编号一般以54/74开头。54系列为军用型产品，其工作温度范围是－55\textasciitilde125℃,工作电压范围是5V(1±10\%);而74系列为商用型产品，其工作温度范围是0\textasciitilde70℃,工作电压范围是5V(1±5\%),除了工作温度有差异外，某些具体的参数也略有差异。ECL中小规模集成电路主要以10K和100K系列为主，它具有工作速度最快、扇出能力强、噪声小等优点，其缺点主要是功耗大、输出电平稳定性差和噪声容限较低。
 
-TTL/CMOS 门电路使用中需注意：电源稳定、输入端不得悬空、输出端不能违规并联，布线应尽量短以降低干扰。
+CMOS集成电路具有静态功耗低、集成度高的优点，早期4000系列器件的工作速度较慢，其应用范围受到一定的限制。但随着工艺的改进，工作速度大幅度提高，如高速CMOS器件已经能够达到TTL的工作速度，所以CMOS器件是目前使用最广泛、占主导地位的集成电路。
 
-本实验使用两片 74HC00 设计一位二进制数比较电路，输出三种状态：$L_1(A>B)$、$L_2(A<B)$、$L_3(A=B)$。
+常用CMOS 器件主要有 4000、74HC、74HCT等系列，其中HC、HCT等系列的产品型号已与TTL.系列的完全一致了，器件型号中尾数相同的器件，其逻辑功能完全相同，例如74HC00与74LS00器件内部都含有四个两输入端的与非门，但前者属于CMOS器件，后者属于TTL器件。下表列出了2输入与非门电路输入和输出的高、低电平及电流值，传输延迟时间t\textsubscript{u}等特性参数，以资比较。
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image13.jpeg}
-    \caption{比大小组合逻辑参考电路}
-\end{figure}
+
+
+\subsection{组合逻辑设计}
+
+\subsubsection{实验原理及参考电路}
+
+\subsubsection{组合逻辑电路的设计流程}
+
+组合逻辑电路的设计先根据实际的逻辑问题进行逻辑抽象，定义逻辑状态的含意，再按照给定事件因果关系列出逻辑真值表。接着，用卡诺图或代数法化简，求出最简逻辑表达式，并根据给定的器件对逻辑表达式进行变换，然后画出逻辑图。也可以用硬件描述语言对逻辑问题建模，最后用可编程逻辑器件实现这个电路。
+
+\subsubsection{TTL逻辑门使用注意事项}
+
+型号系列：74,74LS,74AS,74ALS,74S,74F,系列
+
+注意事项：安装时要注意集成块外引脚的排列顺序，不要从外引脚根部弯曲，以防折断。
+
+\begin{quote}
+供电电压最好稳定在5V，一般也应保证在4.75～5.25V之间，电压过高易损坏集成块。
+接引线要尽量短，若引线不能减短时，要加屏蔽措施或采用绞合线，以防外界电磁干扰。
+\end{quote}
+
+为避免开关、电机、高频时钟对电路的影响，可在每个IC电源附近并接一个0.01μF～0.1μF高频电容，以减小IC对电源的影响。
+
+\includegraphics[width=5.66458in,height=2.86181in]{figures/e6docx_media/media/image10.png}
+
+\subsubsection{输出端的连接}
+
+不允许输出端直接接+5V或接地。除OC门和三态(TS)门外，其它门电路的输出端不允许并联使用，否则，会引起逻辑混乱或损坏器件。
+
+\subsubsection{输入端的连接}
+
+输入端串入1只1k \textasciitilde10k 电阻与电源连接或直接接电源电+V\textsubscript{CC}来获得高电平输入。直接接地为低电平输入。或门、或非门等TTL电路的多余的输入端不能悬空，只能接地；与门、与非门等TTL电路的多余输入端可以悬空(相当于接高电平)，但易受到外界干扰，可将它们接+V\textsubscript{CC}或与其它输入端并联使用，输入端并联时，从信号获取的电流将增加。
+
+\subsubsection{TTL逻辑门闲置输入端的处理}
+
+门电路中多余不用的输入端一般不要悬空因为干扰信号易从这些悬空端引入，使电路工作不稳定。
+
+\includegraphics[width=5.75972in,height=2.025in]{figures/e6docx_media/media/image11.png}
+
+\subsubsection{CMOS逻辑门电路的主要参数}
+
+\textbf{·}电源电压+V\textsubscript{DD}: +V\textsubscript{DD}一般在+5V\textasciitilde+15V范围内均可正常工作，并允许波动±10\%。
+
+\textbf{·}静态功耗P\textsubscript{D} : 约在微瓦量级。
+
+\textbf{·}输出高电平V\textsubscript{OH} : V\textsubscript{OH}≥V\textsubscript{DD}-- 0.5V为逻辑1。
+
+\textbf{·}输出低电平V\textsubscript{OL}:V\textsubscript{OL}≤V\textsubscript{SS}+0.5V为逻辑0(V\textsubscript{SS}=0V)。
+
+\textbf{·}扇出系数N\textsubscript{O}:在工作频率较低时，扇出系数不受限制。但在高频工作时，由于后级门的输入电容成为主要负载，扇 出 系 数将受到限制，一般NO=10\textasciitilde20。
+
+\textbf{·}平均传输延迟时间t\textsubscript{pd}:CMOS电路的平均传输延迟时间比TTL电路的长得多，通常t\textsubscript{pd}200ns。
+
+\textbf{·}直流噪声容限V\textsubscript{NH}和V\textsubscript{NL}: CMOS器件的噪声容限通常以电源电压+VDD的30\%来估算。当+V\textsubscript{DD} = +5V时，V\textsubscript{NH}≈V\textsubscript{NL} =1.5V，可见CMOS器件的噪声容限比TTL电路的要大得多，因此，抗干扰能力也强得多。提高电源电压+V\textsubscript{DD}是提高CMOS器件抗干扰能力的有效措施。
+
+\subsubsection{CMOS门电路的使用规则}
+
+\textbf{·}电源电压+V\textsubscript{DD}:电源电压不能接反，规定+V\textsubscript{DD} 接电源正极，V\textsubscript{SS} 接电源负极(通常接地)。
+
+•输出端的连接：输出端不允许直接接+V\textsubscript{DD}或地，除三态门外，不允许两个器件的输出端连接使用。
+
+•输入端的连接：输入信号V\textsubscript{i}应为V\textsubscript{SS}≤V\textsubscript{i}≤V\textsubscript{DD}，超出该范围会损坏器件内部的保护二极管或绝缘栅极，可在输入端串接一只限流电阻(10\textasciitilde100)kΩ ；
+
+\textbf{·}多余的输入端不能悬空，应按逻辑要求接+V\textsubscript{DD}或V\textsubscript{SS}(地)；工作速度不高时，允许输入端并联使用。
+
+\includegraphics[width=5.76597in,height=2.18333in]{figures/e6docx_media/media/image12.png}
+
+\subsubsection{实验电路}
+
+\includegraphics[width=5.75972in,height=2.94931in]{figures/e6docx_media/media/image13.jpeg}
 
 \section{硬件实验内容}
 \subsection{集成逻辑门电路参数测试}
@@ -147,7 +215,7 @@ TTL/CMOS 门电路使用中需注意：电源稳定、输入端不得悬空、�
     \caption{传输延迟测试电路}
 \end{figure}
 
-\subsection{组合逻辑设计 }
+\subsection{组合逻辑设计}
 仅使用两片 74HC00，搭建一位二进制比较器。输入端 A、B 分别接高低电平，观察三路 LED 输出：
 \begin{itemize}
     \item $L_1$ 亮表示 $A>B$。
@@ -155,11 +223,6 @@ TTL/CMOS 门电路使用中需注意：电源稳定、输入端不得悬空、�
     \item $L_3$ 亮表示 $A=B$。
 \end{itemize}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.78\textwidth]{e6docx_media/media/image14.png}
-    \caption{组合逻辑设计 逻辑功能与连线说明}
-\end{figure}
 
 \section{硬件实验结果分析}
 \subsection{集成逻辑门电路参数测试}
@@ -173,9 +236,9 @@ TTL/CMOS 门电路使用中需注意：电源稳定、输入端不得悬空、�
 \hline
  & \shortstack{空载} & \shortstack{带载（$5.1k\Omega$）} & \shortstack{带载（$510\Omega$）} \\
 \hline
-$\displaystyle V_{OH}$ & 20.0mV & 5.06V & \diagbox{}{} \\
+$\displaystyle V_{OH}$ & 5.00V & 4.97V & \diagbox{}{} \\
 \hline
-$\displaystyle V_{OL}$ & 5.07V & \diagbox{}{} & 0.321V \\
+$\displaystyle V_{OL}$ & 0.00V & \diagbox{}{} & 0.32V \\
 \hline
 \end{tabularx}
 \end{table}
@@ -188,12 +251,24 @@ $\displaystyle V_{OL}$ & 5.07V & \diagbox{}{} & 0.321V \\
     \caption{上升沿延迟 $t_{pLH}$ 测量波形}
 \end{figure}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/painting/painting1.jpg}
+    \caption{上升沿延迟 $t_{pLH}$ 绘制波形}
+\end{figure}
+
 从图中可见，4个串联与非门的上升沿延迟 $t_{pLH}$ 约为 $27.800\,\text{ns}$。
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{figures/oscilloscope/scope_1.png}
     \caption{下降沿延迟 $t_{pHL}$ 测量波形}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/painting/painting2.jpg}
+    \caption{下降沿延迟 $t_{pHL}$ 绘制波形}
 \end{figure}
 
 从图中可见，4个串联与非门的下降沿延迟 $t_{pHL}$ 约为 $51.200\,\text{ns}$。
@@ -213,75 +288,121 @@ $\displaystyle V_{OL}$ & 5.07V & \diagbox{}{} & 0.321V \\
 \subsubsection{结果分析}
 空载时测得输出电平受测试方式影响较明显，接入合适负载后输出高、低电平更接近器件实际工作状态。根据真实波形数据计算得到单个与非门平均传输延迟约为 $9.9\,\text{ns}$，量级与 74HC00 的特性基本一致。
 
-\subsection{组合逻辑设计 }
-\subsubsection{实验插板图}
+\subsection{组合逻辑设计}
+\subsubsection{组合逻辑设计理论分析}
+设输入变量 $A$、$B$ 分别表示一位二进制数，输出 $L_1$、$L_2$、$L_3$ 分别表示 $A>B$、$A<B$、$A=B$ 三种状态。根据比较规则，可列出真值表如下。
+
+\begin{table}[H]
+\centering
+\caption{一位二进制比较器真值表}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$A$ & $B$ & $L_1(A>B)$ & $L_2(A<B)$ & $L_3(A=B)$ \\
+\hline
+0 & 0 & 0 & 0 & 1 \\
+\hline
+0 & 1 & 0 & 1 & 0 \\
+\hline
+1 & 0 & 1 & 0 & 0 \\
+\hline
+1 & 1 & 0 & 0 & 1 \\
+\hline
+\end{tabular}
+\end{table}
+
+由真值表可得三个输出的最小项分别为
+\[
+L_1=\Sigma m(2),\qquad L_2=\Sigma m(1),\qquad L_3=\Sigma m(0,3)
+\]
+化简得到
+\[
+L_1=A\overline{B},\qquad L_2=\overline{A}B,\qquad L_3=\overline{A}\,\overline{B}+AB
+\]
+
+要求仅用 74HC00 实现，即表达式中只能包含与非项，进一步变化表达式得到
+\[
+L_1=\overline{\overline{A\overline{B}}},\qquad
+L_2=\overline{\overline{\overline{A}B}},\qquad
+L_3=\overline{\overline{\overline{A}\,\overline{B}}\;\overline{AB}}
+\]
+
+可以据此绘制出电路图如下：
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image15.jpeg}
-    \caption{组合逻辑设计 插板图（一）}
+    \includegraphics[width=0.82\textwidth]{figures/videos/image.png}
+    \caption{一位二进制比较器电路原理图}
+\end{figure}
+
+
+
+\subsubsection{实验结果与分析}
+%插入实验结果演示视频
+\begin{figure}[H]
+    \centering
+    \href{run:figures/videos/video1.mp4}{\includegraphics[angle=90,width=0.82\textwidth]{figures/videos/image1.png}}
+    \caption{实验结果演示视频}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image16.jpeg}
-    \caption{组合逻辑设计 插板图（二）}
+    \includegraphics[angle=90,width=0.82\textwidth]{figures/videos/image2.png}
+    \caption{$A>B$}
 \end{figure}
 
-\subsubsection{实验效果图与分析}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image17.jpeg}
-    \caption{$A>B$ 时（绿灯亮）}
-\end{figure}
+如图所示，黄色导线为$A$，绿色导线为$B$，当A接高电平、B接低电平时，即$A>B$，此时红灯亮。
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image18.jpeg}
-    \caption{$A<B$ 时（红灯亮）}
+    \includegraphics[angle=90,width=0.82\textwidth]{figures/videos/image1.png}
+    \caption{$A=B$（均为低电平）}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image19.jpeg}
-    \caption{$A=B$ 时（同为低电平，黄灯亮）}
+    \includegraphics[angle=90,width=0.82\textwidth]{figures/videos/image3.png}
+    \caption{$A=B$（均为高电平）}
 \end{figure}
+
+如图所示，当A、B均接低电平时，黄色和绿色导线均为低电平，此时黄灯亮；当A、B均接高电平时，黄色和绿色导线均为高电平，此时黄灯也亮。两种情况下均满足$A=B$，符合预期设计。
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{e6docx_media/media/image20.jpeg}
-    \caption{$A=B$ 时（同为高电平，黄灯亮）}
+    \includegraphics[angle=90,width=0.82\textwidth]{figures/videos/image4.png}
+    \caption{$A<B$}
 \end{figure}
 
-实验现象与理论一致，电路实现了比较功能。
+如图所示，当A接低电平、B接高电平时，即$A<B$，此时绿灯亮。
+
+三种比较状态均正确显示，电路功能实现符合预期。
 
 \section{实验总结}
 \subsection{集成逻辑门电路参数测试}
-实验过程较顺利，主要完成了逻辑电平与延迟参数的测量。操作中体会到自动测量功能在延迟读数时更稳定、精度更高，可减少人工游标误差。
+实验过程较顺利，主要完成了逻辑电平与延迟参数的测量。最开始使用自动测量功能测量，但是对于下降沿自动测量无法输出正确结果，后改为手动测量方式，成功获取了正确的延迟时间数据。
 
 \subsection{组合逻辑设计 }
-实验初期出现 LED 闪烁和状态不稳定，分析为电源引线过长导致干扰较大。将 5V 电源引线缩短后，电路稳定工作，三种比较状态均可正确显示。
+该实验接线的数量相比于先前实验大幅增加，但是在获取了正确的电路原理图的前提下，按照原理图次序接线，成功实现电路功能。
 
 \section{思考题}
 \subsection{集成逻辑门电路参数测试}
 \begin{enumerate}
     \item 当异或门的一个输入端接高电平时，它相当于什么门？
 
-    答：相当于非门。
+    解：相当于非门。
 
     \item 用一片 CD4011 可以构成几个非门？几个二输入与门？
 
-    答：可构成四个非门，也可构成两个二输入与门。
+    解：可构成四个非门，也可构成两个二输入与门。
 
     \item 两个普通与非门的输出端并联会产生什么后果？
 
-    答：会形成大电流冲突，可能导致器件损坏。
+    解：会形成大电流冲突，可能导致器件损坏。
 \end{enumerate}
 
 \subsection{组合逻辑设计 }
 \begin{enumerate}
     \item 在设计组合逻辑电路时，为什么要进行逻辑化简？化简依据是什么？
 
-    答：化简是在功能不变前提下进行优化，可减少器件数量、缩短路径并降低成本。化简依据是布尔代数与卡诺图方法。
+    解：化简是在功能不变前提下进行优化，可减少器件数量、缩短路径并降低成本。化简依据是布尔代数与卡诺图方法。
 \end{enumerate}
-
 \end{document}
