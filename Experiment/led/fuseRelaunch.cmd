@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E8/Experiment/led/test_isim_beh.exe" -prj "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E8/Experiment/led/test_beh.prj" "work.test" "work.glbl" 

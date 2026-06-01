@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/home/yzy/code/ElectronicTestingandExperimentalTechnology/E8/Experiment/led/impact.xsl
+OUTFILE=/home/yzy/code/ElectronicTestingandExperimentalTechnology/E8/Experiment/led/impact.xsl
+FAMILY=Multiple
+PART=Multiple
+WORKINGDIR=/home/yzy/code/ElectronicTestingandExperimentalTechnology/E8/Experiment/led
+LICENSE=iMPACT
+USER_INFO=iMPACT

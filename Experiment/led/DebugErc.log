@@ -1,0 +1,23 @@
+System Time     Process     Thread        ERC     ERC String                  Message
+1245781725      25504       4111161024    3075    ercControlTransferFailed    USBC:FGetMAC
+1245822760      3           2751543360    3080    ercInternalError            FTDIC::FInit pftd2xx->SetVIDPID(0x1443, pidAnalogDiscovery) failed
+1245822760      3           174635072     3080    ercInternalError            FTDIC::FInit pftd2xx->SetVIDPID(0x1443, pidAnalogDiscovery) failed
+1245830720      2           115501120     3080    ercInternalError            FTDIC::FInit pftd2xx->SetVIDPID(0x1443, pidAnalogDiscovery) failed
+1245830720      2           115501120     3080    ercInternalError            USBC::HifOpenEx ABSUSB::Init failed
+1245830721      2           115501120     3080    ercInternalError            NETC::HifOpenEx failed to initiate browsing for digilent-adept service
+1245830721      2           115501120     3072    ercConnectionFailed         DpcOpen - device not found
+1245830727      2           3886512192    3080    ercInternalError            FTDIC::FInit pftd2xx->SetVIDPID(0x1443, pidAnalogDiscovery) failed
+1245830728      2           3886512192    3080    ercInternalError            USBC::HifOpenEx ABSUSB::Init failed
+1245830729      2           3886512192    3080    ercInternalError            NETC::HifOpenEx failed to initiate browsing for digilent-adept service
+1245830729      2           3886512192    3072    ercConnectionFailed         DpcOpen - device not found
+1245953215      40184       959141568     3075    ercControlTransferFailed    USBC:FGetMAC
+1246089382      59421       1560491712    3075    ercControlTransferFailed    USBC:FGetMAC
+1246139241      66321       2710914752    3075    ercControlTransferFailed    USBC:FGetMAC
+1246904174      3           3284805696    3080    ercInternalError            FTDIC::FInit pftd2xx->SetVIDPID(0x1443, pidAnalogDiscovery) failed
+1246904181      4           2609313856    3080    ercInternalError            FTDIC::FInit pftd2xx->SetVIDPID(0x1443, pidAnalogDiscovery) failed
+1246904181      4           2594928320    3080    ercInternalError            USBC::FEnum ABSUSB::Init failed
+1246904181      4           2594928320    3080    ercInternalError            NETC::FEnum failed to create UDP socket
+1246904190      2           3507025984    3080    ercInternalError            FTDIC::FInit pftd2xx->SetVIDPID(0x1443, pidAnalogDiscovery) failed
+1246904190      2           3507025984    3080    ercInternalError            USBC::HifOpenEx ABSUSB::Init failed
+1246904191      2           3507025984    3080    ercInternalError            NETC::HifOpenEx failed to initiate browsing for digilent-adept service
+1246904191      2           3507025984    3072    ercConnectionFailed         DpcOpen - device not found

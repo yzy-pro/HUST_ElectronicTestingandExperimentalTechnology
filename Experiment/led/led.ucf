@@ -1,0 +1,14 @@
+NET "clk" LOC = B8;
+NET "led_out[0]" LOC = M5;
+NET "led_out[1]" LOC = M11;
+NET "led_out[2]" LOC = P7;
+NET "led_out[3]" LOC = P6;
+NET "reset" LOC = P11;
+
+NET "clk" IOSTANDARD = LVCMOS33;
+NET "led_out[0]" IOSTANDARD = LVCMOS33;
+NET "led_out[1]" IOSTANDARD = LVCMOS33;
+NET "led_out[2]" IOSTANDARD = LVCMOS33;
+NET "led_out[3]" IOSTANDARD = LVCMOS33;
+NET "reset" IOSTANDARD = LVCMOS33;
+NET "clk" SLEW = FAST;

@@ -1,0 +1,10 @@
+Storage Target: Xilinx Flash/PROM
+Storage Family: Platform Flash
+Auto Select Storage Device
+FF
+led
+/home/yzy/code/ElectronicTestingandExperimentalTechnology/E8/Experiment/led/
+
+MCS
+
+MCS
