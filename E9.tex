@@ -31,7 +31,7 @@
         班\quad\quad 级：\underline{\makebox[7.5cm][l]{光电信息科学与工程202409班}}\\[1.6em]
         姓\quad\quad 名：\underline{\makebox[7.5cm][l]{陈\quad 恪\quad 瑾}}\\[1.6em]
         学\quad\quad 号：\underline{\makebox[7.5cm][l]{U 2 0 2 4 1 3 9 2 5}}\\[1.6em]
-        实验时间：\underline{\makebox[7.5cm][l]{2026 年 05 月 14 日}}
+        实验时间：\underline{\makebox[7.5cm][l]{2026 年 06 月 04 日}}
     \end{minipage}
 
     \vfill
@@ -41,342 +41,208 @@
 \setcounter{page}{1}
 
 \section{实验名称}
-集成触发器及其应用（流水灯）
+计数译码显示电路与数字钟设计
 
 \section{实验目的}
-\subsection{集成触发器功能验证}
 \begin{enumerate}
-    \item 了解 74HC74 触发器的逻辑功能及主要性能指标。
-    \item 掌握集成触发器逻辑功能测试方法。
-    \item 熟悉用双踪示波器观察并测量多路时序信号的方法。
-\end{enumerate}
-
-\subsection{流水灯设计与实现}
-\begin{enumerate}
-    \item 掌握用触发器构成同步可逆模 4 计数器的方法。
-    \item 掌握用与非门实现 2-4 线译码器的方法。
-    \item 掌握简单时序逻辑电路的安装、调试与故障排查流程。
-    \item 理解计数器与译码器配合实现流水灯正转和反转的工作机理。
+    \item 掌握中规模集成计数器 CC40161（实验中对应 74HC161）的逻辑功能与使用方法。
+    \item 掌握计数、译码、显示电路的实现与调试方法。
+    \item 完成简易数字钟（时、分计数）的搭建与功能验证。
 \end{enumerate}
 
 \section{实验元器件}
-\subsection{触发器功能验证}
 \begin{table}[H]
 \centering
-\caption{触发器功能验证元器件}
+\caption{实验元器件清单}
 \begin{tabular}{|c|c|c|}
 \hline
 类型 & 型号（参数） & 数量 \\
 \hline
-集成电路 & 74HC74 & 1片 \\
+集成电路 & CD4511 & 4片 \\
 \hline
-集成电路 & 74HC00 & 1片 \\
+集成电路 & 74HC161 & 4片 \\
+\hline
+集成电路 & 74HC00 & 4片 \\
+\hline
+数码管 & 5161AS & 4只 \\
 \hline
 \end{tabular}
 \end{table}
 
-\subsection{流水灯设计与实现}
-\begin{table}[H]
-\centering
-\caption{流水灯实验元器件}
-\begin{tabular}{|c|c|c|}
-\hline
-类型 & 型号（参数） & 数量 \\
-\hline
-集成电路 & 74HC74 & 1片 \\
-\hline
-集成电路 & 74HC00 & 2片 \\
-\hline
-集成电路 & 74HC10 & 1片 \\
-\hline
-电阻 & 510$\Omega$ & 4只 \\
-\hline
-发光二极管 & 红/黄/绿（共4只） & 4只 \\
-\hline
-\end{tabular}
-\end{table}
+\section{预习要求}
+\begin{enumerate}
+    \item 复习七段译码器译码、共阴极显示器，理解计数、译码与显示电路工作原理。
+    \item 查阅相关芯片引脚图，熟悉逻辑功能与使用方法。
+\end{enumerate}
 
 \section{实验原理及参考电路}
-\subsection{触发器的逻辑功能及其相互转换}
-典型触发器的特性方程如下表：
+\subsection{实验原理}
+通过计数器对 1Hz 的时钟信号进行计数，并利用置位与清零功能产生进位，构成符合时间进制的计数电路。计数输出送入七段译码器后，译码器输出七位控制信号驱动数码管显示，从而实现简易时钟。
 
-\begin{table}[H]
-\centering
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{0.98\textwidth}{|c|Y|Y|Y|Y|}
-\hline
-类型 & JK触发器 & D触发器 & T触发器 & T'触发器 \\
-\hline
-特征方程 &
-$Q^{n+1}=J\overline{Q^n}+\overline{K}Q^n$ &
-$Q^{n+1}=D$ &
-$Q^{n+1}=T\oplus Q^n$ &
-$Q^{n+1}=\overline{Q^n}$ \\
-\hline
-\end{tabularx}
-\end{table}
-
-触发器的转换方法如下表：
-
-\begin{table}[H]
-\centering
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{0.98\textwidth}{|c|Y|Y|Y|Y|}
-\hline
-\multirow{2}{*}{原触发器} & \multicolumn{4}{c|}{转换成} \\
-\cline{2-5}
-\multicolumn{1}{|c|}{} & T触发器 & T'触发器 & D触发器 & JK触发器 \\
-\hline
-D触发器 & $D=T\oplus Q^n$ & $D=\overline{Q^n}$ &  & $D=J\overline{Q^n}+\overline{K}Q^n$ \\
-\hline
-JK触发器 & $J=K=T$ & $J=K=1$ & $J=D,\ K=\overline{D}$ &  \\
-\hline
-\end{tabularx}
-\end{table}
-
-\subsection{用触发器设计简单的时序逻辑电路的一般步骤}
-\begin{enumerate}
-    \item 逻辑抽象，建立原始状态图和原始状态表；
-    \item 状态化简，消除等价状态，确定最简状态个数；
-    \item 状态分配，通常用二进制或格雷码进行状态编码，并确定触发器个数及类型；
-    \item 求解输入方程、输出方程、状态转换方程；
-    \item 检查自启动能力，如可以自启动则画出逻辑电路图；不能自启动则需要将陷入死循环的状态指向工作循环，再重复第四步。
-\end{enumerate}
-
-\subsection{流水灯设计原理}
-\subsubsection{功能需求}
-每次CP到来时只允许一只发光二极管亮，且各二极管轮流发光；
-
-\subsubsection{整体框架}
-流水灯逻辑部分由同步可逆计数器和2-4线译码器组成，如下图：
-
+\subsection{参考电路}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.62\textwidth]{figures/word_zhp_media/image1.png}
-    \caption{流水灯逻辑部分总体框图}
+    \includegraphics[width=0.62\textwidth]{figures/references/image1.png}
+    \caption{0$\sim$59 同步计数参考电路}
 \end{figure}
 
-\subsubsection{实验要求}
-用74HC74和与非门来实现电路，引出输入端M用于控制计数器计数模式，如：M=1为加法计数，M=0为减法计数。
+如图所示为 0$\sim$59 计数器（BCD 码）参考方案。当低位计数器输出到 1001 时产生置位信号，在下一个时钟沿到来时回到 0000，同时向高位计数器产生进位；当高位到 0101 且低位到 1001 时，下个时钟沿同时回零，实现 59 到 00 的同步翻转。采用类似方法可扩展构成 24 进制计数。
 
 \section{硬件实验内容}
-\subsection{设计与推导}
-\subsubsection{同步可逆模 4 计数器设计}
-\textbf{① 状态转移图}
+\subsection{设计过程}
+\subsubsection{数码管显示}
+每位数码管由一个 CD4511 译码器控制，输入为 4 位二进制计数（用74HC161输出）输出，输出为 7 位控制信号驱动数码管显示对应的十进制数字。通过调整译码器输入与数码管连接方式，确保正确显示 0$\sim$9 的数字。
 
-这是一个 4 状态摩尔型状态机，状态用两位二进制 $Q_1Q_0$ 编码：
-$S_0:00,\ S_1:01,\ S_2:10,\ S_3:11$。输入变量为 $M$（控制端），边标注的是输入 $M$ 的取值。
-当 $M=1$ 时，状态按 $S_0\rightarrow S_1\rightarrow S_2\rightarrow S_3\rightarrow S_0$ 循环（加计数）；
-当 $M=0$ 时，状态按 $S_0\rightarrow S_3\rightarrow S_2\rightarrow S_1\rightarrow S_0$ 循环（减计数）。
-因此该状态机是一个典型的模 4 可逆计数器。
+具体来说，数码管的 a$\sim$g 七段分别连接到 CD4511 的 a$\sim$g 输出端，CD4511 的输入端连接到 74HC161 的输出 $Q_3,Q_2,Q_1,Q_0$，实现二进制到七段显示的译码功能，CD4511 的 LT、LE端低电平，BI 端接高电平，确保数码管正常显示状态。
 
+数码管显示电路原理图如下：
 \begin{figure}[H]
     \centering
-    \begin{tikzpicture}[>=Latex, node distance=2.8cm]
-        \tikzset{state/.style={draw, circle, minimum size=1.2cm, inner sep=1pt}}
-        \node[state] (s0) at (0,1.8) {$S_0/00$};
-        \node[state] (s1) at (3.0,1.8) {$S_1/01$};
-        \node[state] (s2) at (3.0,-1.0) {$S_2/10$};
-        \node[state] (s3) at (0,-1.0) {$S_3/11$};
-
-        \draw[->] (s0) -- node[above] {$M=1$} (s1);
-        \draw[->] (s1) -- node[right] {$M=1$} (s2);
-        \draw[->] (s2) -- node[below] {$M=1$} (s3);
-        \draw[->] (s3) -- node[left] {$M=1$} (s0);
-
-        \draw[->] (s1) to[bend left=18] node[below] {$M=0$} (s0);
-        \draw[->] (s2) to[bend left=18] node[left] {$M=0$} (s1);
-        \draw[->] (s3) to[bend left=18] node[above] {$M=0$} (s2);
-        \draw[->] (s0) to[bend left=18] node[right] {$M=0$} (s3);
-    \end{tikzpicture}
-    \caption{同步可逆模4计数器状态转移图}
+    \includegraphics[width=0.86\textwidth]{figures/eda/image1.png}
+    \caption{数码管显示电路原理图}
 \end{figure}
 
-\textbf{② 状态转移表}
+\subsubsection{分计时}
+先分别设计模 10 与模 6 计数器，再进行级联得到模 60 计数器实现分钟计时。
 
-状态转移表将当前状态 $Q_1Q_0$、输入 $M$ 和次态 $Q_1^{n+1}Q_0^{n+1}$ 一一对应，作为后续逻辑化简依据：
-
-\begin{table}[H]
-\centering
-\renewcommand{\arraystretch}{1.25}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-状态 $S$ & $Q_1$ & $Q_0$ & $M$ & $Q_1^{n+1}$ & $Q_0^{n+1}$ \\
-\hline
-$S_0$ & 0 & 0 & 1 & 0 & 1 \\
-\hline
-$S_0$ & 0 & 0 & 0 & 1 & 1 \\
-\hline
-$S_1$ & 0 & 1 & 0 & 0 & 0 \\
-\hline
-$S_1$ & 0 & 1 & 1 & 1 & 0 \\
-\hline
-$S_2$ & 1 & 0 & 0 & 0 & 1 \\
-\hline
-$S_2$ & 1 & 0 & 1 & 1 & 1 \\
-\hline
-$S_3$ & 1 & 1 & 0 & 1 & 0 \\
-\hline
-$S_3$ & 1 & 1 & 1 & 0 & 0 \\
-\hline
-\end{tabular}
-\end{table}
-
-\textbf{③ 次态方程推导}
-
-1) 对 $Q_1^{n+1}$ 作卡诺图化简可得：
+具体来说，分钟个位计数器由一个 $74HC161$ 构成，采用模 10 计数。利用其异步清零功能，当个位计数到 ${1010}_{2}({10}_{10})$ 时通过 $74HC00$ 的与非门产生低电平信号，连接到 $74HC161$ 的 $CLR$ 引脚实现清零，其逻辑式为
 \[
-Q_1^{n+1}
-=\overline{Q_1}\,\overline{Q_0}M
-+Q_1\overline{Q_0}\,\overline{M}
-+\overline{Q_1}Q_0\overline{M}
-+Q_1Q_0M
-=Q_1\oplus Q_0\oplus M.
+CLR_U=\overline{M_{U3}\cdot \overline{M_{U2}}\cdot M_{U1}\cdot \overline{M_{U0}}}
 \]
-为便于与非门实现，可写为：
+其中 $M_{U3},M_{U2},M_{U1},M_{U0}$ 为分钟个位计数器的输出。
+
+分钟十位计数器由另一个 $74HC161$ 构成，采用模 6 计数。利用其异步清零功能，当十位计数到 ${0110}_{2}({6}_{10})$ 时，通过门电路译码产生低电平清零信号，接到 $74HC161$ 的 $CLR$ 引脚，使计数器立即清零回到 $0000$，从而实现 $0\sim5$ 的循环计数，其逻辑式为
 \[
-Q_1^{n+1}
-=\overline{
-\overline{\overline{Q_1}\,\overline{Q_0}M}\cdot
-\overline{Q_1\overline{Q_0}\,\overline{M}}\cdot
-\overline{\overline{Q_1}Q_0\overline{M}}\cdot
-\overline{Q_1Q_0M}
-}.
+CLR_T=\overline{\overline{M_{T3}}\cdot M_{T2}\cdot M_{T1}\cdot \overline{M_{T0}}}
+\]
+其中 $M_{T3},M_{T2},M_{T1},M_{T0}$ 为分钟十位计数器的输出。
+
+当分钟个位计数器计数到 $1001_2(9_{10})$ 时，产生进位信号连接到分钟十位计数器的 $ENT(ENP)$ 引脚，使分钟十位计数器在下一个 $CLK$ 的上升沿加 1，保证分钟部分的正确进位，其逻辑式为
+\[
+C_U=M_{U3}\cdot \overline{M_{U2}}\cdot \overline{M_{U1}}\cdot M_{U0}
 \]
 
-2) 对 $Q_0^{n+1}$ 作卡诺图化简得到最简式：
-\[
-Q_0^{n+1}=\overline{Q_0}.
-\]
-这说明低位触发器在每个时钟沿到来时翻转一次，符合二进制计数器低位特性。
-
-\textbf{④ 驱动方程}
-
-采用 D 触发器时，利用其特性方程 $Q^{n+1}=D$，可直接得到驱动方程：
-\[
-D_0=Q_0^{n+1}=\overline{Q_0},\qquad
-D_1=Q_1^{n+1}.
-\]
-其中 $D_1$ 可取异或形式 $Q_1\oplus Q_0\oplus M$，也可取上式的与非门等效形式实现。
-
-\textbf{④ 电路原理图}
-根据上述推导结果，设计电路原理图如下：
-
+通过模 10 与模 6 计数器级联连接，即可形成分钟部分的模 60 计数器，其原理图如下：
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.95\textwidth]{figures/word_zhp_media/image.png}
-    \caption{同步可逆模四计数器电路原理图}
+    \includegraphics[width=0.86\textwidth]{figures/eda/image2.png}
+    \caption{分钟计数电路原理图}
 \end{figure}
 
-\subsubsection{2-4 线译码器设计}
-\textbf{译码功能概述}
-
-该模块输入为计数器状态位 $Q_1,Q_0$，输出为 $Y_0,Y_1,Y_2,Y_3$。本实验采用低电平有效输出，
-即任一时刻仅有一路输出为 0，其余三路为 1，对应一路 LED 被选通点亮。
-
-\textbf{真值表}
-
-\begin{table}[H]
-\centering
-\renewcommand{\arraystretch}{1.25}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-$Q_1$ & $Q_0$ & $Y_0$ & $Y_1$ & $Y_2$ & $Y_3$ \\
-\hline
-0 & 0 & 0 & 1 & 1 & 1 \\
-\hline
-0 & 1 & 1 & 0 & 1 & 1 \\
-\hline
-1 & 0 & 1 & 1 & 0 & 1 \\
-\hline
-1 & 1 & 1 & 1 & 1 & 0 \\
-\hline
-\end{tabular}
-\end{table}
-
-\textbf{输出方程推导}
-
-由真值表先写出低有效输出的\textbf{原始逻辑方程（标准最小项和式）}：
+\subsubsection{时计时}
+采用相同的级联思路完成小时部分。小时计数器由两个 $74HC161$ 构成，分别作为小时个位计数器和小时十位计数器，其中小时个位采用 BCD 计数方式。分钟部分由 $59$ 翻转到 $00$ 时产生的进位信号作为小时部分的计数使能信号，使小时计数器只在每小时结束时加 $1$，其逻辑式为
 \[
-\begin{aligned}
-Y_0&=\Sigma m(1,2,3)=\overline{Q_1}Q_0+Q_1\overline{Q_0}+Q_1Q_0,\\
-Y_1&=\Sigma m(0,2,3)=\overline{Q_1}\,\overline{Q_0}+Q_1\overline{Q_0}+Q_1Q_0,\\
-Y_2&=\Sigma m(0,1,3)=\overline{Q_1}\,\overline{Q_0}+\overline{Q_1}Q_0+Q_1Q_0,\\
-Y_3&=\Sigma m(0,1,2)=\overline{Q_1}\,\overline{Q_0}+\overline{Q_1}Q_0+Q_1\overline{Q_0}.
-\end{aligned}
+C_M=\overline{M_{T3}}\cdot M_{T2}\cdot \overline{M_{T1}}\cdot M_{T0}\cdot
+M_{U3}\cdot \overline{M_{U2}}\cdot \overline{M_{U1}}\cdot M_{U0}
 \]
-化简后可得：
+其中 $M_{T3},M_{T2},M_{T1},M_{T0}$ 为分钟十位计数器输出，$M_{U3},M_{U2},M_{U1},M_{U0}$ 为分钟个位计数器输出。
+
+当小时个位计数器计数到 $1001_2(9_{10})$ 且分钟部分产生进位时，向小时十位计数器产生进位信号，使小时显示由 $09$ 进入 $10$，其逻辑式为
 \[
-\begin{aligned}
-Y_0&=Q_1+Q_0,\\
-Y_1&=Q_1+\overline{Q_0},\\
-Y_2&=\overline{Q_1}+Q_0,\\
-Y_3&=\overline{Q_1}+\overline{Q_0}.
-\end{aligned}
+ENT_T=C_M\cdot U_3\cdot \overline{U_2}\cdot \overline{U_1}\cdot U_0
 \]
+其中 $C_M$ 为分钟部分的进位信号，$U_3,U_2,U_1,U_0$ 为小时个位计数器的输出。
 
-\textbf{输出方程转换}
-
-由于本实验仅限使用与非门实现，故需要对上述逻辑表达式变形，使逻辑表达式中的逻辑关系仅限为“与非”或“非”关系（“非”关系可以通过将与非门两个引脚同时接输入信号实现）：
+为实现 $12$ 小时制，当小时显示为 $12$ 且分钟部分再次产生进位时，应使小时部分在下一个 $CLK$ 上升沿同步置数为 $01$。此时小时十位为 $0001_2$，小时个位为 $0010_2$，因此可通过门电路产生低电平置数信号，分别连接到两个 $74HC161$ 的 $LOAD$ 引脚，其逻辑式为
 \[
-\begin{aligned}
-Y_0&=\overline{\overline{Q_1}\,\overline{Q_0}},\\
-Y_1&=\overline{\overline{Q_1}Q_0},\\
-Y_2&=\overline{Q_1\overline{Q_0}},\\
-Y_3&=\overline{Q_1Q_0}.
-\end{aligned}
+LOAD_H=\overline{C_M\cdot \overline{T_3}\cdot \overline{T_2}\cdot \overline{T_1}\cdot T_0\cdot
+\overline{U_3}\cdot \overline{U_2}\cdot U_1\cdot \overline{U_0}}
 \]
-上述四式均可直接由与非门结构实现。由于芯片资源限制，本实验不接使能端，仅实现 2 位输入到 4 路低有效输出的基本译码功能。
+其中 $T_3,T_2,T_1,T_0$ 为小时十位计数器的输出。将小时十位计数器的数据输入端预置为 $0000$，小时个位计数器的数据输入端预置为 $0001$，即可使电路在 $12$ 时 $59$ 分后的下一个时钟周期回到 $01$ 时 $00$ 分。
 
-\textbf{电路原理图}
-
-根据上述方程，2-4 线译码器与非门实现电路如下：
-
+具体电路原理图如下：
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.82\textwidth]{figures/word_zhp_media/image0.png}
-    \caption{2-4线译码器实现电路}
+    \includegraphics[width=0.86\textwidth]{figures/eda/image3.png}
+    \caption{小时计数电路原理图}   
 \end{figure}
 
-\subsection{实验步骤}
+\subsection{电路原理图}
+将上述设计的数码管显示电路、分钟计数电路与小时计数电路进行连接，得到完整的数字时钟电路原理图如下：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.86\textwidth]{figures/eda/image4.png}
+    \caption{数字时钟电路原理图}
+\end{figure}
+
+\subsection{电路仿真结果}
+使用 Multisim 软件对设计的数字时钟电路进行仿真，输入 1Hz 的时钟信号，观察数码管显示的分钟和小时部分是否正确计数和翻转。仿真结果如下：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.86\textwidth]{figures/eda/image5.png}
+    \caption{12时58分}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.86\textwidth]{figures/eda/image6.png}
+    \caption{01时01分}
+\end{figure}
+仿真结果显示，时钟处于12时59分后，分钟部分正确翻转回00，小时部分正确翻转到01，验证了电路设计的正确性。
+
+\subsection{实验要求}
 \begin{enumerate}
-    \item 输入 1Hz、5V 方波作为时钟，观察流水灯逻辑功能（$M=1$ 正转，$M=0$ 反转）。
-    \item 输入 1kHz、5V 方波，测量并记录 $CP$、$M$、$Q_0$、$Q_1$ 等时序波形。
-    \item 对照理论时序检查状态转移和译码输出是否一致。
+    \item 用 1Hz 正方波检查数字时钟逻辑功能，并记录翻转过程。
+    \item 用 1kHz 正方波测量并记录十进制计数器的 $Q_3,Q_2,Q_1,Q_0$ 及 $CP$ 波形，标出周期并比较时序关系。
 \end{enumerate}
 
-\section{硬件实验结果分析}
-\subsection{实验现象}
-上电后，电路能够按照预先设计的状态序列稳定运行。当 $M=1$ 时，计数器按 $S_0\rightarrow S_1\rightarrow S_2\rightarrow S_3\rightarrow S_0$ 依次循环，对应四个 LED 由左到右逐个点亮；当 $M=0$ 时，状态序列反向变化，对应 LED 由右到左逐个点亮。说明计数方向控制正确，流水灯的正转和反转功能均能实现。
-
-\subsection{时序波形分析}
-由示波器波形可知，$CLK$ 为外加时钟信号，$Q_0$ 在每个时钟上升沿翻转一次，因此其频率为时钟信号的二分频；$Q_1$ 只在两个完整计数周期后翻转一次，因此其频率为时钟信号的四分频。$Y_0\sim Y_3$ 为译码器输出，在任一时刻仅有一路输出为低电平，与当前状态一一对应，因此四个 LED 能按状态顺序轮流点亮。改变 $M$ 后，$Q_1,Q_0$ 的翻转顺序随状态方向同步改变，但分频关系和译码规律保持不变，说明同步可逆模 4 计数器及其译码部分均工作正常。
-
-使用计算机绘图软件绘制示波器捕获的时序波形，结果如下：
+\section{实验结果及分析}
+\subsection{实验插板图}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.95\textwidth]{figures/datas/E1/image7_waveform_replot.png}
-    \caption{时序波形图}
+    \includegraphics[width=0.86\textwidth]{figures/oscilloscope/image1.png}
+    \caption{实验插板实物图}
 \end{figure}
+
+实验中上层为数码管，第一层为 CD4511 译码器，第二层为 74HC161 计数器，第三层为 74HC00 与非门。由于实际中没有使用74HC04非门芯片，因此原理图中的74HC04部分由74HC00的与非门实现。
+
+\subsection{翻转过程记录}
+\textbf{翻转前：}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/oscilloscope/image2.png}
+    \caption{翻转前显示状态（12时59分）}
+\end{figure}
+
+\textbf{翻转后：}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/oscilloscope/image3.png}
+    \caption{翻转后显示状态（01时00分）}
+\end{figure}
+
+由翻转前后对比可见，计数进位与翻转过程正确，显示功能正常。
+
+\subsection{测量时序波形图}
+利用计算机软件绘制出输入 1kHz 正方波时，十进制计数器的 $Q_3,Q_2,Q_1,Q_0$ 波形图如下：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.64\textwidth]{figures/verilog/image1.png}
+    \caption{测量时序波形}
+\end{figure}
+
+由波形可见：在 $CP$ 的上升沿到来时，计数器输出按 BCD 码顺序由 $0000$ 递增至 $1001$，对应十进制的 $0\sim9$。当输出继续变化到 $1010$ 时，译码电路产生低电平异步清零信号，使计数器立即回到 $0000$，从而形成十进制循环计数。$Q_0$ 翻转最频繁，$Q_3$ 只在计数到 $8$、$9$ 时为高电平，说明该电路并非完整的四位二进制分频计数，而是经过清零逻辑限制后的 BCD 十进制计数器，波形与理论分析一致。
+
+\subsection{实验结果分析}
+输入 1Hz 正方波时，时分数字显示能够每秒更新一次，显示与翻转均正常；输入 1kHz 正方波时，观测到各位输出时序关系符合计数链路预期。说明时钟电路逻辑正确，实验达到目标。
+
+\section{实验中出现的问题、分析及解决方案}
+\begin{enumerate}
+    \item 数码管显示亮度极低，几乎不可见。\\
+    分析：虽然实验推荐将数码管的阴极接$510\Omega$的电阻限流，防止数码管烧毁，但是添加限流电阻后使得数码管电流过低，无法正常显示\\
+    解决：直接拆除数码管阴极的限流电阻，改为使用导线直接连接GND，数码管可以以正常亮度显示，且长时间调试未发现数码管存在异常。
+
+    \item 时计时的十位当个位为9时连续进位。\\
+    分析：逻辑设计有误，时计时的十位进位不仅应当满足时计时的个位为9，还应当满足分计时为59，才符合正确的计时逻辑。\\
+    解决：调整电路逻辑，利用与非门将上述两个逻辑与运算，再将信号传递到时计时的十位使能端，确保时计时显示的正确性。
+
+    \item 初始上电时部分数码管时间错乱或无法显示。\\
+    分析：74HC161上电时的初始计数值无法确定，导致初始上电的时间错乱，同时部分74HC161的初始值是$10\sim15$等CD4511认为无效的输入，导致数码管无显示。\\
+    解决：将74HC161的CLR端口引出，上电后手动将其置为低电平实现清零，确保计时初值的正确性。
+\end{enumerate}
 
 \section{实验总结}
-本次实验完成了 74HC74 触发器功能验证、同步可逆模 4 计数器设计以及与非门译码器实现。实验结果表明，流水灯在 $M=0$ 与 $M=1$ 两种模式下均能按预期方向循环点亮，时序波形与理论分析一致。
+本实验围绕简易数字时钟的设计与调试，完成了计数、译码和数码管显示三部分电路的搭建。计数部分以 $74HC161$ 为核心，通过异步清零方式分别实现分钟个位的模 10 计数和分钟十位的模 6 计数，并利用门电路产生进位信号完成模 60 级联；小时部分在分钟计数达到 $59$ 后产生计数使能信号，实现小时计数的正确递增，并通过译码逻辑完成 $12$ 时 $59$ 分到 $01$ 时 $00$ 分的翻转。显示部分利用 CD4511 将计数器输出的 BCD 码转换为七段数码管显示信号，使计时结果能够直观显示。
 
-本实验接线较复杂，实践中体会到“先模块化、后整体联调”的重要性。采用分块测试、逐点通断检查和示波器联合验证，可显著提升调试效率并降低故障定位难度。
-
-\section{思考题}
-\begin{enumerate}
-    \item 为什么用 D 触发器也可以实现 T 触发器功能？
-
-    解：因为 D 触发器满足 $Q_{n+1}=D$，令 $D=T\oplus Q_n$ 即可得到 $Q_{n+1}=T\oplus Q_n$，等效为 T 触发器。
-
-    \item 本实验中为什么要把计数器与译码器分成两个模块？
-
-    解：计数器负责“状态产生”，译码器负责“状态到输出映射”。模块分离便于推导、调试和故障定位，也利于后续扩展到更多位的流水灯系统。
-
-    \item 若出现四个 LED 同时点亮，应优先检查哪些环节？
-
-    解：应优先检查译码器连线是否错误、输出是否低有效接法混淆、供电与地线是否可靠，以及芯片是否存在损坏或接触不良。
-\end{enumerate}
+通过本次实验，进一步理解了中规模集成计数器的使能、进位、清零和级联方法，也体会到时序电路设计中状态译码与控制信号时序的重要性。实验不仅验证了数字时钟的基本逻辑功能，也提高了对复杂组合逻辑和时序逻辑混合电路的分析、排错与系统联调能力。
 
 \end{document}

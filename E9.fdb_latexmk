@@ -1,11 +1,11 @@
 # Fdb version 4
-["xdvipdfmx"] 1780304412.51422 "E9.xdv" "E9.pdf" "E9" 1780304412.98539 0
-  "E9.xdv" 1780304412.45823 76888 2e1d486ba046755e7bd66fde4cfb6791 "xelatex"
+["xdvipdfmx"] 1780817690.68058 "E9.xdv" "E9.pdf" "E9" 1780817703.9611 0
+  "E9.xdv" 1780817690.62319 74900 ab9ab2057c71cff7dc1a6c704db23e23 "xelatex"
   (generated)
   "E9.pdf"
   (rewritten before read)
-["xelatex"] 1780304411.64922 "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E9/E9.tex" "E9.xdv" "E9" 1780304412.98373 0
-  "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E9/E9.tex" 1779106148.07053 13526 dc4c414e0cdcb4632053c3280bbbd648 ""
+["xelatex"] 1780817689.85257 "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E9/E9.tex" "E9.xdv" "E9" 1780817703.95921 0
+  "/home/yzy/code/ElectronicTestingandExperimentalTechnology/E9/E9.tex" 1780817661.92699 13357 0ca842ec39e19b762743e97e9631702f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -178,13 +178,20 @@
   "/usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf" 1739380943 42148 61becc7c670cd061bb319c643c27fdd4 ""
   "/usr/local/texlive/2025/texmf-var/web2c/xetex/xelatex.fmt" 1745761497 5854851 9405beb4c6cd273e0bd26aa5e146f3e8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1745761447.97632 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "E9.aux" 1780304412.4577 4228 840bf72e2aa3bbfe5c4dcb8793df9d1f "xelatex"
-  "E9.out" 1780304412.4577 2669 29481444a572add2b9bca5fc54631dc4 "xelatex"
-  "E9.tex" 1779106148.07053 13526 dc4c414e0cdcb4632053c3280bbbd648 ""
-  "figures/datas/E1/image7_waveform_replot.png" 1779103897.51582 4568 f496ee776dcb715517cd26aeb8a06e56 ""
-  "figures/word_zhp_media/image.png" 1779105564.24429 222731 32f3b63523aba1cf81537a2f700c4ef3 ""
-  "figures/word_zhp_media/image0.png" 1779106108.40934 122486 de4e8f0df04f03aca55e083cd9f592bf ""
-  "figures/word_zhp_media/image1.png" 1779102130.23143 18245 0ad0354faf51935a4286b2db483547f4 ""
+  "E9.aux" 1780817690.62191 4547 b71528f91980ea882e6c913b7a3f21b4 "xelatex"
+  "E9.out" 1780817690.62191 2139 5c52b145608c8ca62a62691c84c5c201 "xelatex"
+  "E9.tex" 1780817661.92699 13357 0ca842ec39e19b762743e97e9631702f ""
+  "figures/eda/image1.png" 1780813981.31919 577675 4573e4b1e6595050d72e3890b80d1d8e ""
+  "figures/eda/image2.png" 1780815149.91601 727714 0ce6c076778b1b0d5285fe5531b5dbff ""
+  "figures/eda/image3.png" 1780815582.19958 620541 b64737b9a3f12c2ff34bef938e575328 ""
+  "figures/eda/image4.png" 1780815663.8009 1895631 2c6feb8df696eef69697089226040107 ""
+  "figures/eda/image5.png" 1780815766.38954 2299876 912b891868e4fbc926222adaaacb237f ""
+  "figures/eda/image6.png" 1780815806.24125 2297646 c8d9832f48019a8743d48910f559c45d ""
+  "figures/oscilloscope/image1.png" 1780815926.40306 3168280 9d182e83bd1800c3a7dc3a51066bcb76 ""
+  "figures/oscilloscope/image2.png" 1780816087.68802 3193735 baaac3c5a72342c20919721bbb126532 ""
+  "figures/oscilloscope/image3.png" 1780816109.74535 3200370 927a0fcdcafb9710e42425e316fbc7f4 ""
+  "figures/references/image1.png" 1780812912.37509 3750341 a507171f6decc8d23e74ad98eaf27a8d ""
+  "figures/verilog/image1.png" 1780816766.13579 40659 e21b49462115dba438e0c2cc4b575b44 ""
   (generated)
   "E9.aux"
   "E9.log"

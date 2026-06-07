@@ -1,0 +1,22 @@
+[*]
+[*] GTKWave Analyzer save file
+[*]
+[dumpfile] "decimal_counter.vcd"
+[timestart] 0
+[size] 1200 720
+[pos] -1 -1
+*-4.000000 0 22000
+[treeopen] tb_decimal_counter.
+[sst_width] 260
+[signals_width] 220
+[sst_expanded] 1
+[pattern_trace] 1
+[pattern_trace] 0
+tb_decimal_counter.clk
+tb_decimal_counter.q3
+tb_decimal_counter.q2
+tb_decimal_counter.q1
+tb_decimal_counter.q0
+tb_decimal_counter.q[3:0]
+tb_decimal_counter.decode_10
+tb_decimal_counter.clr_n

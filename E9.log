@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.4.27)  1 JUN 2026 17:00
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.4.27)  7 JUN 2026 15:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -844,46 +844,59 @@ LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <15.05624> not available
 [1
 
 ]
+File: figures/references/image1.png Graphic file (type bmp)
+<figures/references/image1.png>
+
 
 [1]
+File: figures/eda/image1.png Graphic file (type bmp)
+<figures/eda/image1.png>
+
 
 [2]
-File: figures/word_zhp_media/image1.png Graphic file (type bmp)
-<figures/word_zhp_media/image1.png>
-
-Missing character: There is no ① (U+2460) in font [lmroman12-bold]:mapping=tex-text;!
-
 
 [3]
-Missing character: There is no ② (U+2461) in font [lmroman12-bold]:mapping=tex-text;!
-Missing character: There is no ③ (U+2462) in font [lmroman12-bold]:mapping=tex-text;!
-Missing character: There is no ④ (U+2463) in font [lmroman12-bold]:mapping=tex-text;!
+File: figures/eda/image2.png Graphic file (type bmp)
+<figures/eda/image2.png>
 
 
 [4]
-Missing character: There is no ④ (U+2463) in font [lmroman12-bold]:mapping=tex-text;!
-File: figures/word_zhp_media/image.png Graphic file (type bmp)
-<figures/word_zhp_media/image.png>
-
 
 [5]
-File: figures/word_zhp_media/image0.png Graphic file (type bmp)
-<figures/word_zhp_media/image0.png>
+File: figures/eda/image3.png Graphic file (type bmp)
+<figures/eda/image3.png>
+File: figures/eda/image4.png Graphic file (type bmp)
+<figures/eda/image4.png>
 
 
 [6]
-File: figures/datas/E1/image7_waveform_replot.png Graphic file (type bmp)
-<figures/datas/E1/image7_waveform_replot.png>
+File: figures/eda/image5.png Graphic file (type bmp)
+<figures/eda/image5.png>
+File: figures/eda/image6.png Graphic file (type bmp)
+<figures/eda/image6.png>
 
 
 [7]
-Overfull \vbox (92.76672pt too high) has occurred while \output is active []
-
-
 
 [8]
+File: figures/oscilloscope/image1.png Graphic file (type bmp)
+<figures/oscilloscope/image1.png>
+File: figures/oscilloscope/image2.png Graphic file (type bmp)
+<figures/oscilloscope/image2.png>
 
-[9] (./E9.aux)
+
+[9]
+File: figures/oscilloscope/image3.png Graphic file (type bmp)
+<figures/oscilloscope/image3.png>
+File: figures/verilog/image1.png Graphic file (type bmp)
+<figures/verilog/image1.png>
+
+
+[10]
+
+[11]
+
+[12] (./E9.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/07/14>
@@ -894,15 +907,15 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.78749pt have occurred.
 
 Package rerunfilecheck Info: File `E9.out' has not changed.
-(rerunfilecheck)             Checksum: 29481444A572ADD2B9BCA5FC54631DC4;2669.
+(rerunfilecheck)             Checksum: 5C52B145608C8CA62A62691C84C5C201;2139.
  ) 
 Here is how much of TeX's memory you used:
- 28303 strings out of 470267
- 620055 string characters out of 5484665
- 998151 words of memory out of 5000000
- 54466 multiletter control sequences out of 15000+600000
+ 28138 strings out of 470267
+ 611560 string characters out of 5484665
+ 998609 words of memory out of 5000000
+ 54297 multiletter control sequences out of 15000+600000
  635633 words of font info for 92 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 93i,12n,112p,476b,856s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,8n,112p,476b,446s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on E9.xdv (10 pages, 76888 bytes).
+Output written on E9.xdv (13 pages, 74900 bytes).
